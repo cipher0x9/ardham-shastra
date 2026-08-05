@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🕉️ Ardham Shastra — Science of Meaning & Mastery · Learn Anything · Master Everything</title>
+<meta name="description" content="Ardham Shastra (అర్థం శాస్త్రం) — the free science of meaning & understanding with Śikṣā at its core. Master ANYTHING: this world, the universe, the cosmos, space and beyond.">
+<style>
+  :root{
+    --navy:#0B1220; --navy2:#111a30; --card:#151f3a; --gold:#F59E0B; --indigo:#6366F1;
+    --violet:#8B5CF6; --emerald:#22C55E; --sky:#38BDF8; --coral:#FB7185; --white:#F8FAFC; --muted:#94A3B8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;overflow-x:hidden}
+  /* starfield */
+  body::before{content:"";position:fixed;inset:0;background:
+    radial-gradient(1px 1px at 20px 30px,#fff,transparent),
+    radial-gradient(1px 1px at 120px 80px,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 40px 160px,#fff,transparent),
+    radial-gradient(1px 1px at 200px 120px,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 300px 60px,#fff,transparent),
+    radial-gradient(1px 1px at 380px 200px,#fff,transparent),
+    radial-gradient(1px 1px at 460px 140px,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 540px 90px,#fff,transparent);
+    background-size:600px 240px;opacity:.35;pointer-events:none;z-index:0}
+  .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 20px}
+  /* header */
+  header{padding:70px 20px 40px;text-align:center;background:linear-gradient(160deg,var(--navy) 0%,#1b1140 45%,#0b2a3a 100%)}
+  .om{font-size:3.4rem;line-height:1;margin-bottom:14px;color:var(--gold);text-shadow:0 0 30px rgba(245,158,11,.35)}
+  .om svg{width:1.4em;height:1.4em;display:inline-block;vertical-align:middle}
+  h1{font-size:2.7rem;font-weight:800;letter-spacing:-.5px;background:linear-gradient(90deg,#fff,var(--sky),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+  .sub{color:var(--muted);font-size:1.1rem;max-width:720px;margin:0 auto}
+  .tagline{margin-top:14px;display:inline-block;padding:8px 22px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);font-weight:600;letter-spacing:.5px}
+  .badges{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .badge{padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;border:1px solid;background:rgba(255,255,255,.04)}
+  .b1{color:var(--sky);border-color:var(--sky)} .b2{color:var(--gold);border-color:var(--gold)} .b3{color:var(--emerald);border-color:var(--emerald)} .b4{color:var(--violet);border-color:var(--violet)}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);padding:10px 0}
+  .nav-inner{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;font-size:.78rem}
+  .nav-inner a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;transition:.2s}
+  .nav-inner a:hover{color:#fff;background:rgba(99,102,241,.25)}
+  /* sections */
+  section{padding:52px 0 10px}
+  .kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:4px}
+  h2{font-size:1.9rem;font-weight:800;margin-bottom:18px;background:linear-gradient(90deg,#fff,var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-left:4px solid var(--gold);border-radius:14px;padding:22px 24px;margin:14px 0}
+  .card.sky{border-left-color:var(--sky)} .card.indigo{border-left-color:var(--indigo)} .card.violet{border-left-color:var(--violet)} .card.emerald{border-left-color:var(--emerald)} .card.coral{border-left-color:var(--coral)}
+  h3{font-size:1.2rem;margin-bottom:8px;color:var(--gold)}
+  .card.sky h3{color:var(--sky)} .card.indigo h3{color:var(--indigo)} .card.violet h3{color:var(--violet)} .card.emerald h3{color:var(--emerald)} .card.coral h3{color:var(--coral)}
+  p{margin:8px 0;color:#cbd5e1}
+  ul,ol{margin:10px 0 10px 22px;color:#cbd5e1}
+  li{margin:6px 0}
+  strong{color:#fff}
+  code{background:#0d1526;border:1px solid rgba(255,255,255,.1);padding:2px 7px;border-radius:6px;font-size:.85em;color:var(--sky)}
+  pre{background:#0d1526;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;overflow-x:auto;margin:12px 0;font-size:.82rem;line-height:1.6;color:#a5f3fc}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+  .table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+  .table-wrap table{margin:0;min-width:420px}
+  th{background:rgba(99,102,241,.2);color:#fff;text-align:left;padding:10px 12px;border:1px solid rgba(255,255,255,.1)}
+  td{padding:9px 12px;border:1px solid rgba(255,255,255,.08);color:#cbd5e1}
+  tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .flow{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem;background:#0d1526;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px;white-space:pre;overflow-x:auto;-webkit-overflow-scrolling:touch;color:var(--emerald);line-height:1.7}
+  .sanskrit{font-style:italic;color:var(--gold)}
+  .pill{display:inline-block;background:rgba(245,158,11,.15);color:var(--gold);border:1px solid rgba(245,158,11,.4);border-radius:999px;padding:2px 12px;font-size:.75rem;font-weight:700;margin:2px 4px 2px 0}
+  .quote{border-left:4px solid var(--violet);background:rgba(139,92,246,.08);padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-style:italic;color:#ddd6fe}
+  /* footer */
+  footer{padding:50px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.08);margin-top:50px;background:linear-gradient(180deg,var(--navy),#0a0f1e)}
+  footer .brand{color:var(--gold);font-weight:700;letter-spacing:1px}
+  .btn{display:inline-block;padding:10px 24px;border-radius:999px;background:linear-gradient(90deg,var(--indigo),var(--violet));color:#fff;font-weight:700;text-decoration:none;margin:6px}
+  .btn.gold{background:linear-gradient(90deg,var(--gold),var(--coral));color:var(--navy)}
+  .back{position:fixed;bottom:20px;right:20px;z-index:100;background:rgba(99,102,241,.9);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.2rem;box-shadow:0 4px 20px rgba(99,102,241,.5)}
+  @media(max-width:600px){h1{font-size:1.9rem}.om{font-size:2.5rem}h2{font-size:1.5rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="om"><svg viewBox="0 0 100 100" aria-label="Om" role="img"><path d="M50 6 C30 30 20 44 20 60 a30 30 0 0 0 60 0 C80 44 70 30 50 6 Z" fill="#F59E0B"/><path d="M50 52 c-8 4 -12 9 -12 14 a12 12 0 0 0 24 0 C62 61 58 56 50 52 Z" fill="#0B1220"/><path d="M14 66 h6 v14 h-6 z M80 66 h6 v14 h-6 z" fill="#F59E0B"/></svg></div>
+  <h1>Ardham Shastra</h1>
+  <p class="sub">అర్థం శాస్త్రం · The Science of Meaning & Understanding — with <strong>Śikṣā</strong>, the ancient science of learning, at its core.</p>
+  <div class="tagline">Learn anything. Master everything. From this world to beyond.</div>
+  <div class="badges">
+    <span class="badge b1">12 Mandalas</span>
+    <span class="badge b2">Śikṣā Core</span>
+    <span class="badge b3">Pāṇini Grammar</span>
+    <span class="badge b4">Nyāya Logic</span>
+    <span class="badge b1">Cosmos & Beyond</span>
+    <span class="badge b2">Offline-first</span>
+    <span class="badge b3">MIT · Free</span>
+  </div>
+</header>
+
+<nav><div class="nav-inner">
+  <a href="#vow">Vow</a><a href="#siksa">Śikṣā</a><a href="#panini">Pāṇini</a><a href="#nyaya">Nyāya</a><a href="#maps">Maps</a><a href="#math">Jñāna Math</a><a href="#memory">Memory</a><a href="#playbook">Playbook</a><a href="#cosmos">Cosmos</a><a href="#path">Master's Path</a><a href="#trouble">Troubleshoot</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- 1. VOW -->
+<section id="vow">
+  <div class="kicker">Mandala 01</div>
+  <h2>The Vow — Why This Exists</h2>
+  <div class="quote">"The mind is not a vessel to be filled, but a fire to be kindled." — attributed to Plutarch, echoed in every guru-kuḷa tradition.</div>
+  <div class="card indigo">
+    <h3>One-page philosophy</h3>
+    <p>Every human being, at some point, faces a thing they long to master — a language, a craft, mathematics, music, engineering, the stars. Most are told: <em>"you're just not talented."</em> That is a lie.</p>
+    <p><strong>Ardham Shastra</strong> (అర్థం శాస్త్రం — the science of meaning) is the master-method campus. It distills 2,500+ years of Indian learning science — Pāṇini's grammar, Nyāya's logic, Vaiśeṣika's maps, Sāṃkhya's layers, the Kerala school's mathematics, the śikṣā tradition's memory arts — fused with modern cognitive science: spacing, recall, interleaving, deliberate practice.</p>
+    <p>The promise is simple: <strong>there is a method to master anything.</strong> This campus gives you that method — and the proof habits to know you're actually learning.</p>
+  </div>
+  <div class="grid">
+    <div class="card sky"><h3>🌍 This world</h3><p>Careers, skills, languages, engineering, money, relationships. The practical mastery layer.</p></div>
+    <div class="card emerald"><h3>🌌 The universe</h3><p>Science, mathematics, cosmology, physics, biology. Understanding the machinery of reality.</p></div>
+    <div class="card violet"><h3>✨ Beyond</h3><p>Consciousness, time, meaning, the mystery that remains after all knowledge. The fuel that keeps you learning.</p></div>
+  </div>
+</section>
+
+<!-- 2. SIKSHA -->
+<section id="siksa">
+  <div class="kicker">Mandala 02 · Core</div>
+  <h2>Śikṣā — The Science of Learning</h2>
+  <p><span class="sanskrit">Śikṣā (शिक्षा)</span> is the first of the six Vedāṅgas — the "limbs of the Vedas." It originally meant the precise science of pronunciation and phonetics: how to transmit knowledge with zero corruption across generations. Oral transmission (śruti → smṛti) demanded perfect fidelity.</p>
+  <p>Modern neuroscience confirms what the tradition knew: <strong>learning is not reading — it is retrieval, spacing, and use.</strong></p>
+
+  <div class="card coral">
+    <h3>The Śikṣā Learning Loop (the master cycle)</h3>
+    <div class="flow">EXPOSE → ENGAGE → RETRIEVE → APPLY → PROVE → TEACH
+   │         │          │         │       │       │
+   │         │          │         │       │       └─ Feynman: explain simply, find gaps
+   │         │          │         │       └─ RTMA: Run · Trace · Metric · Artifact
+   │         │          │         └─ Real problem, real output
+   │         │          └─ Active recall: close the book, write from memory
+   │         └─ Do something with it (interleave, mix problems)
+   └─ First contact: watch, read, listen — then CLOSE the source</div>
+    <p><strong>Rule 1 of śikṣā:</strong> the moment you understand something, close the source and <em>produce it yourself</em>. Understanding that cannot be reproduced is not understanding.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card sky"><h3>⏱ Spaced repetition — 1h → 90d</h3>
+      <p>Ebbinghaus forgetting curve, defeated by review at growing intervals.</p>
+      <table><tr><th>Review</th><th>When</th><th>Purpose</th></tr>
+      <tr><td>R1</td><td>+1 hour</td><td>Catch fast decay</td></tr>
+      <tr><td>R2</td><td>+24 hours</td><td>Consolidate to long-term</td></tr>
+      <tr><td>R3</td><td>+7 days</td><td>Move to permanent store</td></tr>
+      <tr><td>R4</td><td>+30 days</td><td>Deep retention</td></tr>
+      <tr><td>R5</td><td>+90 days</td><td>Lifetime anchor</td></tr></table>
+    </div>
+    <div class="card emerald"><h3>🧠 Active recall</h3>
+      <p>Testing yourself is not assessment — it is the learning. Retrieval strengthens the trace. Passive re-reading feels good and does almost nothing.</p>
+      <p><strong>Practice:</strong> after each study block, write 3 questions and answer them from memory. No notes.</p>
+    </div>
+    <div class="card gold"><h3>🎓 Feynman technique</h3>
+      <ol><li>Pick a concept.</li><li>Explain it in plain English to a 12-year-old.</li><li>Find the gap where you stumble.</li><li>Go back to the source, close the gap.</li><li>Repeat until the explanation flows.</li></ol>
+    </div>
+  </div>
+
+  <div class="card violet">
+    <h3>Chunk ±7 — the working-memory law</h3>
+    <p>Miller's 7±2 (modern research says closer to 4±1 chunks) defines what fits in working memory. Expert mastery = compressing big ideas into single chunks, so your working memory holds <em>more meaning</em> per slot.</p>
+    <p><strong>The move:</strong> never memorize 40 facts. Find the 4 laws that generate the 40 facts. Pāṇini did this with the entire Sanskrit language: 4,000 sūtras instead of a dictionary of every word.</p>
+  </div>
+</section>
+
+<!-- 3. PANINI -->
+<section id="panini">
+  <div class="kicker">Mandala 03</div>
+  <h2>Pāṇini — The Grammar of Everything</h2>
+  <p><span class="sanskrit">Pāṇini (पाणिनि)</span> wrote the <strong>Aṣṭādhyāyī</strong> (~4th century BCE): 4,000 sūtras that generate the entire Sanskrit language — every valid word, every correct form. It is the first formal grammar in human history, and modern computer scientists see it as a blueprint for computation itself: context-free rules, recursion, meta-rules, and a machine that takes input and produces perfect output.</p>
+  <p><strong>The insight for mastery:</strong> every domain — language, math, code, protocols, music, chess — has a <em>grammar</em>: a small set of rules that generate infinite valid expressions. Find the grammar and you stop memorizing instances.</p>
+
+  <div class="card indigo">
+    <h3>The three meta-rule types (learn this — it's the key)</h3>
+    <table>
+      <tr><th>Sanskrit</th><th>Meaning</th><th>In learning</th></tr>
+      <tr><td><strong>Utsarga</strong></td><td>General rule (the default path)</td><td>The main pattern that covers 80% of cases</td></tr>
+      <tr><td><strong>Apavāda</strong></td><td>Exception (overrides general rule)</td><td>The special cases — learn them AFTER the main pattern</td></tr>
+      <tr><td><strong>Siddha</strong></td><td>Derived/established result</td><td>What the rule produces — verify against real output</td></tr>
+    </table>
+    <p><strong>Order matters:</strong> learn utsarga first, apavāda second, always verify siddha. Jumping to exceptions before the general rule is why people drown in details.</p>
+  </div>
+
+  <div class="card sky">
+    <h3>Anuvṛtti — context inheritance</h3>
+    <p>In the Aṣṭādhyāyī, a rule stated once stays in force for following rules (like a programming context or a default parameter). <strong>In learning:</strong> master one principle deeply, and it silently applies to many later topics — you only need to note what <em>changes</em>.</p>
+  </div>
+  <div class="card emerald">
+    <h3>Adhikāra — domain headers</h3>
+    <p>Rules are grouped under an "operative domain" header that defines the territory. <strong>In learning:</strong> before diving into details, draw the domain map — the major sections, their boundaries, and which rule governs which territory.</p>
+  </div>
+
+  <div class="quote">"Pāṇini's Aṣṭādhyāyī is a machine coded in sūtras: linguistic components in, grammatically perfect output out." — modern computational-linguistics assessment</div>
+</section>
+
+<!-- 4. NYAYA -->
+<section id="nyaya">
+  <div class="kicker">Mandala 04</div>
+  <h2>Nyāya — The Logic Engine</h2>
+  <p><span class="sanskrit">Nyāya (न्याय)</span> — "that by which the mind is led to a conclusion" — is India's science of reasoning and debate. Its founding text, the <strong>Nyāya-sūtra</strong> of Gautama, opens with 16 categories (padārthas) covering epistemology, metaphysics, method, and debate. The goal was never abstract: correct reasoning was the path to correct knowledge, and correct knowledge was liberation from error.</p>
+
+  <div class="card sky">
+    <h3>The four means of valid knowledge (pramāṇas)</h3>
+    <table>
+      <tr><th>Pramāṇa</th><th>Means</th><th>Modern echo</th></tr>
+      <tr><td><strong>Pratyakṣa</strong></td><td>Direct perception</td><td>Observation, measurement, data</td></tr>
+      <tr><td><strong>Anumāna</strong></td><td>Inference</td><td>Hypothesis, deduction, prediction</td></tr>
+      <tr><td><strong>Upamāna</strong></td><td>Comparison</td><td>Analogy, pattern matching</td></tr>
+      <tr><td><strong>Śabda</strong></td><td>Testimony (from a trustworthy source)</td><td>Expert authority, books, documentation — verified</td></tr>
+    </table>
+    <p><strong>Mastery discipline:</strong> ask "which pramāṇa am I using?" Most confusion comes from trusting śabda (someone's claim) as if it were pratyakṣa (your own observation). <strong>Run the experiment. Verify the claim.</strong></p>
+  </div>
+
+  <div class="card violet">
+    <h3>The five-member syllogism (avayava)</h3>
+    <div class="flow">1. Pratijñā  — the proposition:  "There is fire on the mountain."
+2. Hetu     — the reason:        "Because there is smoke."
+3. Udāharaṇa — the example:      "Wherever there is smoke, there is fire (as in a kitchen)."
+4. Upanaya  — the application:   "This mountain has smoke."
+5. Nigamana — the conclusion:    "Therefore, this mountain has fire."</div>
+    <p><strong>Use it:</strong> any argument you make — in a report, a debate, a code review — becomes unbreakable when you lay out all five parts. Most weak arguments fail at step 2 (the reason) or step 3 (the example is missing or invalid).</p>
+  </div>
+
+  <div class="card coral">
+    <h3>Hetvābhāsa — the fallacies of reason (debug your thinking)</h3>
+    <ul>
+      <li><strong>Savyabhicāra</strong> — the wandering reason: the sign sometimes accompanies the conclusion, sometimes not (smoke that could be fog).</li>
+      <li><strong>Viruddha</strong> — the contradictory reason: the "reason" actually proves the opposite.</li>
+      <li><strong>Asiddha</strong> — the unestablished reason: the premise itself is unproven.</li>
+      <li><strong>Bādhita</strong> — the overridden reason: a stronger counter-evidence refutes it.</li>
+      <li><strong>Satpratipakṣa</strong> — the countered reason: an equally strong reason proves the opposite.</li>
+    </ul>
+    <p><strong>Modern translation:</strong> this is adversarial debugging of your own beliefs. When you "know" something, run it through hetvābhāsa. AI engineers call this eval; Nyāya called it nigrahasthāna — the point of defeat, where the wrong idea is honestly let go.</p>
+  </div>
+</section>
+
+<!-- 5. MAPS -->
+<section id="maps">
+  <div class="kicker">Mandala 05</div>
+  <h2>Vaiśeṣika & Sāṃkhya — Maps of Reality</h2>
+  <p>Two ancient systems give you <strong>map-making tools</strong> for any domain.</p>
+  <div class="grid">
+    <div class="card indigo">
+      <h3>Vaiśeṣika — the category map (embeddings)</h3>
+      <p>Kaṇāda's Vaiśeṣika-sūtra analyzed reality into <strong>padārthas</strong> — fundamental categories of what exists. Think of it as the original ontology/embedding space: everything in a domain can be classified into a small set of fundamental types.</p>
+      <ul>
+        <li><strong>Dravya</strong> — substance (the substrate)</li>
+        <li><strong>Guṇa</strong> — quality (the attributes)</li>
+        <li><strong>Karma</strong> — action (what it does)</li>
+        <li><strong>Sāmānya</strong> — generality (the class it belongs to)</li>
+        <li><strong>Viśeṣa</strong> — particularity (what makes it unique)</li>
+        <li><strong>Samavāya</strong> — inherence (how parts relate to whole)</li>
+      </ul>
+      <p><strong>Use:</strong> when entering a new field, build the Vaiśeṣika map: what are the substances (core concepts), qualities (properties), actions (functions), classes, particulars, and relationships? This gives you a vector space before you know the math.</p>
+    </div>
+    <div class="card emerald">
+      <h3>Sāṃkhya — the layer map (the stack)</h3>
+      <p>Sāṃkhya enumerates 25 tattvas — layers of reality from pure consciousness down to physical matter. It is the ancient version of a <strong>protocol stack</strong>.</p>
+      <div class="flow">Puruṣa    — pure awareness (the observer)
+Prakṛti   — the source of all structure
+↓ Mahat/Buddhi — intellect (decision layer)
+↓ Ahaṅkāra    — identity (ego layer)
+↓ Manas       — mind (processing)
+↓ 5 jñānendriyas — senses (input)
+↓ 5 karmendriyas — action organs (output)
+↓ 5 tanmātras    — subtle elements (data)
+↓ 5 mahābhūtas   — gross elements (physical)</div>
+      <p><strong>Use:</strong> any complex system — a computer, a company, a language, a protocol — can be mapped as layers: observer → source → decision → identity → processing → input → output → data → physical. Troubleshoot at the right layer; don't blame the physical layer for a decision-layer bug.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. MATH -->
+<section id="math">
+  <div class="kicker">Mandala 06</div>
+  <h2>The Jñāna Mathematics — Numbers as Universal Language</h2>
+  <p>India's mathematical tradition is a masterclass in <strong>intuition first, notation second</strong>. It proves that deep mathematical thinking does not require modern symbols — it requires clean reasoning.</p>
+
+  <div class="grid">
+    <div class="card sky">
+      <h3>Piṅgala — binary before computers</h3>
+      <p>Pingala's <em>Chandaḥśāstra</em> (~3rd century BCE) analyzed Sanskrit meters and, in doing so, invented a binary numeral system — mapping short/long syllables to 0/1 — and even the recurrence that later became Fibonacci numbers (<em>mātrā-meru</em>).</p>
+    </div>
+    <div class="card gold">
+      <h3>Yuktibhāṣā — calculus ~250 years before Newton</h3>
+      <p>The Kerala school (Jyeṣṭhadeva's <em>Yuktibhāṣā</em>, ~1530) developed infinite series for π, sine, and cosine — the foundational ideas of calculus — two and a half centuries before Newton/Leibniz in Europe, and with proofs (yukti = rationale).</p>
+    </div>
+    <div class="card emerald">
+      <h3>Āryabhaṭa & Bhāskara — astronomy and the law of gravity</h3>
+      <p>Āryabhaṭa (476 CE) computed π ≈ 3.1416, explained lunar eclipses, and understood that the moon and planets shine by reflected sunlight. Bhāskara II (1114–1185) wrote of a force that holds planets in orbit — a gravitational intuition centuries before Newton.</p>
+    </div>
+    <div class="card violet">
+      <h3>Rāmānujan — intuition as a superpower</h3>
+      <p>Srinivasa Rāmānujan (1887–1920) produced thousands of results with almost no formal training, driven by pure pattern intuition — "an equation for me has no meaning unless it expresses a thought of God." He is the proof that the Jñāna method — play with patterns, derive, verify — can reach the frontier.</p>
+    </div>
+  </div>
+
+  <div class="card coral">
+    <h3>How to learn mathematics like the tradition</h3>
+    <ol>
+      <li><strong>Play with patterns first</strong> — compute small cases by hand. (Piṅgala counted meters.)</li>
+      <li><strong>Seek the rationale (yukti)</strong> — never accept a formula without asking "why is this true?"</li>
+      <li><strong>Write it as a story</strong> — the Kerala school wrote proofs in verse and prose, not dry symbols.</li>
+      <li><strong>Derive, don't memorize</strong> — a derived result is yours forever; a memorized one decays in 7 days.</li>
+      <li><strong>Re-derive after 24h</strong> — this is spaced repetition applied to mathematics.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. MEMORY -->
+<section id="memory">
+  <div class="kicker">Mandala 07</div>
+  <h2>The Memory Arsenal</h2>
+  <p>The śikṣā tradition transmitted entire Vedas — millions of syllables — with perfect fidelity for millennia. The techniques are real, and they work.</p>
+
+  <div class="grid">
+    <div class="card emerald">
+      <h3>Compression (the sūtra move)</h3>
+      <p>Compress a chapter into one page, a page into a paragraph, a paragraph into a sentence, a sentence into a word. The word is your retrieval key. Pāṇini compressed Sanskrit grammar into sūtras; you compress <em>anything</em> into a personal sūtra.</p>
+    </div>
+    <div class="card sky">
+      <h3>Lattice / mesh memory</h3>
+      <p>Never store facts in isolation. Connect each new fact to at least 3 existing facts. Knowledge becomes a lattice — and a lattice is hard to lose, because many paths lead to each node.</p>
+    </div>
+    <div class="card indigo">
+      <h3>Story-wrapping</h3>
+      <p>The brain is built for narrative. Wrap dry facts into a story (this is how the Purāṇas transmitted history). The more vivid, emotional, and absurd the story, the better the recall.</p>
+    </div>
+    <div class="card violet">
+      <h3>Mnemonics & memory palaces</h3>
+      <p>Acrostics, rhymes, and the method of loci (walking a familiar place and placing facts in it) turn recall into a guided tour. Combine with the SIP Rockstar / ICM Brain / CUBE Bouncer style mnemonics: personify the concept and it becomes unforgettable.</p>
+    </div>
+  </div>
+
+  <div class="card coral">
+    <h3>The memory card (write it like a sūtra)</h3>
+    <div class="flow">CONCEPT: &lt;the one-line essence&gt;
+LAW:     &lt;the rule that generates it&gt;
+EXAMPLE: &lt;one concrete instance&gt;
+TEST:    &lt;one question that proves you know it&gt;
+NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
+    <p>Keep a deck of these. Review on schedule. This single habit outperforms years of passive reading.</p>
+  </div>
+</section>
+
+<!-- 8. PLAYBOOK -->
+<section id="playbook">
+  <div class="kicker">Mandala 08</div>
+  <h2>Mastering Any Domain — The Universal Playbook</h2>
+  <p>Language, mathematics, music, engineering, AI, UC/telecom, art, sport, philosophy — <strong>the same 7-step method</strong> applies to all of them.</p>
+
+  <div class="card indigo">
+    <h3>The 7-step master method</h3>
+    <table>
+      <tr><th>#</th><th>Step</th><th>Ancient source</th><th>What you do</th></tr>
+      <tr><td>1</td><td><strong>Map</strong></td><td>Vaiśeṣika</td><td>Build the category map: substances, qualities, actions, classes, relationships</td></tr>
+      <tr><td>2</td><td><strong>Grammar</strong></td><td>Pāṇini</td><td>Find the rules that generate the domain; utsarga → apavāda → siddha</td></tr>
+      <tr><td>3</td><td><strong>Reason</strong></td><td>Nyāya</td><td>Test claims with the 5-member syllogism; audit with hetvābhāsa</td></tr>
+      <tr><td>4</td><td><strong>Practice</strong></td><td>Yoga-sūtra (abhyāsa)</td><td>Deliberate practice at the edge of ability, with feedback</td></tr>
+      <tr><td>5</td><td><strong>Prove</strong></td><td>RTMA / LICC</td><td>Run → Trace → Metric → Artifact. Leg → ID → Counter → Capture. Evidence, not vibes.</td></tr>
+      <tr><td>6</td><td><strong>Space</strong></td><td>Śikṣā</td><td>Review at 1h → 24h → 7d → 30d → 90d</td></tr>
+      <tr><td>7</td><td><strong>Teach</strong></td><td>Feynman / guru-kuḷa</td><td>Explain to another person; the gaps reveal themselves</td></tr>
+    </table>
+  </div>
+
+  <div class="card emerald">
+    <h3>Applied: master a language</h3>
+    <ul>
+      <li><strong>Map:</strong> sounds, script, word order, cases, tenses</li>
+      <li><strong>Grammar:</strong> the core sentence pattern (utsarga), exceptions (apavāda)</li>
+      <li><strong>Practice:</strong> speak from day 1; 15 minutes daily beats 3 hours weekly</li>
+      <li><strong>Prove:</strong> record yourself, compare, correct</li>
+      <li><strong>Space:</strong> daily flashcards with growing intervals</li>
+      <li><strong>Teach:</strong> explain the grammar to someone else</li>
+    </ul>
+  </div>
+  <div class="card sky">
+    <h3>Applied: master AI / engineering</h3>
+    <ul>
+      <li><strong>Map:</strong> model, data, training, inference, eval, deployment</li>
+      <li><strong>Grammar:</strong> the agent loop (observe → act → correct → verify); the RAG pipeline (chunk → embed → retrieve → rerank → generate)</li>
+      <li><strong>Practice:</strong> build 5 tiny projects that each teach one principle</li>
+      <li><strong>Prove:</strong> RTMA — every experiment has a run, a trace, a metric, an artifact</li>
+      <li><strong>Space:</strong> revisit after 24h with the eval lens</li>
+      <li><strong>Teach:</strong> write the tutorial you wish you'd found</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9. COSMOS -->
+<section id="cosmos">
+  <div class="kicker">Mandala 09</div>
+  <h2>Cosmos & Beyond</h2>
+  <p>Mastery needs fuel. The cosmos is the deepest fuel: it puts every small frustration in perspective and makes every new question worth pursuing.</p>
+
+  <div class="card violet">
+    <h3>Ancient astronomy → modern cosmology</h3>
+    <table>
+      <tr><th>Era</th><th>Milestone</th><th>What it taught us</th></tr>
+      <tr><td>Sūrya Siddhānta (~5th c.)</td><td>Planetary tables, time cycles (mahāyuga 4.32M years)</td><td>The sky is computable; time is vast</td></tr>
+      <tr><td>Āryabhaṭa (476 CE)</td><td>π ≈ 3.1416, eclipses explained, heliocentric intuition</td><td>Models beat myths</td></tr>
+      <tr><td>Bhāskara II (12th c.)</td><td>Gravity intuition, planetary motion</td><td>Force shapes motion</td></tr>
+      <tr><td>Copernicus → Kepler → Newton</td><td>Heliocentrism, ellipses, universal gravitation</td><td>One law, everywhere</td></tr>
+      <tr><td>Hubble (1929)</td><td>Expanding universe</td><td>Space itself grows</td></tr>
+      <tr><td>Big Bang → JWST (2020s)</td><td>Cosmic microwave background, deep field images</td><td>We see the universe's baby pictures</td></tr>
+      <tr><td>Black holes / GW (2015+)</td><td>Gravitational waves, Event Horizon image</td><td>Spacetime is real and bendable</td></tr>
+    </table>
+  </div>
+
+  <div class="grid">
+    <div class="card sky"><h3>🚀 The scale of the universe</h3>
+      <ul>
+        <li>Earth → Moon: 384,400 km</li>
+        <li>Earth → Sun: 150M km (1 AU)</li>
+        <li>Solar system edge: ~100 AU</li>
+        <li>Nearest star (Proxima): 4.24 ly</li>
+        <li>Milky Way diameter: ~100,000 ly</li>
+        <li>Observable universe: ~93 billion ly</li>
+      </ul>
+      <p>Every human being who ever lived fits inside one pale blue dot. And that dot is full of learners. <strong>You are the universe learning itself.</strong></p>
+    </div>
+    <div class="card emerald"><h3>🛰 Space exploration — the proof of mastery</h3>
+      <ul>
+        <li><strong>ISRO:</strong> Chandrayaan (Moon), Mangalyaan (Mars), Aditya-L1 (Sun) — frugal engineering at world-class level</li>
+        <li><strong>NASA:</strong> JWST, Artemis, Voyagers still flying after 45+ years</li>
+        <li><strong>SpaceX:</strong> reusable rockets, Starship, Starlink — cost collapse by orders of magnitude</li>
+        <li><strong>Lesson:</strong> every one of these was built by learners who used the 7-step method: map, grammar, reason, practice, prove, space, teach</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote">"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself." — Carl Sagan, echoing the Upaniṣads' tat tvam asi ("that thou art").</div>
+</section>
+
+<!-- 10. PATH -->
+<section id="path">
+  <div class="kicker">Mandala 10</div>
+  <h2>The Master's Path — 90-Day Arc</h2>
+  <p>Choose one thing. Run this arc. At the end you will not be "someone who tried" — you will be someone with proof.</p>
+
+  <div class="card indigo">
+    <h3>90-day arc</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Phase</th><th>Days</th><th>Focus</th><th>Proof output</th></tr>
+      <tr><td>1. Map & Grammar</td><td>1–7</td><td>Category map, core rules (utsarga), domain vocabulary</td><td>One-page map + sūtra card</td></tr>
+      <tr><td>2. Practice core</td><td>8–21</td><td>Deliberate practice on fundamentals, daily 45–90 min</td><td>10 small artifacts</td></tr>
+      <tr><td>3. Exceptions & depth</td><td>22–35</td><td>Apavāda cases, harder problems, interleaving</td><td>5 medium artifacts + trace logs</td></tr>
+      <tr><td>4. Build the real thing</td><td>36–49</td><td>One complete project applying everything</td><td>1 flagship artifact + metrics</td></tr>
+      <tr><td>5. Teach & get feedback</td><td>50–63</td><td>Explain publicly; collect critique; iterate</td><td>1 tutorial/lesson + feedback log</td></tr>
+      <tr><td>6. Deepen & expand</td><td>64–77</td><td>Push to edge; connect to adjacent domains</td><td>2 advanced artifacts</td></tr>
+      <tr><td>7. Capstone & handoff</td><td>78–90</td><td>Final portfolio, teach another person, plant the seed</td><td>Portfolio + one learner started</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card emerald">
+    <h3>Proof habits (RTMA + LICC, the honesty layer)</h3>
+    <table>
+      <tr><th>System</th><th>Stands for</th><th>What it forces</th></tr>
+      <tr><td><strong>RTMA</strong></td><td>Run · Trace · Metric · Artifact</td><td>You ran it, you can trace it, you measured it, you saved the proof</td></tr>
+      <tr><td><strong>LICC</strong></td><td>Leg · ID · Counter · Capture</td><td>Every claim has a leg to stand on, an ID, a counter-check, and a capture</td></tr>
+    </table>
+    <p><strong>Rule:</strong> no artifact, no claim. If you cannot show the trace, the metric, the artifact — you have not mastered it yet; you have only heard about it.</p>
+  </div>
+</section>
+
+<!-- 11. TROUBLE -->
+<section id="trouble">
+  <div class="kicker">Mandala 11</div>
+  <h2>Troubleshooting Your Learning</h2>
+  <div class="grid">
+    <div class="card coral">
+      <h3>Stuck vs stopped</h3>
+      <p><strong>Stuck is weather.</strong> It passes; you change angle, you ask, you rest, you return. <strong>Stopped is a decision.</strong> You quit. Never confuse the two. If you are stuck, you are still in the game.</p>
+    </div>
+    <div class="card sky">
+      <h3>Plateau breaking</h3>
+      <ul>
+        <li>Change the method (asiddha rule: a failed angle does not poison the next)</li>
+        <li>Teach what you know — the gaps will shout</li>
+        <li>Return to fundamentals; the plateau is usually a foundation crack</li>
+        <li>Sleep more; consolidation happens off the clock</li>
+        <li>Deliberately practice the weakest sub-skill</li>
+      </ul>
+    </div>
+    <div class="card violet">
+      <h3>Motivation science</h3>
+      <ul>
+        <li>Identity over outcome: "I am a person who practices daily" beats "I want to be great"</li>
+        <li>Small wins daily (compounding beats intensity)</li>
+        <li>Environment design: make starting trivial</li>
+        <li>Wonder as fuel: connect every small lesson to the cosmos-size question you care about</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card emerald">
+    <h3>When to change method (the asiddha rule)</h3>
+    <p>In Pāṇini, <em>asiddha</em> means a rule that is "not yet effective" — a failed derivation step doesn't poison the whole system; you try another path. <strong>In learning: one failed approach is data, not judgment.</strong> Change the angle (I₁₅ deep-time law: change angle on fail). Try: different teacher, different order, different analogy, different time of day, different format.</p>
+  </div>
+</section>
+
+<!-- 12. BACK -->
+<section id="back">
+  <div class="kicker">Mandala 12</div>
+  <h2>Siblings — the family of campuses</h2>
+  <div class="grid">
+    <div class="card emerald">
+      <h3>🌿 UC Lab Free University</h3>
+      <p>Free multi-vendor Unified Communications & Contact Center campus. CUCM · CUBE · UCCE · SIP · E911 — THE CALL MUST ALWAYS CONNECT.</p>
+      <p><code>github.com/cipher0x9/uc-lab-free-university</code></p>
+    </div>
+    <div class="card sky">
+      <h3>🧠 AI Lab Free University</h3>
+      <p>Free offline AI campus. 425 lessons · RTMA proof · zero-API-key labs · local → cloud → agents/evals.</p>
+      <p><code>github.com/cipher0x9/ai-lab-free-university</code></p>
+    </div>
+    <div class="card violet">
+      <h3>🕉️ Ardham Shastra (this campus)</h3>
+      <p>The master-method campus — the meta-science that powers learning in both siblings and any future domain.</p>
+      <p><code>github.com/cipher0x9/ardham-shastra</code></p>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:20px">🔗 Hub: <a href="https://linktr.ee/cyphermonkey" style="color:var(--gold)">linktr.ee/cyphermonkey</a></p>
+</section>
+
+</main>
+
+<footer>
+  <p class="brand">🕉️ ARDHAM SHASTRA · Science of Meaning & Mastery</p>
+  <p style="color:var(--muted);font-size:.9rem;margin-top:8px">Built by CYPHER0X9 · MIT License · Free forever · Offline-first</p>
+  <p style="color:var(--muted);font-size:.85rem;margin-top:6px">"Learn anything. Master everything. From this world to beyond."</p>
+  <div style="margin-top:16px">
+    <a class="btn gold" href="#vow">Start the Vow</a>
+    <a class="btn" href="https://github.com/cipher0x9" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p style="color:#475569;font-size:.75rem;margin-top:18px">Ardham Shastra · Breath༄ 8.4 · Akashic · <span class="sanskrit">tat tvam asi</span></p>
+</footer>
+
+<a class="back" href="#" aria-label="Back to top">↑</a>
+
+<script>
+  // Starfield + glow animation (offline, no dependencies)
+  document.addEventListener('DOMContentLoaded', function(){
+    var nav = document.querySelector('nav');
+    var links = document.querySelectorAll('.nav-inner a');
+    links.forEach(function(a){
+      a.addEventListener('click', function(){
+        links.forEach(function(x){x.style.color='#94A3B8'});
+        a.style.color='#fff';
+      });
+    });
+    // reveal cards with a gentle fade
+    var cards = document.querySelectorAll('.card');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+      });
+    }, {threshold:0.05});
+    cards.forEach(function(c){
+      c.style.opacity='0'; c.style.transition='opacity .6s ease, transform .6s ease'; c.style.transform='translateY(12px)';
+      io.observe(c);
+    });
+  });
+</script>
+</body>
+</html>
