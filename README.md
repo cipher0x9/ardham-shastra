@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Mandalas-13-8B5CF6?style=flat-square&labelColor=0B1220" alt="13 Mandalas"/>
+  <img src="https://img.shields.io/badge/Mandalas-40-8B5CF6?style=flat-square&labelColor=0B1220" alt="40 Mandalas"/>
   <img src="https://img.shields.io/badge/Core-Śikṣā_·_Pāṇini_·_Nyāya_·_Memory-F59E0B?style=flat-square&labelColor=0B1220" alt="Core"/>
   <img src="https://img.shields.io/badge/Proof-RTMA_·_LICC-22C55E?style=flat-square&labelColor=0B1220" alt="Proof"/>
   <img src="https://img.shields.io/badge/Open_in-Chrome_·_Safari_·_Edge_·_Firefox-38BDF8?style=flat-square&labelColor=0B1220" alt="Browsers"/>
@@ -61,22 +61,50 @@ open university/v1-ARDHAM-SHASTRA.html
 
 ---
 
-## 🧭 What's inside — the 13 Mandalas
+## 🧭 What's inside — 40 Mandalas (v3)
 
 | # | Mandala | What you get |
 |---|---------|--------------|
 | 01 | **The Vow** | Why this exists, the one-page philosophy |
 | 02 | **Śikṣā — the Science of Learning** | The learning loop, spaced 1h→90d, active recall, Feynman, chunk±7 |
-| 03 | **Pāṇini — the Grammar of Everything** | Utsarga/apavāda/siddha meta-rules, anuvṛtti, adhikāra |
-| 04 | **Nyāya — the Logic Engine** | 4 pramāṇas, 5-member syllogism, hetvābhāsa fallacies |
+| 03 | **Pāṇini — the Grammar of Everything** | Utsarga/apavāda/siddha meta-rules, anuvṛtti, adhikāra, real sūtras |
+| 04 | **Nyāya — the Logic Engine** | 4 pramāṇas, 5-member syllogism, hetvābhāsa fallacies, AI evals |
 | 05 | **Vaiśeṣika & Sāṃkhya — Maps of Reality** | Category maps (embeddings) and layer maps (the stack) |
 | 06 | **The Jñāna Mathematics** | Piṅgala binary, Yuktibhāṣā calculus, Āryabhaṭa, Rāmānujan |
-| 07 | **The Memory Arsenal** | Compression, lattices, story-wrapping, palaces, memory cards |
+| 07 | **The Memory Arsenal** | Compression, lattices, story-wrapping, palaces, Vedic oral fidelity, SM-2 |
 | 08 | **The Universal Playbook** | The 7-step master method for ANY domain |
-| 09 | **Cosmos & Beyond** | Ancient astronomy → modern cosmology, ISRO/NASA/SpaceX |
-| 10 | **The Master's Path** | 90-day arc, RTMA + LICC proof habits |
-| 11 | **Troubleshooting Your Learning** | Stuck vs stopped, plateaus, motivation science |
-| 12 | **Siblings** | The family of free campuses |
+| 09 | **AI-Assisted Learning (2026)** | Socratic prompts, practice generators, Nyāya verification of AI |
+| 10 | **Cosmos & Beyond** | Ancient astronomy → modern cosmology, ISRO/NASA/SpaceX, consciousness |
+| 11 | **Study Systems** | Note systems, focus/flow, learning dashboard, sleep consolidation |
+| 12 | **Exam & Performance** | The 30-day exam arc, retrieval drills, test-day tactics |
+| 13 | **Career Mastery** | LICC proof portfolio, skills that compound, free-education mission |
+| 14 | **Guru-kuḷa — Teaching** | The teaching cycle, the three debts, finding your first student |
+| 15 | **Troubleshooting Learning** | Stuck vs stopped, plateaus, motivation science, failure-mode table |
+| 16 | **The Master's Path** | 90-day arc, RTMA + LICC proof habits |
+| 17 | **Language Mastery** | 9-language polyglot OS, 90-day arc, minimal pairs, grammar table |
+| 18 | **Mathematics Deep** | Levels of understanding, derivations, induction, Kerala series |
+| 19 | **AI Engineering Deep (2026)** | Full-stack map, RAG ablation, agent loop, evals, 30-day production path |
+| 20 | **Communications Engineering** | CUCM/ICM/CUBE/SIP/E911, THE CALL MUST ALWAYS CONNECT, QoS |
+| 21 | **Body & Mind** | Charaka's tristambha, movement, attention, energy management |
+| 22 | **Time & Attention** | Time budget, 2-minute rule, attention hygiene, weekly review |
+| 23 | **Money Mastery** | The money grammar, 50/30/20, free-education economics |
+| 24 | **Leadership & Service** | Servant-leader grammar, Nyāya decisions, communication |
+| 25 | **Philosophy of Knowledge** | Epistemology table, consciousness, time, the meaning question |
+| 26 | **Tools of the Trade (2026)** | Capture/organize/recall/build/share, AI toolbox, offline-first |
+| 27 | **History of Ideas** | The idea-ladder 1500 BCE → 2026, parallel ladders, deep time |
+| 28 | **Art & Expression** | The art grammar, deliberate practice, writing, bright design |
+| 29 | **Public Speaking & Presence** | The speaking grammar, rehearsal loop, voice & breath |
+| 30 | **The Final Mandala** | The mystery that remains, 90-day proof pack, transmission |
+| 31 | **Writing Deep** | The sūtra craft, 9WAYS bright forge, daily writing engine |
+| 32 | **Negotiation & Persuasion** | Interests/BATNA/options/criteria, pramāṇa persuasion |
+| 33 | **Systems & Networks** | Systems grammar, protocol sūtras, Nyāya debugging, fail-soft |
+| 34 | **Privacy & Security** | Security grammar, personal baseline, epistemic hygiene |
+| 35 | **Environment Design** | Architecture of attention, habit stacks, environment audit |
+| 36 | **Decision Science** | Decision cards, bias radar, bets that always pay |
+| 37 | **Storytelling** | Story grammar, teaching stories, memory palaces of narrative |
+| 38 | **Mentoring** | The guru-kuḷa exchange, getting & being a mentor, evidence log |
+| 39 | **The Productivity OS** | Capture→plan→do→review→prove→learn, daily rhythm, dashboard |
+| 40 | **The Master's Capstone** | Legacy loop, capstone projects, the Oath renewed |
 
 ---
 
