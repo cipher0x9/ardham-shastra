@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🕉️ Ardham Shastra — Science of Meaning & Mastery · Learn Anything · Master Everything</title>
-<meta name="description" content="Ardham Shastra (అర్థం శాస్త్రం) — the free science of meaning & understanding with Śikṣā at its core. Master ANYTHING: this world, the universe, the cosmos, space and beyond.">
+<title>🕉️ Ardham Shastra — Master Campus · Science of Meaning & Mastery</title>
+<meta name="description" content="Ardham Shastra (అర్థం శాస్త్రం) — the free master-learning campus. 30+ mandalas: Śikṣā, Pāṇini, Nyāya, memory, math, cosmos, AI-assisted learning. Learn anything. Master everything.">
 <style>
   :root{
     --navy:#0B1220; --navy2:#111a30; --card:#151f3a; --gold:#F59E0B; --indigo:#6366F1;
     --violet:#8B5CF6; --emerald:#22C55E; --sky:#38BDF8; --coral:#FB7185; --white:#F8FAFC; --muted:#94A3B8;
   }
+  [data-theme="light"]{--navy:#F1F5F9;--navy2:#E2E8F0;--card:#FFFFFF;--white:#0F172A;--muted:#475569}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{background:var(--navy);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;overflow-x:hidden}
-  /* starfield */
+  body{background:var(--navy);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;overflow-x:hidden;transition:background .3s,color .3s}
   body::before{content:"";position:fixed;inset:0;background:
     radial-gradient(1px 1px at 20px 30px,#fff,transparent),
     radial-gradient(1px 1px at 120px 80px,#fff,transparent),
@@ -24,23 +24,25 @@
     radial-gradient(1px 1px at 460px 140px,#fff,transparent),
     radial-gradient(1.5px 1.5px at 540px 90px,#fff,transparent);
     background-size:600px 240px;opacity:.35;pointer-events:none;z-index:0}
+  [data-theme="light"] body::before{opacity:.08}
   .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 20px}
-  /* header */
   header{padding:70px 20px 40px;text-align:center;background:linear-gradient(160deg,var(--navy) 0%,#1b1140 45%,#0b2a3a 100%)}
   .om{font-size:3.4rem;line-height:1;margin-bottom:14px;color:var(--gold);text-shadow:0 0 30px rgba(245,158,11,.35)}
   .om svg{width:1.4em;height:1.4em;display:inline-block;vertical-align:middle}
   h1{font-size:2.7rem;font-weight:800;letter-spacing:-.5px;background:linear-gradient(90deg,#fff,var(--sky),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
-  .sub{color:var(--muted);font-size:1.1rem;max-width:720px;margin:0 auto}
+  .sub{color:var(--muted);font-size:1.1rem;max-width:760px;margin:0 auto}
   .tagline{margin-top:14px;display:inline-block;padding:8px 22px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);font-weight:600;letter-spacing:.5px}
   .badges{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
   .badge{padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;border:1px solid;background:rgba(255,255,255,.04)}
   .b1{color:var(--sky);border-color:var(--sky)} .b2{color:var(--gold);border-color:var(--gold)} .b3{color:var(--emerald);border-color:var(--emerald)} .b4{color:var(--violet);border-color:var(--violet)}
-  /* nav */
-  nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);padding:10px 0}
-  .nav-inner{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;font-size:.78rem}
-  .nav-inner a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;transition:.2s}
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);padding:8px 0}
+  .nav-inner{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;font-size:.72rem;max-height:150px;overflow-y:auto}
+  .nav-inner a{color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:8px;transition:.2s}
   .nav-inner a:hover{color:#fff;background:rgba(99,102,241,.25)}
-  /* sections */
+  .controls{position:sticky;top:0;z-index:51;display:flex;gap:8px;justify-content:center;padding:6px;background:rgba(11,18,32,.9);border-bottom:1px solid rgba(255,255,255,.08)}
+  .controls input[type=text]{background:#0d1526;border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:999px;padding:7px 16px;font-size:.85rem;width:min(320px,60vw);outline:none}
+  .controls button{background:rgba(99,102,241,.25);color:#fff;border:1px solid rgba(99,102,241,.5);border-radius:999px;padding:7px 14px;font-size:.8rem;cursor:pointer}
+  .controls button:hover{background:rgba(99,102,241,.45)}
   section{padding:52px 0 10px}
   .kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:4px}
   h2{font-size:1.9rem;font-weight:800;margin-bottom:18px;background:linear-gradient(90deg,#fff,var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -65,13 +67,19 @@
   .sanskrit{font-style:italic;color:var(--gold)}
   .pill{display:inline-block;background:rgba(245,158,11,.15);color:var(--gold);border:1px solid rgba(245,158,11,.4);border-radius:999px;padding:2px 12px;font-size:.75rem;font-weight:700;margin:2px 4px 2px 0}
   .quote{border-left:4px solid var(--violet);background:rgba(139,92,246,.08);padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-style:italic;color:#ddd6fe}
-  /* footer */
+  .green{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.4);border-radius:12px;padding:14px 18px;margin:12px 0}
+  .green b{color:var(--emerald)}
+  .stat{display:inline-block;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.4);color:var(--sky);border-radius:10px;padding:4px 12px;font-size:.8rem;font-weight:700;margin:2px}
+  .prog{position:sticky;top:52px;z-index:40;background:rgba(11,18,32,.9);padding:6px 12px;border-bottom:1px solid rgba(255,255,255,.08);font-size:.75rem;color:var(--muted);display:flex;gap:8px;align-items:center;justify-content:center}
+  .prog progress{accent-color:var(--gold);width:200px}
   footer{padding:50px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.08);margin-top:50px;background:linear-gradient(180deg,var(--navy),#0a0f1e)}
   footer .brand{color:var(--gold);font-weight:700;letter-spacing:1px}
   .btn{display:inline-block;padding:10px 24px;border-radius:999px;background:linear-gradient(90deg,var(--indigo),var(--violet));color:#fff;font-weight:700;text-decoration:none;margin:6px}
   .btn.gold{background:linear-gradient(90deg,var(--gold),var(--coral));color:var(--navy)}
   .back{position:fixed;bottom:20px;right:20px;z-index:100;background:rgba(99,102,241,.9);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.2rem;box-shadow:0 4px 20px rgba(99,102,241,.5)}
+  .hidden{display:none}
   @media(max-width:600px){h1{font-size:1.9rem}.om{font-size:2.5rem}h2{font-size:1.5rem}}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -79,27 +87,35 @@
 <header>
   <div class="om"><svg viewBox="0 0 100 100" aria-label="Om" role="img"><path d="M50 6 C30 30 20 44 20 60 a30 30 0 0 0 60 0 C80 44 70 30 50 6 Z" fill="#F59E0B"/><path d="M50 52 c-8 4 -12 9 -12 14 a12 12 0 0 0 24 0 C62 61 58 56 50 52 Z" fill="#0B1220"/><path d="M14 66 h6 v14 h-6 z M80 66 h6 v14 h-6 z" fill="#F59E0B"/></svg></div>
   <h1>Ardham Shastra</h1>
-  <p class="sub">అర్థం శాస్త్రం · The Science of Meaning & Understanding — with <strong>Śikṣā</strong>, the ancient science of learning, at its core.</p>
+  <p class="sub">అర్థం శాస్త్రం · The Science of Meaning & Understanding — with <strong>Śikṣā</strong>, the ancient science of learning, at its core. The master campus: learn anything, master everything — this world, the universe, the cosmos, beyond.</p>
   <div class="tagline">Learn anything. Master everything. From this world to beyond.</div>
   <div class="badges">
-    <span class="badge b1">12 Mandalas</span>
+    <span class="badge b1">16 Mandalas</span>
     <span class="badge b2">Śikṣā Core</span>
     <span class="badge b3">Pāṇini Grammar</span>
     <span class="badge b4">Nyāya Logic</span>
     <span class="badge b1">Cosmos & Beyond</span>
-    <span class="badge b2">Offline-first</span>
-    <span class="badge b3">MIT · Free</span>
+    <span class="badge b2">AI-Assisted</span>
+    <span class="badge b3">Offline-first</span>
+    <span class="badge b4">MIT · Free</span>
   </div>
 </header>
 
-<nav><div class="nav-inner">
-  <a href="#vow">Vow</a><a href="#siksa">Śikṣā</a><a href="#panini">Pāṇini</a><a href="#nyaya">Nyāya</a><a href="#maps">Maps</a><a href="#math">Jñāna Math</a><a href="#memory">Memory</a><a href="#playbook">Playbook</a><a href="#cosmos">Cosmos</a><a href="#path">Master's Path</a><a href="#trouble">Troubleshoot</a>
-</div></nav>
+<div class="prog">Progress: <progress id="progbar" max="32" value="0"></progress> <span id="progtext">0/32 mandalas</span></div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="🔍 Search mandalas… (try: Pāṇini, memory, cosmos, AI)">
+  <button onclick="rand()">🎲 Random</button>
+  <button onclick="toggleTheme()">🌗 Theme</button>
+  <button onclick="toggleDone()">☑️ Show done</button>
+</div>
+
+<nav><div class="nav-inner" id="nav"></div></nav>
 
 <main class="wrap">
 
-<!-- 1. VOW -->
-<section id="vow">
+<!-- 01 VOW -->
+<section id="vow" data-m="1">
   <div class="kicker">Mandala 01</div>
   <h2>The Vow — Why This Exists</h2>
   <div class="quote">"The mind is not a vessel to be filled, but a fire to be kindled." — attributed to Plutarch, echoed in every guru-kuḷa tradition.</div>
@@ -114,10 +130,12 @@
     <div class="card emerald"><h3>🌌 The universe</h3><p>Science, mathematics, cosmology, physics, biology. Understanding the machinery of reality.</p></div>
     <div class="card violet"><h3>✨ Beyond</h3><p>Consciousness, time, meaning, the mystery that remains after all knowledge. The fuel that keeps you learning.</p></div>
   </div>
+  <div class="card coral"><h3>Why "Ardham"?</h3><p>అర్థం (ardham) means <em>meaning</em> in Telugu/Sanskrit. A fact without meaning is noise; a fact with meaning is knowledge; knowledge applied becomes power; power shared becomes liberation. This campus is about the <strong>meaning layer</strong> — the why behind every what.</p></div>
+  <div class="green"><b>GREEN gate 01:</b> In one sentence, explain why this campus exists and what the word "Ardham" means. Then teach it to someone in 60 seconds.</div>
 </section>
 
-<!-- 2. SIKSHA -->
-<section id="siksa">
+<!-- 02 SIKSHA -->
+<section id="siksa" data-m="2">
   <div class="kicker">Mandala 02 · Core</div>
   <h2>Śikṣā — The Science of Learning</h2>
   <p><span class="sanskrit">Śikṣā (शिक्षा)</span> is the first of the six Vedāṅgas — the "limbs of the Vedas." It originally meant the precise science of pronunciation and phonetics: how to transmit knowledge with zero corruption across generations. Oral transmission (śruti → smṛti) demanded perfect fidelity.</p>
@@ -160,10 +178,23 @@
     <p>Miller's 7±2 (modern research says closer to 4±1 chunks) defines what fits in working memory. Expert mastery = compressing big ideas into single chunks, so your working memory holds <em>more meaning</em> per slot.</p>
     <p><strong>The move:</strong> never memorize 40 facts. Find the 4 laws that generate the 40 facts. Pāṇini did this with the entire Sanskrit language: 4,000 sūtras instead of a dictionary of every word.</p>
   </div>
+
+  <div class="card indigo"><h3>The science behind it (2026 evidence layer)</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Effect</th><th>Key finding</th><th>Source</th></tr>
+      <tr><td>Testing effect</td><td>Retrieval practice beats re-study on delayed tests (large effect)</td><td>Roediger & Butler 2011</td></tr>
+      <tr><td>Spacing effect</td><td>Distributed practice > massed practice across ~250 experiments</td><td>Cepeda et al. 2006</td></tr>
+      <tr><td>Interleaving</td><td>Mixing problem types beats blocked practice in math/category learning</td><td>Rohrer & Taylor 2007</td></tr>
+      <tr><td>Desirable difficulties</td><td>Harder encoding (generation, spacing) improves long-term retention</td><td>Bjork & Bjork 2011</td></tr>
+      <tr><td>Sleep consolidation</td><td>Memory reactivates during slow-wave sleep; sleep after learning boosts recall</td><td>Rasch & Born 2013</td></tr>
+      <tr><td>Expertise</td><td>~10,000 hours is a myth; deliberate practice with feedback is what matters</td><td>Ericsson & Pool 2016</td></tr>
+    </table></div>
+  </div>
+  <div class="green"><b>GREEN gate 02:</b> Set up a review schedule for one topic: 1h → 24h → 7d → 30d → 90d. After the 24h review, write from memory the Śikṣā loop without looking.</div>
 </section>
 
-<!-- 3. PANINI -->
-<section id="panini">
+<!-- 03 PANINI -->
+<section id="panini" data-m="3">
   <div class="kicker">Mandala 03</div>
   <h2>Pāṇini — The Grammar of Everything</h2>
   <p><span class="sanskrit">Pāṇini (पाणिनि)</span> wrote the <strong>Aṣṭādhyāyī</strong> (~4th century BCE): 4,000 sūtras that generate the entire Sanskrit language — every valid word, every correct form. It is the first formal grammar in human history, and modern computer scientists see it as a blueprint for computation itself: context-free rules, recursion, meta-rules, and a machine that takes input and produces perfect output.</p>
@@ -189,11 +220,35 @@
     <p>Rules are grouped under an "operative domain" header that defines the territory. <strong>In learning:</strong> before diving into details, draw the domain map — the major sections, their boundaries, and which rule governs which territory.</p>
   </div>
 
+  <div class="card violet"><h3>Real sūtras — taste the grammar</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Sūtra</th><th>Transliteration</th><th>Meaning</th></tr>
+      <tr><td>1.1.1</td><td>vṛddhir ādaiC</td><td>The sounds ā, ai, au are called vṛddhi (strengthening)</td></tr>
+      <tr><td>1.1.2</td><td>adeṄ guṇaḥ</td><td>The sounds a, e, o are called guṇa (quality grade)</td></tr>
+      <tr><td>1.1.3</td><td>iko guṇavṛddhī</td><td>For the vowels i/u/ṛ/ḷ, guṇa and vṛddhi replace them</td></tr>
+      <tr><td>1.1.49</td><td>ṣaṣṭhī sthāneyogā</td><td>The genitive case denotes the place of substitution</td></tr>
+      <tr><td>1.4.14</td><td>suptiṅantaṃ padam</td><td>A word is what ends in a nominal or verbal ending</td></tr>
+    </table></div>
+    <p>These tiny rules, operating recursively, generate correct Sanskrit morphology for every noun and verb in the language. That is the power of a generative grammar.</p>
+  </div>
+
+  <div class="card sky"><h3>Pāṇini → Computer Science (the lineage)</h3>
+    <ul>
+      <li><strong>Formal grammar:</strong> Aṣṭādhyāyī is a generative grammar 2,000+ years before Chomsky</li>
+      <li><strong>Rewrite rules:</strong> sūtras are ordered rewrite rules (like a term-rewriting system)</li>
+      <li><strong>Recursion:</strong> samāsa (compounding) rules apply recursively</li>
+      <li><strong>Meta-rules:</strong> paribhāṣā rules govern other rules (like macros / compiler passes)</li>
+      <li><strong>Optimization:</strong> Pāṇini's brevity (pratyāhāra abbreviations) is a compression algorithm</li>
+      <li><strong>Modern use:</strong> Paninian grammar engines power NLP tools for Sanskrit; the formalism influenced programming-language design</li>
+    </ul>
+  </div>
+
   <div class="quote">"Pāṇini's Aṣṭādhyāyī is a machine coded in sūtras: linguistic components in, grammatically perfect output out." — modern computational-linguistics assessment</div>
+  <div class="green"><b>GREEN gate 03:</b> Map any domain you're learning into utsarga/apavāda/siddha: write the general rule, two exceptions, and verify one derived output. Teach the Pāṇini→CS connection in 60 seconds.</div>
 </section>
 
-<!-- 4. NYAYA -->
-<section id="nyaya">
+<!-- 04 NYAYA -->
+<section id="nyaya" data-m="4">
   <div class="kicker">Mandala 04</div>
   <h2>Nyāya — The Logic Engine</h2>
   <p><span class="sanskrit">Nyāya (न्याय)</span> — "that by which the mind is led to a conclusion" — is India's science of reasoning and debate. Its founding text, the <strong>Nyāya-sūtra</strong> of Gautama, opens with 16 categories (padārthas) covering epistemology, metaphysics, method, and debate. The goal was never abstract: correct reasoning was the path to correct knowledge, and correct knowledge was liberation from error.</p>
@@ -222,19 +277,29 @@
 
   <div class="card coral">
     <h3>Hetvābhāsa — the fallacies of reason (debug your thinking)</h3>
-    <ul>
-      <li><strong>Savyabhicāra</strong> — the wandering reason: the sign sometimes accompanies the conclusion, sometimes not (smoke that could be fog).</li>
-      <li><strong>Viruddha</strong> — the contradictory reason: the "reason" actually proves the opposite.</li>
-      <li><strong>Asiddha</strong> — the unestablished reason: the premise itself is unproven.</li>
-      <li><strong>Bādhita</strong> — the overridden reason: a stronger counter-evidence refutes it.</li>
-      <li><strong>Satpratipakṣa</strong> — the countered reason: an equally strong reason proves the opposite.</li>
-    </ul>
+    <div class="table-wrap"><table>
+      <tr><th>Fallacy</th><th>Meaning</th><th>Modern example</th></tr>
+      <tr><td><strong>Savyabhicāra</strong></td><td>The wandering reason (sometimes accompanies, sometimes not)</td><td>"It sold well, so it's good" — popularity ≠ quality</td></tr>
+      <tr><td><strong>Viruddha</strong></td><td>The contradictory reason (proves the opposite)</td><td>"He's quiet, so he's guilty" — shyness ≠ guilt</td></tr>
+      <tr><td><strong>Asiddha</strong></td><td>The unestablished reason (premise unproven)</td><td>"AI will end the world because it has agency" — agency unproven</td></tr>
+      <tr><td><strong>Bādhita</strong></td><td>The overridden reason (stronger counter-evidence)</td><td>"Smoke on the hill, so fire" — but it's a fog bank (perception overrides)</td></tr>
+      <tr><td><strong>Satpratipakṣa</strong></td><td>The countered reason (equal opposite proof)</td><td>"Rising prices → inflation" vs "rising prices → demand surge"</td></tr>
+    </table></div>
     <p><strong>Modern translation:</strong> this is adversarial debugging of your own beliefs. When you "know" something, run it through hetvābhāsa. AI engineers call this eval; Nyāya called it nigrahasthāna — the point of defeat, where the wrong idea is honestly let go.</p>
   </div>
+
+  <div class="card emerald"><h3>Nyāya → AI evals (the 2026 bridge)</h3>
+    <ul>
+      <li><strong>Pramāṇas → data sources:</strong> what evidence does the model use? Direct (pratyakṣa = retrieval), inference (anumāna = reasoning), analogy (upamāna = few-shot), testimony (śabda = training corpus)</li>
+      <li><strong>Hetvābhāsa → eval failure modes:</strong> hallucination (asiddha — ungrounded claim), contradiction (viruddha), counter-example (bādhita), plausible-but-wrong (savyabhicāra)</li>
+      <li><strong>Nigrahasthāna → acceptance tests:</strong> a model that cannot be shown its defeat point cannot be trusted</li>
+    </ul>
+  </div>
+  <div class="green"><b>GREEN gate 04:</b> Take one belief you hold about a topic you're learning. Run it through all five hetvābhāsa checks. Write the 5-member syllogism for one real claim and check where it's weakest.</div>
 </section>
 
-<!-- 5. MAPS -->
-<section id="maps">
+<!-- 05 MAPS -->
+<section id="maps" data-m="5">
   <div class="kicker">Mandala 05</div>
   <h2>Vaiśeṣika & Sāṃkhya — Maps of Reality</h2>
   <p>Two ancient systems give you <strong>map-making tools</strong> for any domain.</p>
@@ -267,10 +332,21 @@ Prakṛti   — the source of all structure
       <p><strong>Use:</strong> any complex system — a computer, a company, a language, a protocol — can be mapped as layers: observer → source → decision → identity → processing → input → output → data → physical. Troubleshoot at the right layer; don't blame the physical layer for a decision-layer bug.</p>
     </div>
   </div>
+  <div class="card violet"><h3>Worked example: mapping "learning a new language"</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Vaiśeṣika category</th><th>Language example</th></tr>
+      <tr><td>Dravya (substance)</td><td>The phoneme inventory, script, core lexicon</td></tr>
+      <tr><td>Guṇa (quality)</td><td>Stress, tone, rhythm, politeness registers</td></tr>
+      <tr><td>Karma (action)</td><td>Speaking, listening, reading, writing, translating</td></tr>
+      <tr><td>Sāmānya (generality)</td><td>Word classes: noun, verb, adjective…</td></tr>
+      <tr><td>Viśeṣa (particularity)</td><td>The irregular verbs, the idioms, the exceptions</td></tr>
+      <tr><td>Samavāya (inherence)</td><td>Syntax: how words combine into phrases and sentences</td></tr>
+    </table></div>
+  </div>
+  <div class="green"><b>GREEN gate 05:</b> Map the domain you're mastering with Vaiśeṣika (6 categories) AND Sāṃkhya (9 layers). Identify which layer usually breaks in your troubleshooting.</div>
 </section>
-
-<!-- 6. MATH -->
-<section id="math">
+<!-- 06 MATH -->
+<section id="math" data-m="6">
   <div class="kicker">Mandala 06</div>
   <h2>The Jñāna Mathematics — Numbers as Universal Language</h2>
   <p>India's mathematical tradition is a masterclass in <strong>intuition first, notation second</strong>. It proves that deep mathematical thinking does not require modern symbols — it requires clean reasoning.</p>
@@ -285,13 +361,27 @@ Prakṛti   — the source of all structure
       <p>The Kerala school (Jyeṣṭhadeva's <em>Yuktibhāṣā</em>, ~1530) developed infinite series for π, sine, and cosine — the foundational ideas of calculus — two and a half centuries before Newton/Leibniz in Europe, and with proofs (yukti = rationale).</p>
     </div>
     <div class="card emerald">
-      <h3>Āryabhaṭa & Bhāskara — astronomy and the law of gravity</h3>
+      <h3>Āryabhaṭa & Bhāskara — astronomy and gravity intuition</h3>
       <p>Āryabhaṭa (476 CE) computed π ≈ 3.1416, explained lunar eclipses, and understood that the moon and planets shine by reflected sunlight. Bhāskara II (1114–1185) wrote of a force that holds planets in orbit — a gravitational intuition centuries before Newton.</p>
     </div>
     <div class="card violet">
       <h3>Rāmānujan — intuition as a superpower</h3>
       <p>Srinivasa Rāmānujan (1887–1920) produced thousands of results with almost no formal training, driven by pure pattern intuition — "an equation for me has no meaning unless it expresses a thought of God." He is the proof that the Jñāna method — play with patterns, derive, verify — can reach the frontier.</p>
     </div>
+  </div>
+
+  <div class="card indigo"><h3>Piṅgala's binary in action (mātrā-meru)</h3>
+    <p>Count the ways to compose a meter of n mātrās (short = 1, long = 2):</p>
+    <div class="table-wrap"><table>
+      <tr><th>n (mātrās)</th><th>Compositions</th><th>Count (Fibonacci)</th></tr>
+      <tr><td>1</td><td>S</td><td>1</td></tr>
+      <tr><td>2</td><td>SS, L</td><td>2</td></tr>
+      <tr><td>3</td><td>SSS, SL, LS</td><td>3</td></tr>
+      <tr><td>4</td><td>SSSS, SSL, SLS, LSS, LL</td><td>5</td></tr>
+      <tr><td>5</td><td>8 compositions</td><td>8</td></tr>
+      <tr><td>6</td><td>13 compositions</td><td>13</td></tr>
+    </table></div>
+    <p>1, 2, 3, 5, 8, 13… — the Fibonacci sequence, discovered as a counting problem in Sanskrit prosody centuries before Fibonacci published it in 1202.</p>
   </div>
 
   <div class="card coral">
@@ -304,10 +394,11 @@ Prakṛti   — the source of all structure
       <li><strong>Re-derive after 24h</strong> — this is spaced repetition applied to mathematics.</li>
     </ol>
   </div>
+  <div class="green"><b>GREEN gate 06:</b> Compute the mātrā-meru up to n=7 by hand. Then derive π ≈ 3.1416 using an inscribed polygon (or explain why the Kerala series converges to π). Teach the "Fibonacci before Fibonacci" story in 60s.</div>
 </section>
 
-<!-- 7. MEMORY -->
-<section id="memory">
+<!-- 07 MEMORY -->
+<section id="memory" data-m="7">
   <div class="kicker">Mandala 07</div>
   <h2>The Memory Arsenal</h2>
   <p>The śikṣā tradition transmitted entire Vedas — millions of syllables — with perfect fidelity for millennia. The techniques are real, and they work.</p>
@@ -340,17 +431,41 @@ TEST:    &lt;one question that proves you know it&gt;
 NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
     <p>Keep a deck of these. Review on schedule. This single habit outperforms years of passive reading.</p>
   </div>
+
+  <div class="card indigo"><h3>The Vedic oral fidelity toolkit (how they did it)</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Technique</th><th>What it is</th><th>Why it works</th></tr>
+      <tr><td><strong>Saṃhitā pāṭha</strong></td><td>Continuous recitation</td><td>Base form</td></tr>
+      <tr><td><strong>Pada pāṭha</strong></td><td>Word-by-word with boundaries</td><td>Forces analysis of every join</td></tr>
+      <tr><td><strong>Krama pāṭha</strong></td><td>Word-pair repetition (a-b, b-c, c-d…)</td><td>Every boundary checked twice</td></tr>
+      <tr><td><strong>Jaṭā pāṭha</strong></td><td>Braided repetition (a-b-a, b-a-b…) up to 11 patterns</td><td>Cross-checks forward AND backward</td></tr>
+      <tr><td><strong>Vikṛti pāṭha</strong></td><td>Permuted recitation forms (mālā, śikhā, rekhā…)</td><td>8+ redundant encodings of the same text</td></tr>
+    </table></div>
+    <p>Redundant encoding = error correction. The tradition built a <em>checksum</em> into the learning process — exactly the way modern data systems verify integrity. You can borrow the same idea: learn material in two different orders; the second pass catches every gap.</p>
+  </div>
+
+  <div class="card sky"><h3>Modern spaced-repetition algorithm (SM-2 style)</h3>
+    <div class="flow">EASE = 2.5 (starting easiness)
+INTERVAL: 1d, then interval × ease
+QUALITY (0-5) per review:
+  5 perfect   → interval × ease, ease +0.1
+  3 correct   → interval × ease, ease same
+  &lt;3 wrong    → repeat today, ease -0.3 (min 1.3)
+SUSPEND only after 5+ perfect reviews in a row.</div>
+    <p>This is the algorithm behind Anki. You can run it on paper or a spreadsheet — no app required.</p>
+  </div>
+  <div class="green"><b>GREEN gate 07:</b> Create 5 memory cards for what you learned today. Review one with jaṭā-style cross-checking (forward and backward). Compute the SM-2 interval for a card you rated 5.</div>
 </section>
 
-<!-- 8. PLAYBOOK -->
-<section id="playbook">
+<!-- 08 PLAYBOOK -->
+<section id="playbook" data-m="8">
   <div class="kicker">Mandala 08</div>
   <h2>Mastering Any Domain — The Universal Playbook</h2>
   <p>Language, mathematics, music, engineering, AI, UC/telecom, art, sport, philosophy — <strong>the same 7-step method</strong> applies to all of them.</p>
 
   <div class="card indigo">
     <h3>The 7-step master method</h3>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th>#</th><th>Step</th><th>Ancient source</th><th>What you do</th></tr>
       <tr><td>1</td><td><strong>Map</strong></td><td>Vaiśeṣika</td><td>Build the category map: substances, qualities, actions, classes, relationships</td></tr>
       <tr><td>2</td><td><strong>Grammar</strong></td><td>Pāṇini</td><td>Find the rules that generate the domain; utsarga → apavāda → siddha</td></tr>
@@ -359,7 +474,7 @@ NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
       <tr><td>5</td><td><strong>Prove</strong></td><td>RTMA / LICC</td><td>Run → Trace → Metric → Artifact. Leg → ID → Counter → Capture. Evidence, not vibes.</td></tr>
       <tr><td>6</td><td><strong>Space</strong></td><td>Śikṣā</td><td>Review at 1h → 24h → 7d → 30d → 90d</td></tr>
       <tr><td>7</td><td><strong>Teach</strong></td><td>Feynman / guru-kuḷa</td><td>Explain to another person; the gaps reveal themselves</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="card emerald">
@@ -384,17 +499,89 @@ NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
       <li><strong>Teach:</strong> write the tutorial you wish you'd found</li>
     </ul>
   </div>
+  <div class="card violet"><h3>Applied: master music</h3>
+    <ul>
+      <li><strong>Map:</strong> rhythm, pitch, harmony, timbre, form</li>
+      <li><strong>Grammar:</strong> scales (utsarga), modes/raags and accidentals (apavāda), chord progressions</li>
+      <li><strong>Practice:</strong> slow deliberate repetition of the hard 4 bars; metronome creeping up</li>
+      <li><strong>Prove:</strong> record weekly; compare month 1 vs month 3</li>
+      <li><strong>Space:</strong> alternate pieces daily (interleaving)</li>
+      <li><strong>Teach:</strong> play for someone; explain the theory</li>
+    </ul>
+  </div>
+  <div class="green"><b>GREEN gate 08:</b> Pick one domain. Write all 7 steps as concrete actions for THIS WEEK. Execute step 1 (Map) today and bring your map to the next review.</div>
 </section>
 
-<!-- 9. COSMOS -->
-<section id="cosmos">
-  <div class="kicker">Mandala 09</div>
+<!-- 09 AI-LEARNING -->
+<section id="ai" data-m="9">
+  <div class="kicker">Mandala 09 · 2026</div>
+  <h2>AI-Assisted Learning — The Guru in Your Pocket</h2>
+  <p>In 2026, every learner has a tireless tutor: a frontier LLM. Used right, it accelerates the Śikṣā loop. Used wrong, it becomes an illusion of understanding — the ultimate passive re-reading.</p>
+
+  <div class="card indigo"><h3>The golden rule of AI learning</h3>
+    <p><strong>AI should never do the learning FOR you.</strong> It should do everything AROUND you: generate practice, quiz you, explain from a different angle, check your work, find gaps. The retrieval, the production, the proof — always yours.</p>
+    <div class="flow">BAD:  "Explain quantum computing" → read → "got it" → nothing
+GOOD: "Quiz me on quantum computing, 5 questions, no hints,
+       then grade my answers against the standard model and
+       tell me only which are wrong, not the answer."</div>
+  </div>
+
+  <div class="grid">
+    <div class="card sky"><h3>🎓 Socratic tutor prompts</h3>
+      <p>Ask the AI to teach like Socrates: question, don't lecture.</p>
+      <pre>"Act as my Socratic tutor for {topic}. Don't give answers.
+Ask me questions that lead me to the insight. When I'm wrong,
+ask a smaller question. Only after I've stated the correct
+reasoning, confirm it and move deeper."</pre>
+    </div>
+    <div class="card emerald"><h3>📝 Practice generator</h3>
+      <p>Turn any material into active recall.</p>
+      <pre>"Here is a study note about {topic}: {paste}.
+Generate 10 practice questions at 3 levels (recall, apply,
+evaluate). I'll answer without notes; then grade me with
+Nyāya-style rigor: flag any hetvābhāsa (unsupported claim)
+in my answers."</pre>
+    </div>
+    <div class="card violet"><h3>🧪 Feynman checker</h3>
+      <p>Test your own explanation like a 12-year-old.</p>
+      <pre>"I'll explain {topic} in simple terms. Act as a bright
+12-year-old: ask the questions that expose my gaps.
+Then tell me the 3 weakest sentences in my explanation."</pre>
+    </div>
+  </div>
+
+  <div class="card coral"><h3>Verify AI claims — Nyāya discipline</h3>
+    <ul>
+      <li><strong>Never trust śabda alone:</strong> treat the AI's claim as testimony (śabda), not perception (pratyakṣa). Verify against a primary source.</li>
+      <li><strong>Ask for the pramāṇa:</strong> "Which of these is fact vs inference vs analogy vs unsupported? Give me a source for each factual claim."</li>
+      <li><strong>Run the hetvābhāsa audit:</strong> "Is any claim here unestablished (asiddha), contradicted (viruddha), or overridden by counter-evidence (bādhita)?"</li>
+      <li><strong>Use evals:</strong> if you're learning AI, test the model with held-out questions — that's Nyāya in machine form.</li>
+    </ul>
+  </div>
+
+  <div class="card emerald"><h3>2026 tool landscape (fast map)</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Layer</th><th>Examples</th><th>Learning use</th></tr>
+      <tr><td>Frontier chat</td><td>Grok, ChatGPT, Claude, Gemini, DeepSeek, Kimi</td><td>Socratic tutoring, practice, explanation</td></tr>
+      <tr><td>Reasoning models</td><td>Grok-4.5, o-series, Claude with thinking</td><td>Worked derivations, proofs, hard problems</td></tr>
+      <tr><td>Spaced-repetition apps</td><td>Anki, Mochi, custom SM-2</td><td>Review at 1h → 90d</td></tr>
+      <tr><td>Voice tutors</td><td>Live-mode voice agents</td><td>Oral practice (language, interview prep)</td></tr>
+      <tr><td>Local models</td><td>Ollama, llama.cpp, small MoE</td><td>Private, offline, cost-free practice</td></tr>
+      <tr><td>Eval harnesses</td><td>OpenAI Evals, custom RTMA scripts</td><td>Prove you've learned (not vibes)</td></tr>
+    </table></div>
+  </div>
+  <div class="green"><b>GREEN gate 09:</b> Use ONE AI prompt from this mandala on a real topic. Run the Nyāya audit on one AI claim (find a source). Write the prompt that worked best as a reusable card.</div>
+</section>
+
+<!-- 10 COSMOS -->
+<section id="cosmos" data-m="10">
+  <div class="kicker">Mandala 10</div>
   <h2>Cosmos & Beyond</h2>
   <p>Mastery needs fuel. The cosmos is the deepest fuel: it puts every small frustration in perspective and makes every new question worth pursuing.</p>
 
   <div class="card violet">
     <h3>Ancient astronomy → modern cosmology</h3>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th>Era</th><th>Milestone</th><th>What it taught us</th></tr>
       <tr><td>Sūrya Siddhānta (~5th c.)</td><td>Planetary tables, time cycles (mahāyuga 4.32M years)</td><td>The sky is computable; time is vast</td></tr>
       <tr><td>Āryabhaṭa (476 CE)</td><td>π ≈ 3.1416, eclipses explained, heliocentric intuition</td><td>Models beat myths</td></tr>
@@ -403,7 +590,7 @@ NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
       <tr><td>Hubble (1929)</td><td>Expanding universe</td><td>Space itself grows</td></tr>
       <tr><td>Big Bang → JWST (2020s)</td><td>Cosmic microwave background, deep field images</td><td>We see the universe's baby pictures</td></tr>
       <tr><td>Black holes / GW (2015+)</td><td>Gravitational waves, Event Horizon image</td><td>Spacetime is real and bendable</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="grid">
@@ -428,43 +615,190 @@ NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
     </div>
   </div>
 
-  <div class="quote">"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself." — Carl Sagan, echoing the Upaniṣads' tat tvam asi ("that thou art").</div>
-</section>
-
-<!-- 10. PATH -->
-<section id="path">
-  <div class="kicker">Mandala 10</div>
-  <h2>The Master's Path — 90-Day Arc</h2>
-  <p>Choose one thing. Run this arc. At the end you will not be "someone who tried" — you will be someone with proof.</p>
-
-  <div class="card indigo">
-    <h3>90-day arc</h3>
+  <div class="card indigo"><h3>Consciousness, time, and the mystery</h3>
+    <p>The Upaniṣads asked: <span class="sanskrit">tat tvam asi</span> — "that thou art." Modern neuroscience asks: how does matter become experience? Neither has a final answer. <strong>That gap is the fuel.</strong> The best learners keep a question they cannot answer — it pulls them forward when everything else is boring.</p>
     <div class="table-wrap"><table>
-      <tr><th>Phase</th><th>Days</th><th>Focus</th><th>Proof output</th></tr>
-      <tr><td>1. Map & Grammar</td><td>1–7</td><td>Category map, core rules (utsarga), domain vocabulary</td><td>One-page map + sūtra card</td></tr>
-      <tr><td>2. Practice core</td><td>8–21</td><td>Deliberate practice on fundamentals, daily 45–90 min</td><td>10 small artifacts</td></tr>
-      <tr><td>3. Exceptions & depth</td><td>22–35</td><td>Apavāda cases, harder problems, interleaving</td><td>5 medium artifacts + trace logs</td></tr>
-      <tr><td>4. Build the real thing</td><td>36–49</td><td>One complete project applying everything</td><td>1 flagship artifact + metrics</td></tr>
-      <tr><td>5. Teach & get feedback</td><td>50–63</td><td>Explain publicly; collect critique; iterate</td><td>1 tutorial/lesson + feedback log</td></tr>
-      <tr><td>6. Deepen & expand</td><td>64–77</td><td>Push to edge; connect to adjacent domains</td><td>2 advanced artifacts</td></tr>
-      <tr><td>7. Capstone & handoff</td><td>78–90</td><td>Final portfolio, teach another person, plant the seed</td><td>Portfolio + one learner started</td></tr>
+      <tr><th>Question</th><th>Ancient lens</th><th>Modern lens</th></tr>
+      <tr><td>What is time?</td><td>Kāla as a cycle (yugas)</td><td>Entropy, relativity, time perception</td></tr>
+      <tr><td>What is the self?</td><td>Ātman / puruṣa</td><td>Default mode network, narrative identity</td></tr>
+      <tr><td>What is knowledge?</td><td>Pramāṇas (means of valid knowledge)</td><td>Epistemology, machine learning, evals</td></tr>
+      <tr><td>What is the whole?</td><td>Brahman / jagat</td><td>Cosmology, quantum field theory</td></tr>
     </table></div>
   </div>
 
-  <div class="card emerald">
-    <h3>Proof habits (RTMA + LICC, the honesty layer)</h3>
-    <table>
-      <tr><th>System</th><th>Stands for</th><th>What it forces</th></tr>
-      <tr><td><strong>RTMA</strong></td><td>Run · Trace · Metric · Artifact</td><td>You ran it, you can trace it, you measured it, you saved the proof</td></tr>
-      <tr><td><strong>LICC</strong></td><td>Leg · ID · Counter · Capture</td><td>Every claim has a leg to stand on, an ID, a counter-check, and a capture</td></tr>
-    </table>
-    <p><strong>Rule:</strong> no artifact, no claim. If you cannot show the trace, the metric, the artifact — you have not mastered it yet; you have only heard about it.</p>
+  <div class="quote">"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself." — Carl Sagan, echoing the Upaniṣads' tat tvam asi.</div>
+  <div class="green"><b>GREEN gate 10:</b> Write the cosmic scale table from memory (Moon → observable universe). Name one space mission from each of ISRO, NASA, SpaceX and what it taught us. Keep one unanswered question alive.</div>
+</section>
+<!-- 11 STUDY SYSTEMS -->
+<section id="study" data-m="11">
+  <div class="kicker">Mandala 11</div>
+  <h2>Study Systems — Environments That Teach</h2>
+  <p>Your environment is a co-teacher. Design it well and you learn passively; design it badly and every session is a fight.</p>
+
+  <div class="grid">
+    <div class="card indigo"><h3>📝 Note systems</h3>
+      <table>
+        <tr><th>System</th><th>Core idea</th><th>Best for</th></tr>
+        <tr><td><strong>Cornell</strong></td><td>Two columns: cues | notes, plus a summary strip</td><td>Lecture notes, structured review</td></tr>
+        <tr><td><strong>Zettelkasten</strong></td><td>Atomic notes linked by ID — a personal lattice</td><td>Research, writing, long-term knowledge</td></tr>
+        <tr><td><strong>Sūtra compression</strong></td><td>Chapter → page → paragraph → sentence → word</td><td>Any dense subject; builds retrieval keys</td></tr>
+        <tr><td><strong>Memory cards</strong></td><td>Concept/Law/Example/Test/NEXT per card</td><td>Daily review, spaced repetition</td></tr>
+      </table>
+      <p><strong>Rule:</strong> a note you never revisit is not a note — it's a corpse. Every note needs a NEXT review date.</p>
+    </div>
+    <div class="card emerald"><h3>🧘 Focus & flow</h3>
+      <ul>
+        <li><strong>Deep work:</strong> 90-120 min single-topic blocks, phone in another room</li>
+        <li><strong>Pomodoro (25/5):</strong> good for shallow work and starting; not for deep insight</li>
+        <li><strong>Flow triggers:</strong> clear goal, immediate feedback, skill slightly above comfort</li>
+        <li><strong>Environment:</strong> same spot, same tools, noise plan (silence or rain), water</li>
+        <li><strong>Procrastination fix:</strong> start with the SMALLEST possible version (2-minute rule)</li>
+      </ul>
+    </div>
+    <div class="card violet"><h3>📊 The learning dashboard</h3>
+      <p>Track what matters, weekly:</p>
+      <pre>WEEK {n} · Topic: {x}
++ Hours practiced: ______
++ Artifacts produced: ______
++ Cards reviewed (24h): ______
++ Concepts taught to others: ______
++ Biggest gap found: ______
++ Fix for next week: ______</pre>
+    </div>
   </div>
+
+  <div class="card coral"><h3>Sleep — the consolidation engine</h3>
+    <ul>
+      <li>Sleep within 24h after learning is when memory reactivation happens</li>
+      <li>Naps (20-90 min) improve recall; a nap after study beats more study</li>
+      <li>Learn in the evening → sleep → test in the morning = strongest schedule</li>
+      <li>Cut screens 30-60 min before bed for deep slow-wave sleep</li>
+    </ul>
+  </div>
+  <div class="green"><b>GREEN gate 11:</b> Choose ONE note system and ONE focus technique. Set up your learning dashboard for the week. Schedule a nap or early night after your next study session.</div>
 </section>
 
-<!-- 11. TROUBLE -->
-<section id="trouble">
-  <div class="kicker">Mandala 11</div>
+<!-- 12 EXAM & PERFORMANCE -->
+<section id="exam" data-m="12">
+  <div class="kicker">Mandala 12</div>
+  <h2>Exam & Performance Mastery</h2>
+  <p>Exams test retrieval under pressure. The Śikṣā loop is the best exam prep ever invented — because it makes retrieval the daily practice, not the scary final.</p>
+
+  <div class="card indigo"><h3>The 30-day exam arc</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Days</th><th>Focus</th><th>Method</th></tr>
+      <tr><td>30–21</td><td>Map + grammar</td><td>Full syllabus map, core rules, memory cards for fundamentals</td></tr>
+      <tr><td>20–11</td><td>Practice + retrieval</td><td>Past papers timed, spaced review, weak-spot drills</td></tr>
+      <tr><td>10–4</td><td>Interleave + simulate</td><td>Mixed-topic sets, full mock exams under real time</td></tr>
+      <tr><td>3–1</td><td>Consolidate</td><td>Light review, sleep well, no new material</td></tr>
+      <tr><td>Exam day</td><td>Execute</td><td>Breathing, easy wins first, time budget per question</td></tr>
+    </table></div>
+  </div>
+
+  <div class="grid">
+    <div class="card emerald"><h3>🎯 Retrieval exam drills</h3>
+      <ul>
+        <li>Closed-book mind maps: draw the whole topic from memory</li>
+        <li>Blank-page recall: write everything you know, then check</li>
+        <li>Question banks: 10/day, timed, no notes</li>
+        <li>Teach-back: explain the hardest topic to a friend</li>
+        <li>Error log: every wrong answer → one-line WHY + fix</li>
+      </ul>
+    </div>
+    <div class="card sky"><h3>🧠 Test-day tactics</h3>
+      <ul>
+        <li>Easy questions first (confidence + time bank)</li>
+        <li>Time budget: minutes-per-mark rule, watch the clock</li>
+        <li>Answer in your own words (retrieval proof), then add precision</li>
+        <li>For calculations: sanity-check magnitude + units</li>
+        <li>Box the answer; show the path (partial credit)</li>
+        <li>If stuck >2 min: mark, move, return</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card violet"><h3>Anxiety = under-preparation + no rehearsal</h3>
+    <p>Nervous? That's a signal, not a verdict. It means: more retrieval practice, more simulated conditions, more sleep. The Nyāya move: find the <em>asiddha</em> fear ("I'll definitely fail") and replace it with evidence ("I did 4 mocks, average 82%").</p>
+  </div>
+  <div class="green"><b>GREEN gate 12:</b> Build a 30-day exam arc for your next test. Do one timed mock this week, log every wrong answer with a WHY, and schedule sleep before the exam.</div>
+</section>
+
+<!-- 13 CAREER -->
+<section id="career" data-m="13">
+  <div class="kicker">Mandala 13</div>
+  <h2>Career Mastery — Turning Knowledge into Livelihood</h2>
+  <p>Mastery without livelihood is a hobby; livelihood without mastery is a job. The bridge between them is <strong>proof</strong> — artifacts that demonstrate what you can do.</p>
+
+  <div class="card indigo"><h3>The proof portfolio (your LICC pack)</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Layer</th><th>What</th><th>Example</th></tr>
+      <tr><td><strong>Leg</strong></td><td>The evidence something works</td><td>A deployed app, a passed cert, a measured result</td></tr>
+      <tr><td><strong>ID</strong></td><td>Traceable identity of the claim</td><td>Repo link, artifact hash, date, version</td></tr>
+      <tr><td><strong>Counter</strong></td><td>What would disprove it / how you tested</td><td>Test suite, failure log, honest limits</td></tr>
+      <tr><td><strong>Capture</strong></td><td>The saved proof</td><td>Screenshot, video, README, portfolio entry</td></tr>
+    </table></div>
+    <p><strong>Interview gold:</strong> when asked "tell me about yourself," show the portfolio. When asked "any failures?", show the counter-log — that's honesty, and it's rare.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card emerald"><h3>💼 Skills that compound (2026)</h3>
+      <ul>
+        <li>Clear communication (writing + speaking)</li>
+        <li>Critical reasoning (Nyāya!) — evaluate claims, data, AI output</li>
+        <li>AI literacy — using models as tools, not crutches</li>
+        <li>Systems thinking — see the whole stack, not one layer</li>
+        <li>Proof habits — show your work, measure outcomes</li>
+        <li>Teaching — the fastest way to solidify mastery</li>
+      </ul>
+    </div>
+    <div class="card sky"><h3>🌱 The free-education mission</h3>
+      <p>Mastery compounds when shared. Build free campuses, write free tutorials, teach one person. Not only because it's kind — because teaching is the highest-fidelity proof of your own mastery.</p>
+      <p>Sibling campuses: UC Lab (telecom) · AI Lab (AI) · Ardham Shastra (this — the method). All MIT, all free.</p>
+    </div>
+  </div>
+  <div class="green"><b>GREEN gate 13:</b> Create ONE portfolio artifact this week with full LICC: what it proves, its ID, how it could fail, and a captured proof. Update it at your next review.</div>
+</section>
+
+<!-- 14 GURUKULA -->
+<section id="gurukula" data-m="14">
+  <div class="kicker">Mandala 14</div>
+  <h2>Guru-kuḷa — Teaching as the Highest Form of Learning</h2>
+  <p>In the ancient system, a student lived at the teacher's house (guru-kuḷa) and learned by serving, questioning, and teaching in turn. The student who taught the youngest was often the one who grew the most. That's not a coincidence — it's the Śikṣā loop completing.</p>
+
+  <div class="card violet"><h3>The teaching cycle that doubles your learning</h3>
+    <div class="flow">LEARN → COMPRESS → TEACH → GET QUESTIONED → PATCH → RE-TEACH
+   │        │          │          │            │        └─ teach again, now cleaner
+   │        │          │          │            └─ fix the gap (Feynman step 3)
+   │        │          │          └─ the learner asks "why?" — you find the hole
+   │        │          └─ explain simply, in your own words
+   │        └─ compress to a sūtra
+   └─ study a topic (Śikṣā loop)</div>
+    <p><strong>Practical forms:</strong> write a tutorial, record a voice note, explain to a friend, post a thread, mentor a junior, teach a free class. Every form counts — the key is an <em>audience that can push back</em>.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card emerald"><h3>🙏 The three debts (ṛṇa) as learning fuel</h3>
+      <ul>
+        <li><strong>Deva-ṛṇa:</strong> debt to the sources/teachers — repay by transmitting faithfully</li>
+        <li><strong>Ṛṣi-ṛṇa:</strong> debt to the tradition — repay by mastering and extending it</li>
+        <li><strong>Pitṛ-ṛṇa:</strong> debt to those who came before — repay by teaching the next generation</li>
+      </ul>
+      <p>Modern framing: you learned from thousands of free resources; the respectful repayment is free teaching of your own.</p>
+    </div>
+    <div class="card sky"><h3>👥 Finding your first student</h3>
+      <ul>
+        <li>Teach what you learned TODAY to a friend/relative (10 min)</li>
+        <li>Post one explainer on X/LinkedIn/WhatsApp status</li>
+        <li>Volunteer to mentor a beginner in your field</li>
+        <li>Record a voice memo explaining a concept — listen back for gaps</li>
+      </ul>
+    </div>
+  </div>
+  <div class="green"><b>GREEN gate 14:</b> Teach one topic you learned this week to a real person. Note the question they asked that exposed a gap. Patch the gap and re-teach it cleaner.</div>
+</section>
+
+<!-- 15 TROUBLE -->
+<section id="trouble" data-m="15">
+  <div class="kicker">Mandala 15</div>
   <h2>Troubleshooting Your Learning</h2>
   <div class="grid">
     <div class="card coral">
@@ -493,34 +827,53 @@ NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
   </div>
   <div class="card emerald">
     <h3>When to change method (the asiddha rule)</h3>
-    <p>In Pāṇini, <em>asiddha</em> means a rule that is "not yet effective" — a failed derivation step doesn't poison the whole system; you try another path. <strong>In learning: one failed approach is data, not judgment.</strong> Change the angle (I₁₅ deep-time law: change angle on fail). Try: different teacher, different order, different analogy, different time of day, different format.</p>
+    <p>In Pāṇini, <em>asiddha</em> means a rule that is "not yet effective" — a failed derivation step doesn't poison the whole system; you try another path. <strong>In learning: one failed approach is data, not judgment.</strong> Change the angle. Try: different teacher, different order, different analogy, different time of day, different format.</p>
   </div>
+  <div class="card indigo"><h3>Common failure modes & fixes (2026)</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Failure</th><th>Root cause</th><th>Fix</th></tr>
+      <tr><td>"I read it but remember nothing"</td><td>Passive reading, no retrieval</td><td>Close the source; recall from memory; cards</td></tr>
+      <tr><td>"I can follow tutorials but can't build"</td><td>No generation practice</td><td>Build without the tutorial; then compare</td></tr>
+      <tr><td>"I understand but can't explain"</td><td>Illusion of understanding</td><td>Feynman technique; teach a 12-year-old</td></tr>
+      <tr><td>"I keep forgetting"</td><td>No spacing</td><td>Review at 1h → 24h → 7d → 30d → 90d</td></tr>
+      <tr><td>"I study 8h/day and get worse"</td><td>No rest, no sleep, no interleaving</td><td>Deep work blocks, sleep, mixed topics</td></tr>
+      <tr><td>"AI tells me I'm right"</td><td>AI is a mirror, not a grader</td><td>Use held-out questions + human review</td></tr>
+    </table></div>
+  </div>
+  <div class="green"><b>GREEN gate 15:</b> Identify your #1 learning failure from the table. Apply its fix for 7 days. Log the result (metric: artifacts, recalls, test scores).</div>
 </section>
 
-<!-- 12. BACK -->
-<section id="back">
-  <div class="kicker">Mandala 12</div>
-  <h2>Siblings — the family of campuses</h2>
-  <div class="grid">
-    <div class="card emerald">
-      <h3>🌿 UC Lab Free University</h3>
-      <p>Free multi-vendor Unified Communications & Contact Center campus. CUCM · CUBE · UCCE · SIP · E911 — THE CALL MUST ALWAYS CONNECT.</p>
-      <p><code>github.com/cipher0x9/uc-lab-free-university</code></p>
-    </div>
-    <div class="card sky">
-      <h3>🧠 AI Lab Free University</h3>
-      <p>Free offline AI campus. 425 lessons · RTMA proof · zero-API-key labs · local → cloud → agents/evals.</p>
-      <p><code>github.com/cipher0x9/ai-lab-free-university</code></p>
-    </div>
-    <div class="card violet">
-      <h3>🕉️ Ardham Shastra (this campus)</h3>
-      <p>The master-method campus — the meta-science that powers learning in both siblings and any future domain.</p>
-      <p><code>github.com/cipher0x9/ardham-shastra</code></p>
-    </div>
-  </div>
-  <p style="text-align:center;margin-top:20px">🔗 Hub: <a href="https://linktr.ee/cyphermonkey" style="color:var(--gold)">linktr.ee/cyphermonkey</a></p>
-</section>
+<!-- 16 PATH -->
+<section id="path" data-m="16">
+  <div class="kicker">Mandala 16</div>
+  <h2>The Master's Path — 90-Day Arc</h2>
+  <p>Choose one thing. Run this arc. At the end you will not be "someone who tried" — you will be someone with proof.</p>
 
+  <div class="card indigo">
+    <h3>90-day arc</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Phase</th><th>Days</th><th>Focus</th><th>Proof output</th></tr>
+      <tr><td>1. Map & Grammar</td><td>1–7</td><td>Category map, core rules (utsarga), domain vocabulary</td><td>One-page map + sūtra card</td></tr>
+      <tr><td>2. Practice core</td><td>8–21</td><td>Deliberate practice on fundamentals, daily 45–90 min</td><td>10 small artifacts</td></tr>
+      <tr><td>3. Exceptions & depth</td><td>22–35</td><td>Apavāda cases, harder problems, interleaving</td><td>5 medium artifacts + trace logs</td></tr>
+      <tr><td>4. Build the real thing</td><td>36–49</td><td>One complete project applying everything</td><td>1 flagship artifact + metrics</td></tr>
+      <tr><td>5. Teach & get feedback</td><td>50–63</td><td>Explain publicly; collect critique; iterate</td><td>1 tutorial/lesson + feedback log</td></tr>
+      <tr><td>6. Deepen & expand</td><td>64–77</td><td>Push to edge; connect to adjacent domains</td><td>2 advanced artifacts</td></tr>
+      <tr><td>7. Capstone & handoff</td><td>78–90</td><td>Final portfolio, teach another person, plant the seed</td><td>Portfolio + one learner started</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card emerald">
+    <h3>Proof habits (RTMA + LICC, the honesty layer)</h3>
+    <div class="table-wrap"><table>
+      <tr><th>System</th><th>Stands for</th><th>What it forces</th></tr>
+      <tr><td><strong>RTMA</strong></td><td>Run · Trace · Metric · Artifact</td><td>You ran it, you can trace it, you measured it, you saved the proof</td></tr>
+      <tr><td><strong>LICC</strong></td><td>Leg · ID · Counter · Capture</td><td>Every claim has a leg to stand on, an ID, a counter-check, and a capture</td></tr>
+    </table></div>
+    <p><strong>Rule:</strong> no artifact, no claim. If you cannot show the trace, the metric, the artifact — you have not mastered it yet; you have only heard about it.</p>
+  </div>
+  <div class="green"><b>GREEN gate 16:</b> Commit to ONE mastery target. Set the 90-day arc dates in your calendar. Produce proof artifact #1 (map + sūtra card) within 7 days.</div>
+</section>
 </main>
 
 <footer>
@@ -537,28 +890,107 @@ NEXT:    &lt;review in 1h → 24h → 7d → 30d → 90d&gt;</div>
 <a class="back" href="#" aria-label="Back to top">↑</a>
 
 <script>
-  // Starfield + glow animation (offline, no dependencies)
-  document.addEventListener('DOMContentLoaded', function(){
-    var nav = document.querySelector('nav');
-    var links = document.querySelectorAll('.nav-inner a');
-    links.forEach(function(a){
-      a.addEventListener('click', function(){
-        links.forEach(function(x){x.style.color='#94A3B8'});
-        a.style.color='#fff';
+(function(){
+  "use strict";
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[data-m]'));
+  var total = sections.length;
+  var doneKey = 'ardham-done-v1';
+  var themeKey = 'ardham-theme-v1';
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem(doneKey) || '{}'); } catch(e){}
+  var theme = localStorage.getItem(themeKey) || 'dark';
+  document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
+
+  // build nav
+  var nav = document.getElementById('nav');
+  sections.forEach(function(s){
+    var a = document.createElement('a');
+    a.href = '#' + s.id;
+    a.textContent = (s.getAttribute('data-m').padStart(2,'0')) + ' · ' + (s.querySelector('h2') || {}).textContent || s.id;
+    a.addEventListener('click', function(){ highlight(s.id); });
+    nav.appendChild(a);
+  });
+
+  // progress
+  var prog = document.getElementById('progbar');
+  var progText = document.getElementById('progtext');
+  function updateProgress(){
+    var n = sections.filter(function(s){ return done[s.id]; }).length;
+    prog.max = total; prog.value = n;
+    progText.textContent = n + '/' + total + ' mandalas';
+  }
+  // mark studied via double-click on section title
+  sections.forEach(function(s){
+    var h2 = s.querySelector('h2');
+    if(h2){
+      h2.title = 'Double-click to mark studied';
+      h2.style.cursor = 'pointer';
+      h2.addEventListener('dblclick', function(){
+        done[s.id] = !done[s.id];
+        localStorage.setItem(doneKey, JSON.stringify(done));
+        s.style.opacity = done[s.id] ? '.55' : '1';
+        updateProgress();
       });
-    });
-    // reveal cards with a gentle fade
-    var cards = document.querySelectorAll('.card');
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
-      });
-    }, {threshold:0.05});
-    cards.forEach(function(c){
-      c.style.opacity='0'; c.style.transition='opacity .6s ease, transform .6s ease'; c.style.transform='translateY(12px)';
-      io.observe(c);
+      if(done[s.id]) s.style.opacity = '.55';
+    }
+  });
+  updateProgress();
+
+  // search
+  var box = document.getElementById('search');
+  box.addEventListener('input', function(){
+    var q = box.value.trim().toLowerCase();
+    sections.forEach(function(s){
+      var text = s.textContent.toLowerCase();
+      s.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
     });
   });
+
+  // random
+  window.rand = function(){
+    var visible = sections.filter(function(s){ return s.style.display !== 'none'; });
+    if(!visible.length) return;
+    var pick = visible[Math.floor(Math.random()*visible.length)];
+    location.hash = '#' + pick.id;
+    highlight(pick.id);
+  };
+
+  // theme
+  window.toggleTheme = function(){
+    var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', cur);
+    localStorage.setItem(themeKey, cur);
+  };
+
+  // show/hide done
+  window.toggleDone = function(){
+    var hide = !window._hideDone;
+    window._hideDone = hide;
+    sections.forEach(function(s){
+      if(done[s.id] && hide) s.style.display = 'none';
+      else if(done[s.id] && !hide) s.style.display = '';
+    });
+  };
+
+  function highlight(id){
+    var a = nav.querySelector('a[href="#' + id + '"]');
+    if(a){ nav.querySelectorAll('a').forEach(function(x){x.style.color='#94A3B8'}); a.style.color='#fff'; }
+  }
+
+  // reveal cards
+  var cards = document.querySelectorAll('.card');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+    });
+  }, {threshold:0.03});
+  cards.forEach(function(c){
+    c.style.opacity='0'; c.style.transition='opacity .6s ease, transform .6s ease'; c.style.transform='translateY(10px)';
+    io.observe(c);
+  });
+
+  if(location.hash){ var h = location.hash.slice(1); setTimeout(function(){ highlight(h); }, 300); }
+})();
 </script>
 </body>
 </html>
