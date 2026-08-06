@@ -61,3 +61,10 @@ The moment you understand something — close the source and produce it yourself
 ---
 
 *"Learn anything. Master everything. From this world to beyond."*
+
+## Also
+
+- [docs/FAQ.md](./docs/FAQ.md)
+- [curriculum/README.md](./curriculum/README.md)
+- [SIBLINGS.md](./SIBLINGS.md)
+- [CHANGELOG.md](./CHANGELOG.md)
