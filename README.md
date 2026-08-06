@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/🕉️_Ardham_Shastra-Science_of_Meaning-8B5CF6?style=for-the-badge&labelColor=0B1220" alt="Ardham Shastra"/>
+  <img src="https://img.shields.io/badge/🎓_Ardham_Shastra-Science_of_Meaning-8B5CF6?style=for-the-badge&labelColor=0B1220" alt="Ardham Shastra"/>
 </p>
 
-<h1 align="center">🕉️ Ardham Shastra — Science of Meaning & Mastery</h1>
+<h1 align="center">🎓 Ardham Shastra — Science of Meaning & Mastery</h1>
 
 <p align="center">
   <strong>Learn anything. Master everything. From this world to beyond.</strong><br/>
@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Mandalas-40-8B5CF6?style=flat-square&labelColor=0B1220" alt="40 Mandalas"/>
+  <img src="https://img.shields.io/badge/Modules-40-8B5CF6?style=flat-square&labelColor=0B1220" alt="40 Learning Modules"/>
   <img src="https://img.shields.io/badge/Core-Śikṣā_·_Pāṇini_·_Nyāya_·_Memory-F59E0B?style=flat-square&labelColor=0B1220" alt="Core"/>
   <img src="https://img.shields.io/badge/Proof-RTMA_·_LICC-22C55E?style=flat-square&labelColor=0B1220" alt="Proof"/>
   <img src="https://img.shields.io/badge/Open_in-Chrome_·_Safari_·_Edge_·_Firefox-38BDF8?style=flat-square&labelColor=0B1220" alt="Browsers"/>
@@ -43,6 +43,16 @@ If this helps even one person walk from confusion to calm practice, it was worth
 
 ## Get it in 60 seconds
 
+### ⭐ Download the campus zip
+
+**→ [v1-ARDHAM-SHASTRA.html.zip](https://github.com/cipher0x9/ardham-shastra/releases/download/v5-mastery/v1-ARDHAM-SHASTRA.html.zip)**
+
+1. Download the zip
+2. Unzip
+3. Open **`v1-ARDHAM-SHASTRA.html`** in Chrome, Safari, Edge, or Firefox
+
+**Works offline. No account. No install. ~12 MB single file.**
+
 ### ⭐ Open the campus
 
 1. Download this repo (green **Code** → **Download ZIP**)
@@ -61,17 +71,17 @@ open university/v1-ARDHAM-SHASTRA.html
 
 ---
 
-## 🧭 What's inside — 40 Mandalas (v3)
+## 🧭 What's inside — 40 Learning Modules
 
-| # | Mandala | What you get |
+| # | Module | What you get |
 |---|---------|--------------|
-| 01 | **The Vow** | Why this exists, the one-page philosophy |
+| 01 | **The Path** | Why this exists, the one-page philosophy |
 | 02 | **Śikṣā — the Science of Learning** | The learning loop, spaced 1h→90d, active recall, Feynman, chunk±7 |
 | 03 | **Pāṇini — the Grammar of Everything** | Utsarga/apavāda/siddha meta-rules, anuvṛtti, adhikāra, real sūtras |
 | 04 | **Nyāya — the Logic Engine** | 4 pramāṇas, 5-member syllogism, hetvābhāsa fallacies, AI evals |
 | 05 | **Vaiśeṣika & Sāṃkhya — Maps of Reality** | Category maps (embeddings) and layer maps (the stack) |
 | 06 | **The Jñāna Mathematics** | Piṅgala binary, Yuktibhāṣā calculus, Āryabhaṭa, Rāmānujan |
-| 07 | **The Memory Arsenal** | Compression, lattices, story-wrapping, palaces, Vedic oral fidelity, SM-2 |
+| 07 | **The Memory Arsenal** | Compression, lattices, story-wrapping, palaces, oral memory traditions, SM-2 |
 | 08 | **The Universal Playbook** | The 7-step master method for ANY domain |
 | 09 | **AI-Assisted Learning (2026)** | Socratic prompts, practice generators, Nyāya verification of AI |
 | 10 | **Cosmos & Beyond** | Ancient astronomy → modern cosmology, ISRO/NASA/SpaceX, consciousness |
@@ -94,7 +104,7 @@ open university/v1-ARDHAM-SHASTRA.html
 | 27 | **History of Ideas** | The idea-ladder 1500 BCE → 2026, parallel ladders, deep time |
 | 28 | **Art & Expression** | The art grammar, deliberate practice, writing, bright design |
 | 29 | **Public Speaking & Presence** | The speaking grammar, rehearsal loop, voice & breath |
-| 30 | **The Final Mandala** | The mystery that remains, 90-day proof pack, transmission |
+| 30 | **The Final Module** | The mystery that remains, 90-day proof pack, transmission |
 | 31 | **Writing Deep** | The sūtra craft, 9WAYS bright forge, daily writing engine |
 | 32 | **Negotiation & Persuasion** | Interests/BATNA/options/criteria, pramāṇa persuasion |
 | 33 | **Systems & Networks** | Systems grammar, protocol sūtras, Nyāya debugging, fail-soft |

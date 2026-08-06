@@ -4,7 +4,7 @@
 1. **Download:** GitHub → Code → Download ZIP
 2. **Unzip:** double-click the downloaded file
 3. **Open:** `university/v1-ARDHAM-SHASTRA.html` in Chrome, Safari, Edge, or Firefox
-4. **Start:** read Mandala 01 (The Vow), then Mandala 02 (Śikṣā)
+4. **Start:** read Mandala 01 (The Path), then Mandala 02 (Śikṣā)
 
 ## On phone / tablet
 - Use the **full Chrome or Safari app** (not an in-app browser)

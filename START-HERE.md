@@ -1,6 +1,6 @@
 # START-HERE — Ardham Shastra · First Steps
 
-Welcome, learner. 🕉️ This campus teaches you **how to learn anything** — the master method, distilled from 2,500 years of Indian learning science + modern cognitive research.
+Welcome, learner. 🎓 This campus teaches you **how to learn anything** — the master method, distilled from 2,500 years of Indian learning science + modern cognitive research.
 
 ## Step 1 — Open the campus (60 seconds)
 
@@ -54,7 +54,7 @@ The moment you understand something — close the source and produce it yourself
 
 - 🌿 **UC Lab Free University** — multi-vendor UC/CC campus → `github.com/cipher0x9/uc-lab-free-university`
 - 🧠 **AI Lab Free University** — AI mastery campus → `github.com/cipher0x9/ai-lab-free-university`
-- 🕉️ **Ardham Shastra** (this) — the master-method campus
+- 🎓 **Ardham Shastra** (this) — the master-method campus
 
 🔗 Hub: **linktr.ee/cyphermonkey**
 
