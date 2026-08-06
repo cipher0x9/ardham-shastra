@@ -21,7 +21,7 @@ m("language", "Mandala 17", "Language Mastery — The 9-Way Polyglot Engine",
 <p>You can run multiple languages as separate apps on one brain-OS. The trick is <strong>identity isolation + shared grammar awareness</strong>: each language gets its own sound-space, its own sentence-pattern, its own culture — but you deliberately notice the shared skeleton underneath.</p>
 <div class="table-wrap"><table>
 <tr><th>Language</th><th>Script</th><th>Core sentence pattern</th><th>Special feature</th><th>Difficulty for EN speaker</th></tr>
-<tr><td>Telugu (తెలుగు)</td><td>Brahmic</td><td>SOV (Subject-Object-Verb)</td><td>Vowel harmony, agglutinative suffixes, double consonants</td><td>Hard (script+grammar)</td></tr>
+<tr><td>Telugu (తెలుగు)</td><td>Brahmic</td><td>SOV (Subject-Object-Verb)</td><td>Pathel harmony, agglutinative suffixes, double consonants</td><td>Hard (script+grammar)</td></tr>
 <tr><td>Sanskrit (संस्कृतम्)</td><td>Devanagari</td><td>SOV, free order</td><td>8 cases, 3 numbers, 10 verb classes, dual</td><td>Hard but logical</td></tr>
 <tr><td>Hindi (हिन्दी)</td><td>Devanagari</td><td>SOV</td><td>Ergative past, gender</td><td>Medium</td></tr>
 <tr><td>Tamil (தமிழ்)</td><td>Brahmic</td><td>SOV</td><td>Ancient continuous literature, sandhi</td><td>Hard</td></tr>
@@ -35,7 +35,7 @@ m("language", "Mandala 17", "Language Mastery — The 9-Way Polyglot Engine",
 """<div class="card emerald"><h3>The 90-day language arc (Śikṣā applied)</h3>
 <div class="table-wrap"><table>
 <tr><th>Week</th><th>Focus</th><th>Daily practice (45 min)</th><th>Proof</th></tr>
-<tr><td>1</td><td>Sound map + script</td><td>15 min sounds (minimal pairs), 30 min script drills</td><td>Read all vowels/cons aloud</td></tr>
+<tr><td>1</td><td>Sound map + script</td><td>15 min sounds (minimal pairs), 30 min script drills</td><td>Read all pathels/cons aloud</td></tr>
 <tr><td>2</td><td>Core pattern</td><td>10 sentences pattern-drilled, 10 new words</td><td>50-word active vocab</td></tr>
 <tr><td>3</td><td>Present tense</td><td>20 sentences with verbs, speak-aloud shadowing</td><td>5 recordings</td></tr>
 <tr><td>4</td><td>Questions + negation</td><td>Dialogues, ask/answer 10 Qs</td><td>1 real conversation</td></tr>
@@ -78,7 +78,7 @@ NEXT: review 1h → 24h → 7d → 30d → 90d</div>
 <p>For ANY language, build this one-page grammar map in week 2 — it's the utsarga layer:</p>
 <div class="table-wrap"><table>
 <tr><th>Component</th><th>Question it answers</th><th>Example (EN)</th></tr>
-<tr><td>Sound system</td><td>What sounds exist?</td><td>24 consonants, 20 vowels</td></tr>
+<tr><td>Sound system</td><td>What sounds exist?</td><td>24 consonants, 20 pathels</td></tr>
 <tr><td>Word order</td><td>Where do S, V, O go?</td><td>SVO</td></tr>
 <tr><td>Nouns</td><td>How do case/plural work?</td><td>s/es plural; 's possessive</td></tr>
 <tr><td>Pronouns</td><td>Who/whom/whose?</td><td>I/me/my/mine</td></tr>
@@ -240,7 +240,7 @@ m("uc-eng", "Mandala 20", "Communications Engineering — THE CALL MUST ALWAYS C
 <tr><td>Transport</td><td>SIP / RTP</td><td>The tongue — signaling + media</td><td>Peer tongue</td></tr>
 <tr><td>Life</td><td>E911 / RedSky</td><td>The covenant — emergency calls must reach PSAP</td><td>Life covenant</td></tr>
 </table></div>
-<p><strong>The engineer's vow:</strong> THE CALL MUST ALWAYS CONNECT. Every design decision serves that vow.</p></div>""",
+<p><strong>The engineer's path:</strong> THE CALL MUST ALWAYS CONNECT. Every design decision serves that path.</p></div>""",
 """<div class="card emerald"><h3>SIP call flow — the social contract</h3>
 <div class="flow">INVITE ──────────────→ (proxy)
 100 Trying ←───────────
@@ -281,7 +281,7 @@ BYE ──────────────────→
 <li><strong>Security:</strong> SIP TLS/SRTP, SBC hardening, fraud (toll fraud) prevention</li>
 </ul>
 <p>Full roadmap: the sibling UC Lab campus has 272 sections of depth — this mandala is the map.</p></div>""",
-"""<div class="green"><b>GREEN gate 20:</b> Recite the SIP call flow from memory (7 messages). Build the one-way-audio decision tree. Explain QoS marking (EF/AF31/BE) to a non-engineer. State the engineer's vow and why it matters.</div>""",
+"""<div class="green"><b>GREEN gate 20:</b> Recite the SIP call flow from memory (7 messages). Build the one-way-audio decision tree. Explain QoS marking (EF/AF31/BE) to a non-engineer. State the engineer's path and why it matters.</div>""",
 ])
 
 # ---------------------------------------------------------------- 21
@@ -626,11 +626,11 @@ m("speak", "Mandala 29", "Public Speaking & Presence — The Transmission Art",
 m("mystery", "Mandala 30", "The Final Mandala — The Mystery That Remains",
 """Every mandala ends where the next begins: with the unknown. The master is not the one who knows everything — the master is the one whose questions are better than before.""",
 [
-"""<div class="card indigo"><h3>The vow renewed</h3>
+"""<div class="card indigo"><h3>The path renewed</h3>
 <p>You came to learn anything. Now you know: <strong>learn anything = learn the method</strong>. The method is this campus — map, grammar, reason, practice, prove, space, teach — powered by meaning, verified by evidence, renewed by mystery.</p>
 <div class="quote">"An equation for me has no meaning unless it expresses a thought of God." — Rāmānujan
 "tat tvam asi" — you are that.
-"THE CALL MUST ALWAYS CONNECT." — the engineer's vow, and the learner's.</div></div>""",
+"THE CALL MUST ALWAYS CONNECT." — the engineer's path, and the learner's.</div></div>""",
 """<div class="card emerald"><h3>The 90-day proof pack (your exit artifact)</h3>
 <div class="table-wrap"><table>
 <tr><th>#</th><th>Artifact</th><th>Due</th></tr>

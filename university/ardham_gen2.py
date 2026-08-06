@@ -267,7 +267,7 @@ m("story", "Mandala 37", "Storytelling — Memory's Native Language",
 ])
 
 # 38 MENTORING
-m("mentor", "Mandala 38", "Mentoring — The Sacred Exchange",
+m("mentor", "Mandala 38", "Mentoring — The Timeless Exchange",
 """Every master was mentored; every mentor becomes more masterful. The guru-kuḷa exchange — guidance for effort, teaching for understanding — is the oldest compounding loop in learning.""",
 [
 """<div class="card indigo"><h3>The mentoring grammar (utsarga)</h3>

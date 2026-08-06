@@ -29,14 +29,14 @@
 ## The family
 - 🌿 **UC Lab Free University** — `uc-lab-free-university` (teal `#0F9B8E`)
 - 🧠 **AI Lab Free University** — `ai-lab-free-university` (indigo `#6366F1`)
-- 🕉️ **Ardham Shastra** — this campus (violet `#8B5CF6`)
+- 🎓 **Ardham Shastra** — this campus (violet `#8B5CF6`)
 
 ## One-line promise
 > There is a method to master anything. This campus gives you that method — and the proof habits to know you're actually learning.
 
 ## Signature block
 ```
-🕉️ Ardham Shastra · Science of Meaning & Mastery
+🎓 Ardham Shastra · Science of Meaning & Mastery
 Built by CYPHER0X9 · MIT · Free forever · Offline-first
 "Learn anything. Master everything. From this world to beyond."
 ```

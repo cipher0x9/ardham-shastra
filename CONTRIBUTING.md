@@ -1,6 +1,6 @@
 # CONTRIBUTING — Ardham Shastra
 
-Thank you for wanting to help learners master anything. 🙏
+Thank you for wanting to help learners master anything. ✨
 
 ## Ways to contribute
 - **Content:** add mandalas, deepen sections, fix typos, add examples
