@@ -1,20 +1,37 @@
-# SIBLINGS — The Campus Family
+# Sibling free universities
 
-Three free campuses, one method. All MIT, all offline-first, all built by CYPHER0X9.
+Same author · same safety bar · three free campuses · one hub.
 
-| Campus | Focus | Repo | Theme |
-|--------|-------|------|-------|
-| 🌿 **UC Lab Free University** | Multi-vendor Unified Communications & Contact Center — CUCM · CUBE · UCCE · SIP · E911 · CCaaS | `github.com/cipher0x9/uc-lab-free-university` | Teal `#0F9B8E` |
-| 🧠 **AI Lab Free University** | AI mastery — local + cloud · agents · evals · RTMA proof · zero-API-key labs | `github.com/cipher0x9/ai-lab-free-university` | Indigo `#6366F1` |
-| 🕉️ **Ardham Shastra** | The master method — learn anything, from this world to beyond | `github.com/cipher0x9/ardham-shastra` | Violet `#8B5CF6` |
+| | 🌿 **UC Lab** | 🧠 **AI Lab** | 🕉️ **Ardham Shastra** |
+|--|--|--|--|
+| **Who** | Voice / UC / Contact Center | AI learners & builders | Mastery-method / learning science |
+| **Repo** | [uc-lab-free-university](https://github.com/cipher0x9/uc-lab-free-university) | [ai-lab-free-university](https://github.com/cipher0x9/ai-lab-free-university) | [ardham-shastra](https://github.com/cipher0x9/ardham-shastra) |
+| **Open** | `v17-UNIVERSITY.html` | `v4-PORTFOLIO.html` | `v1-ARDHAM-SHASTRA.html` |
+| **Proof** | **LICC** Leg·ID·Counter·Capture | **RTMA** Run·Trace·Metric·Artifact | RTMA + LICC habits + Śikṣā loop |
+| **Browser** | Chrome · Safari · Edge · Firefox | Same | Same |
 
-## How they connect
-- **UC Lab** and **AI Lab** are the domain campuses: specific knowledge with proof habits.
-- **Ardham Shastra** is the meta-campus: the *method* that powers learning in both — and in any future domain you choose.
-- Use the 7-step playbook (Map → Grammar → Reason → Practice → Prove → Space → Teach) inside any campus, in any career, in any life.
+**Campus zips**
 
-## The hub
-🔗 **linktr.ee/cyphermonkey** — all campuses, all share links, one place.
+- UC: https://github.com/cipher0x9/uc-lab-free-university/releases/download/v17.1-mobile/v17-UNIVERSITY.html.zip  
+- AI: https://github.com/cipher0x9/ai-lab-free-university/releases/download/v4.1-mobile/v4-PORTFOLIO.html.zip  
+- Ardham: clone/download repo → open HTML (release optional)
 
-## The oath
-Remember · Bridge · Build-for-use · Plant · Stay unstuck · Protect · Remain a mystery.
+Hub: https://linktr.ee/cyphermonkey
+
+## Shared operator habit
+
+```text
+UC path proof:  Leg → ID → Counter → Capture
+AI build proof: Run → Trace · Metric → Artifact
+Mastery loop:   Intend → Practice → Recall → Space → Teach
+```
+
+Voice learners transfer isolation skills into AI voice pipelines.  
+AI learners transfer eval discipline into UC regression packs.  
+Ardham learners apply method to either domain.
+
+Neither sibling overwrites the other. All remain free, offline-readable, MIT.
+
+## Safety (all)
+
+Educational · MIT · no warranty · no secrets · lab safely · be kind

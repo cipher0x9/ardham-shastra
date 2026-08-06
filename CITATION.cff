@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: If you use this free university campus, please cite it.
+title: "Ardham Shastra"
+authors:
+  - name: "CYPHER0X9"
+    alias: cipher0x9
+repository-code: "https://github.com/cipher0x9/ardham-shastra"
+url: "https://github.com/cipher0x9/ardham-shastra"
+license: MIT
+date-released: "2026-08-01"
+abstract: >
+  Free offline mastery-method campus: Siksha, Panini, Nyaya, memory systems, and modern learning science.
+keywords:
+  - education
+  - free-learning
+  - offline
