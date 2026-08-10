@@ -4,7 +4,10 @@ Welcome, learner. 🎓 This campus teaches you **how to learn anything** — the
 
 ## Step 1 — Open the campus (60 seconds)
 
-1. Open **`university/v1-ARDHAM-SHASTRA.html`** in Chrome / Safari / Edge / Firefox
+**Preferred download:** [v1-ARDHAM-SHASTRA.html.zip](https://github.com/cipher0x9/ardham-shastra/releases/download/v5-mastery/v1-ARDHAM-SHASTRA.html.zip) (`v5-mastery`)
+
+1. Unzip → open **`v1-ARDHAM-SHASTRA.html`** in Chrome / Safari / Edge / Firefox  
+   (or from a clone: `university/v1-ARDHAM-SHASTRA.html`)
 2. Works offline. No account. No install.
 
 ## Step 2 — Read the Vow (Mandala 01)
