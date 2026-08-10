@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/cipher0x9/ardham-shastra/releases/download/v5-mastery/v1-ARDHAM-SHASTRA.html.zip"><img src="https://img.shields.io/badge/⬇_Download-Campus_zip-8B5CF6?style=for-the-badge&labelColor=0B1220" alt="Download"/></a>
   <a href="https://github.com/cipher0x9/uc-lab-free-university"><img src="https://img.shields.io/badge/🌿_Sibling-UC_Lab_Free-0F9B8E?style=for-the-badge&labelColor=0B1220" alt="UC Lab"/></a>
   <a href="https://github.com/cipher0x9/ai-lab-free-university"><img src="https://img.shields.io/badge/🧠_Sibling-AI_Lab_Free-6366F1?style=for-the-badge&labelColor=0B1220" alt="AI Lab"/></a>
   <a href="https://linktr.ee/cyphermonkey"><img src="https://img.shields.io/badge/🔗_Hub-Linktree-E8820C?style=for-the-badge&labelColor=0B1220" alt="Linktree"/></a>
