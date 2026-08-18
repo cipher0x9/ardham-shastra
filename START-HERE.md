@@ -1,73 +1,73 @@
-# START-HERE — Ardham Shastra · First Steps
+# START HERE — Ardham Shastra
 
-Welcome, learner. 🎓 This campus teaches you **how to learn anything** — the master method, distilled from 2,500 years of Indian learning science + modern cognitive research.
+## What this is (plain English)
 
-## Step 1 — Open the campus (60 seconds)
+This is not a school with lectures you binge.
 
-**Preferred download:** [v1-ARDHAM-SHASTRA.html.zip](https://github.com/cipher0x9/ardham-shastra/releases/download/v5-mastery/v1-ARDHAM-SHASTRA.html.zip) (`v5-mastery`)
+It is a **method for mastering any skill**, running in your browser. Forty short rooms (mandalas) teach the method. A review queue asks you to recall them later, the way a good coach would — not every day on everything, only when you are about to forget.
 
-1. Unzip → open **`v1-ARDHAM-SHASTRA.html`** in Chrome / Safari / Edge / Firefox  
-   (or from a clone: `university/v1-ARDHAM-SHASTRA.html`)
-2. Works offline. No account. No install.
+Think of it as:
 
-## Step 2 — Read the Vow (Mandala 01)
+- a **map** of how learning actually works
+- a **daily drill** that stores your scores on this computer only
+- a **90-day plan** you apply to one real skill (Sanskrit, SIP, math, writing — anything)
 
-Understand why this exists. The promise: **there is a method to master anything.**
+No account. No paywall. Nothing is uploaded.
 
-## Step 3 — Learn the core loop (Mandala 02 · Śikṣā)
+## What you do
 
+1. Install once (below), then open the site.
+2. Click **Campus**. Pick mandala 01.
+3. Read it once. Do not highlight the whole page.
+4. When the retrieve box appears, **write the answer from memory**, then reveal.
+5. Rate honestly: Again / Hard / Good / Easy. Easy means it was too easy — do not lie to the scheduler.
+6. At the green gate, type a real artifact (a file, a recording, a person you taught). That is the exam.
+7. Come back tomorrow. Click **Review**. Do whatever is due. Ten minutes is enough.
+
+When you have finished 01–04, pick **one live skill** and run it through **Path** for 90 days.
+
+## 60 seconds to open it
+
+You need Node.js 20+ and [pnpm](https://pnpm.io/installation).
+
+```bash
+cd ~/Build/ardham-shastra
+pnpm install
+pnpm dev
 ```
-EXPOSE → ENGAGE → RETRIEVE → APPLY → PROVE → TEACH
-```
 
-The moment you understand something — close the source and produce it yourself.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Step 4 — Pick ONE thing to master
+Offline copy you can keep: `pnpm build`, then open or serve the `out/` folder. Your review ledger stays in this browser.
 
-- A language? A craft? Mathematics? AI? UC/telecom? Music? Art?
-- Use the **Universal Playbook (Mandala 08)** — the same 7 steps work for all:
-  **Map → Grammar → Reason → Practice → Prove → Space → Teach**
+## First hour (do this order)
 
-## Step 5 — Run the 90-day arc (Mandala 10)
+1. **The Path** — write the vow from memory.
+2. **Śikṣā** — closed-book the learning loop.
+3. **Pāṇini** — one page of grammar for a skill you actually want.
+4. **Nyāya** — five-step proof of one claim in that skill.
+5. **Review** — rate the cards. FSRS-6 will not save a fake Easy.
 
-| Phase | Days | Focus |
-|-------|------|-------|
-| Map & Grammar | 1–7 | Category map, core rules, vocabulary |
-| Practice core | 8–21 | Deliberate practice, daily 45–90 min |
-| Exceptions & depth | 22–35 | Apavāda cases, harder problems |
-| Build the real thing | 36–49 | One complete project |
-| Teach & get feedback | 50–63 | Explain publicly, iterate |
-| Deepen & expand | 64–77 | Edge of the domain |
-| Capstone & handoff | 78–90 | Portfolio + teach another |
+## Words you will see
 
-## Step 6 — Prove as you go (RTMA + LICC)
+| Word | Meaning |
+|---|---|
+| Mandala | One room / module |
+| Śikṣā | Training of attention, sound, recall |
+| Pāṇini | Write few rules that generate many cases |
+| Nyāya | How you know: evidence, not vibes |
+| FSRS-6 | The scheduler that times your reviews |
+| RTMA | Run, Trace, Metric, Artifact — proof you did the thing |
+| LICC | Leg, ID, Counter, Capture — proof your claim can be checked |
 
-- **RTMA:** Run · Trace · Metric · Artifact
-- **LICC:** Leg · ID · Counter · Capture
-- No artifact, no claim.
+## 90 days
 
-## Step 7 — Return for review
+In the app: **Path**. Or [`curriculum/MASTERY-PLAYBOOK-90DAY.md`](./curriculum/MASTERY-PLAYBOOK-90DAY.md).
 
-- Re-read a mandala after 24h, 7d, 30d, 90d
-- This campus itself uses the spacing it teaches
+No artifact, no claim.
 
----
+## Old HTML campus
 
-## The family
-
-- 🌿 **UC Lab Free University** — multi-vendor UC/CC campus → `github.com/cipher0x9/uc-lab-free-university`
-- 🧠 **AI Lab Free University** — AI mastery campus → `github.com/cipher0x9/ai-lab-free-university`
-- 🎓 **Ardham Shastra** (this) — the master-method campus
-
-🔗 Hub: **linktr.ee/cyphermonkey**
-
----
+Still at [`legacy/university/v1-ARDHAM-SHASTRA.html`](./legacy/university/v1-ARDHAM-SHASTRA.html). v2 is the one to use.
 
 *"Learn anything. Master everything. From this world to beyond."*
-
-## Also
-
-- [docs/FAQ.md](./docs/FAQ.md)
-- [curriculum/README.md](./curriculum/README.md)
-- [SIBLINGS.md](./SIBLINGS.md)
-- [CHANGELOG.md](./CHANGELOG.md)
