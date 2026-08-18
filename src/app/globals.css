@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0b1220;
+  --ink-2: #121a2b;
+  --palm: #f3ead8;
+  --palm-dim: #d9cbb0;
+  --gold: #c9a227;
+  --saffron: #c45c26;
+  --lotus: #7c5cbf;
+  --leaf: #2f6b4f;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-palm: var(--palm);
+  --color-palm-dim: var(--palm-dim);
+  --color-gold: var(--gold);
+  --color-saffron: var(--saffron);
+  --color-lotus: var(--lotus);
+  --color-leaf: var(--leaf);
+  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-source-serif);
+}
+
+html {
+  background: var(--ink);
+  color: var(--palm);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124, 92, 191, 0.18), transparent 50%),
+    radial-gradient(900px 500px at 100% 0%, rgba(201, 162, 39, 0.12), transparent 45%),
+    var(--ink);
+}
+
+::selection {
+  background: rgba(201, 162, 39, 0.35);
+}
+
+.palm-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
