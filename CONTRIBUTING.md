@@ -19,8 +19,10 @@ Thank you for wanting to help learners master anything. ✨
 1. Fork the repo
 2. Create a branch: `git checkout -b my-mandala`
 3. Make your changes (additive only)
-4. Verify the campus still opens offline in a browser
+4. `pnpm test && pnpm typecheck && pnpm build`
 5. Open a pull request with a clear description
+
+v2 is a Next.js static campus. Do not resurrect CDN-backed HTML as the main surface. The v1 file lives under `legacy/` for history.
 
 ## Code of conduct
 Be kind. Be precise. Be a learner. No gatekeeping — this campus is free for everyone, everywhere.
