@@ -1,11 +1,5 @@
 import Link from "next/link";
-
-const NAV = [
-  { href: "/", label: "Campus" },
-  { href: "/path/", label: "Path" },
-  { href: "/review/", label: "Review" },
-  { href: "/prove/", label: "Prove" },
-];
+import { NavShell } from "./nav-shell";
 
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
@@ -17,25 +11,18 @@ export function Shell({ children }: { children: React.ReactNode }) {
             Ardham Shastra
           </h1>
           <p className="mt-1 max-w-md text-sm text-palm-dim">
-            Science of meaning. Lifetime mastery OS.
+            Learn anything. Master everything. One method, forty rooms.
           </p>
         </Link>
-        <nav className="flex flex-wrap gap-1 rounded-full border border-gold/20 bg-ink-2/80 p-1 text-sm">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-4 py-1.5 text-palm-dim hover:bg-gold/10 hover:text-gold"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavShell />
       </header>
       <div className="palm-rule mb-10" />
       {children}
       <footer className="mt-auto pt-16 text-center text-xs text-palm-dim">
-        Learn anything. Master everything. From this world to beyond.
+        No account · Progress stays on this machine ·{" "}
+        <Link href="/start/" className="text-gold hover:underline">
+          How to use
+        </Link>
       </footer>
     </div>
   );

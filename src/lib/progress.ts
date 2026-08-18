@@ -1,7 +1,7 @@
-import type { ProgressState, ProofEntry, StoredCard } from "./types";
+import type { ProgressState, ProofEntry, RatingLabel, StoredCard } from "./types";
 import { isDue, newStoredCard, reviewCard } from "./scheduler";
-import type { RatingLabel } from "./types";
 import { allCards } from "@/content/modules";
+import { todayKey } from "./format";
 
 const KEY = "ardham-shastra/progress/v2";
 
@@ -12,6 +12,8 @@ export function emptyProgress(now = new Date()): ProgressState {
     completedLessons: [],
     proofs: [],
     startedAt: now.toISOString(),
+    reviewStreak: 0,
+    reviewsToday: 0,
   };
 }
 
@@ -22,7 +24,13 @@ export function loadProgress(): ProgressState {
     if (!raw) return emptyProgress();
     const parsed = JSON.parse(raw) as ProgressState;
     if (parsed.version !== 2) return emptyProgress();
-    return parsed;
+    return {
+      ...emptyProgress(),
+      ...parsed,
+      cards: parsed.cards ?? {},
+      completedLessons: parsed.completedLessons ?? [],
+      proofs: parsed.proofs ?? [],
+    };
   } catch {
     return emptyProgress();
   }
@@ -32,12 +40,34 @@ export function saveProgress(state: ProgressState) {
   window.localStorage.setItem(KEY, JSON.stringify(state));
 }
 
+export function exportProgressJson(state: ProgressState): string {
+  return JSON.stringify(state, null, 2);
+}
+
 export function ensureCard(state: ProgressState, cardId: string): StoredCard {
   const existing = state.cards[cardId];
   if (existing) return existing;
   const created = newStoredCard(cardId);
   state.cards[cardId] = created;
   return created;
+}
+
+function bumpReviewMeta(state: ProgressState, now = new Date()): ProgressState {
+  const day = todayKey(now);
+  const prevDay = state.lastReviewDay;
+  let streak = state.reviewStreak ?? 0;
+  if (prevDay !== day) {
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const wasYesterday = prevDay === todayKey(yesterday);
+    streak = wasYesterday ? streak + 1 : 1;
+  }
+  return {
+    ...state,
+    lastReviewDay: day,
+    reviewStreak: streak,
+    reviewsToday: prevDay === day ? (state.reviewsToday ?? 0) + 1 : 1,
+  };
 }
 
 export function gradeCard(
@@ -49,7 +79,7 @@ export function gradeCard(
   const next = structuredClone(state);
   const card = ensureCard(next, cardId);
   next.cards[cardId] = reviewCard(card, rating, now);
-  return next;
+  return bumpReviewMeta(next, now);
 }
 
 export function markLessonComplete(state: ProgressState, lessonId: string): ProgressState {
@@ -61,7 +91,16 @@ export function markLessonComplete(state: ProgressState, lessonId: string): Prog
 }
 
 export function addProof(state: ProgressState, proof: ProofEntry): ProgressState {
-  return { ...state, proofs: [...state.proofs, proof] };
+  const without = state.proofs.filter((item) => item.moduleSlug !== proof.moduleSlug);
+  return { ...state, proofs: [...without, proof] };
+}
+
+export function setFocusSkill(state: ProgressState, skill: string): ProgressState {
+  return { ...state, focusSkill: skill.trim() };
+}
+
+export function completeOnboarding(state: ProgressState): ProgressState {
+  return { ...state, onboardingDone: true };
 }
 
 export function dueQueue(state: ProgressState, now = new Date()) {
@@ -82,5 +121,7 @@ export function retentionStats(state: ProgressState) {
     mature: mature.length,
     proofs: state.proofs.length,
     lessons: state.completedLessons.length,
+    streak: state.reviewStreak ?? 0,
+    today: state.reviewsToday ?? 0,
   };
 }

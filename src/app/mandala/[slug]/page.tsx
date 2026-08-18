@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { GateForm } from "@/components/gate-form";
-import { RetrievalDrill } from "@/components/retrieval-drill";
-import { MODULES, MODULE_BY_SLUG } from "@/content/modules";
+import { MandalaRoom } from "@/components/mandala-room";
+import { MODULES, MODULE_BY_SLUG, PILLAR_META } from "@/content/modules";
 
 type Params = { slug: string };
 
@@ -28,6 +27,7 @@ export default async function MandalaPage({ params }: { params: Promise<Params> 
   if (!mod) notFound();
 
   const lesson = mod.lessons[0];
+  const pillar = PILLAR_META[mod.pillar];
 
   return (
     <article>
@@ -35,6 +35,9 @@ export default async function MandalaPage({ params }: { params: Promise<Params> 
         Mandala {String(mod.number).padStart(2, "0")} · {mod.sanskrit}
       </p>
       <h2 className="mt-2 font-serif text-4xl text-palm">{mod.title}</h2>
+      <p className="mt-2 text-sm text-palm-dim">
+        {pillar.title} · ~{lesson?.minutes ?? 12} min read
+      </p>
       <p className="mt-4 max-w-3xl text-lg text-palm-dim">{mod.promise}</p>
 
       <ul className="mt-6 grid gap-2 text-sm text-palm sm:grid-cols-3">
@@ -49,33 +52,20 @@ export default async function MandalaPage({ params }: { params: Promise<Params> 
         <section className="mt-10 space-y-6">
           <h3 className="font-serif text-2xl text-gold">{lesson.title}</h3>
           {lesson.sections.map((section) => (
-            <div key={section.heading}>
+            <div key={section.heading} className="rounded-xl border border-palm/10 bg-ink-2/40 p-5">
               <h4 className="font-serif text-xl text-palm">{section.heading}</h4>
-              <p className="mt-2 max-w-3xl leading-relaxed text-palm-dim">{section.body}</p>
+              <p className="mt-3 max-w-3xl leading-relaxed text-palm-dim">{section.body}</p>
             </div>
           ))}
           {mod.pack ? (
             <p className="text-sm text-gold">
-              Deep pack in the repo: <code>{mod.pack}</code>
+              Deep pack: <code>{mod.pack}</code>
             </p>
           ) : null}
         </section>
       ) : null}
 
-      <section className="mt-12">
-        <h3 className="mb-4 font-serif text-2xl text-gold">Retrieve</h3>
-        <RetrievalDrill cards={mod.cards} />
-      </section>
-
-      <section className="mt-12">
-        <GateForm module={mod} />
-      </section>
-
-      <p className="mt-10 text-sm">
-        <Link href="/" className="text-gold hover:underline">
-          ← Campus map
-        </Link>
-      </p>
+      <MandalaRoom mod={mod} />
     </article>
   );
 }

@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0b1220;
-  --ink-2: #121a2b;
-  --palm: #f3ead8;
-  --palm-dim: #d9cbb0;
-  --gold: #c9a227;
-  --saffron: #c45c26;
-  --lotus: #7c5cbf;
-  --leaf: #2f6b4f;
+  --ink: #070b14;
+  --ink-2: #0f1628;
+  --ink-3: #151f35;
+  --palm: #f4ead8;
+  --palm-dim: #c9b896;
+  --gold: #d4af37;
+  --saffron: #e07a3a;
+  --lotus: #8b6fd4;
+  --leaf: #3d8b65;
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
   --color-palm: var(--palm);
   --color-palm-dim: var(--palm-dim);
   --color-gold: var(--gold);
@@ -27,21 +29,35 @@
 html {
   background: var(--ink);
   color: var(--palm);
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(124, 92, 191, 0.18), transparent 50%),
-    radial-gradient(900px 500px at 100% 0%, rgba(201, 162, 39, 0.12), transparent 45%),
+    radial-gradient(ellipse 80% 50% at 0% -10%, rgba(139, 111, 212, 0.22), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.14), transparent),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(61, 139, 101, 0.08), transparent),
     var(--ink);
 }
 
 ::selection {
-  background: rgba(201, 162, 39, 0.35);
+  background: rgba(212, 175, 55, 0.35);
 }
 
 .palm-rule {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+kbd {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+}
+
+code {
+  background: rgba(15, 22, 40, 0.8);
+  padding: 0.125rem 0.375rem;
+  font-size: 0.85em;
+  border-radius: 0.25rem;
 }

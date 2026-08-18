@@ -64,4 +64,9 @@ export type ProgressState = {
   completedLessons: string[];
   proofs: ProofEntry[];
   startedAt: string;
+  focusSkill?: string;
+  onboardingDone?: boolean;
+  lastReviewDay?: string;
+  reviewStreak?: number;
+  reviewsToday?: number;
 };
