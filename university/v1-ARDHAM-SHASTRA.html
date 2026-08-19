@@ -1623,7 +1623,7 @@ Then tell me the 3 weakest sentences in my explanation."</pre>
 </section>
 
 <!-- 16 PATH -->
-<section id="path" data-m="16">
+<section id="master-path" data-m="16">
   <div class="kicker">Module 16</div>
   <h2>The Master's Path — 90-Day Arc</h2>
   <p>Choose one thing. Run this arc. At the end you will not be "someone who tried" — you will be someone with proof.</p>
@@ -229339,7 +229339,8 @@ NEXT REVIEW DATE: ____</div>
   box.addEventListener('input', function(){
     var q = box.value.trim().toLowerCase();
     sections.forEach(function(s){
-      var text = s.textContent.toLowerCase();
+      if (!s.__st) s.__st = s.textContent.toLowerCase(); // cached: 12MB DOM
+      var text = s.__st;
       s.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
     });
   });
@@ -229621,17 +229622,19 @@ NEXT REVIEW DATE: ____</div>
 
       var matches = [];
       sections.forEach(function(sec){
-        var text = sec.innerText;
-        if (text.toLowerCase().indexOf(query) !== -1) {
+        // cached textContent: innerText forces sync layout on a 12MB DOM (multi-second freeze per keystroke)
+        if (!sec.__searchText) sec.__searchText = sec.textContent.toLowerCase();
+        var text = sec.__searchText;
+        if (text.indexOf(query) !== -1) {
           var mId = sec.getAttribute('id');
           var titleEl = sec.querySelector('h1, h2, h3');
-          var title = titleEl ? titleEl.innerText : mId;
+          var title = titleEl ? titleEl.textContent : mId;
 
           // Snippet extraction
-          var idx = text.toLowerCase().indexOf(query);
+          var idx = text.indexOf(query);
           var start = Math.max(0, idx - 40);
           var end = Math.min(text.length, idx + 100);
-          var snippet = text.substring(start, end).replace(/\s+/g, ' ');
+          var snippet = sec.textContent.substring(start, end).replace(/\s+/g, ' ');
 
           matches.push({ id: mId, title: title, snippet: snippet });
         }
@@ -229831,5 +229834,210 @@ NEXT REVIEW DATE: ____</div>
   })();
 
 </script>
+
+<!-- ===== ARDHAM UNIVERSE PACK: mandala universe map · progress ring · new cosmic themes · scroll progress · print ===== -->
+<style>
+  [data-theme="supernova"] {
+    --bg-main:#12041F; --bg-card:rgba(34,16,58,.85); --bg-card-border:rgba(192,132,252,.3);
+    --navy:#12041F; --navy2:#1E0B33; --card:#2A1245;
+    --gold:#C084FC; --indigo:#8B5CF6; --violet:#F472B6; --emerald:#34D399; --sky:#818CF8; --coral:#FB7185;
+    --white:#FAF5FF; --muted:#A78BFA; --text-primary:#FAF5FF; --text-secondary:#C4B5FD;
+    --glass-bg:rgba(24,8,42,.92); --glass-border:rgba(192,132,252,.25);
+    --shadow-glow:0 0 25px rgba(192,132,252,.3);
+  }
+  [data-theme="peacock"] {
+    --bg-main:#02211F; --bg-card:rgba(8,51,47,.85); --bg-card-border:rgba(45,212,191,.3);
+    --navy:#02211F; --navy2:#063632; --card:#0A423C;
+    --gold:#2DD4BF; --indigo:#14B8A6; --violet:#38BDF8; --emerald:#A3E635; --sky:#67E8F9; --coral:#FB7185;
+    --white:#ECFDF5; --muted:#5EEAD4; --text-primary:#ECFDF5; --text-secondary:#99F6E4;
+    --glass-bg:rgba(4,40,36,.92); --glass-border:rgba(45,212,191,.25);
+    --shadow-glow:0 0 25px rgba(45,212,191,.3);
+  }
+  #ardScrollProg{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:linear-gradient(90deg,var(--gold),var(--indigo),var(--emerald));box-shadow:0 0 10px color-mix(in srgb,var(--gold) 55%,transparent);transition:width .08s linear}
+  .ard-ring-wrap{display:inline-flex;align-items:center;margin-left:10px;vertical-align:middle}
+  .ard-ring{transform:rotate(-90deg)}
+  .ard-ring .bgc{stroke:rgba(148,163,184,.25)}
+  .ard-ring .fgc{stroke:url(#ardRingGrad);stroke-linecap:round;transition:stroke-dashoffset .7s cubic-bezier(.16,1,.3,1)}
+  .universe-sec{padding:26px 0 0;text-align:center}
+  .universe-sec .um-title{font-size:.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700}
+  .universe-sec .um-sub{color:var(--muted);font-size:.8rem;margin-top:2px}
+  #universeMap{max-width:460px;width:100%;height:auto;margin:10px auto 0;display:block}
+  #universeMap .um-node{cursor:pointer;transition:r .15s ease}
+  #universeMap .um-node:hover{filter:drop-shadow(0 0 6px var(--gold))}
+  #universeMap .um-halo{animation:um-spin 90s linear infinite;transform-origin:center}
+  @keyframes um-spin{to{transform:rotate(360deg)}}
+  .ard-toast{position:fixed;bottom:76px;left:50%;transform:translateX(-50%);z-index:210;background:var(--card,var(--navy2));color:var(--white);border:1px solid var(--gold);border-radius:999px;padding:8px 18px;font-size:.8rem;font-weight:600;box-shadow:var(--shadow-glow);display:none}
+  .theme-option-btn{position:relative}
+  .theme-option-btn .ard-dots{display:inline-flex;gap:3px;margin-right:6px;vertical-align:middle}
+  .theme-option-btn .ard-dots i{width:9px;height:9px;border-radius:50%;display:inline-block;border:1px solid rgba(127,127,127,.4)}
+  .theme-option-btn.ard-active{outline:2px solid var(--gold);outline-offset:1px}
+  @media print{
+    #ardham-app-header,.controls,nav,.prog,.back,.floating-nav-bar,.app-drawer,.app-modal-backdrop,#ardScrollProg,.universe-sec,.module-header-toolbar,.ard-toast{display:none!important}
+    body::before{display:none}
+    body{background:#fff!important;color:#000!important}
+    .card{break-inside:avoid;border:1px solid #ccc!important;box-shadow:none!important;background:#fff!important;color:#000!important}
+    h1,h2,h3{color:#000!important;-webkit-text-fill-color:#000}
+    p,li,td{color:#222!important}
+    section{padding:18px 0}
+  }
+</style>
+<script>
+(function(){
+  "use strict";
+  var doneKey='ardham-done-v1', themeKey='ardham-theme-v1';
+  var THEMES=['dark','light','aurora','amber','supernova','peacock'];
+  var THEME_DOTS={
+    dark:['#0B1220','#F59E0B','#6366F1'], light:['#F1F5F9','#0F172A','#6366F1'],
+    aurora:['#041219','#38BDF8','#14B8A6'], amber:['#180E05','#F59E0B','#F97316'],
+    supernova:['#12041F','#C084FC','#F472B6'], peacock:['#02211F','#2DD4BF','#A3E635']
+  };
+  var NODE_COLORS=['#F59E0B','#38BDF8','#8B5CF6','#22C55E','#FB7185','#6366F1'];
+
+  function toast(msg){
+    var t=document.getElementById('ardToast');
+    if(!t){ t=document.createElement('div'); t.id='ardToast'; t.className='ard-toast'; document.body.appendChild(t); }
+    t.textContent=msg; t.style.display='block';
+    clearTimeout(window.__ardT); window.__ardT=setTimeout(function(){ t.style.display='none'; },2200);
+  }
+  window.addEventListener('error', function(e){ try{ toast('⚠ Script error: '+(e.message||'unknown')); }catch(_){}});
+  window.addEventListener('unhandledrejection', function(){ try{ toast('⚠ Async error — see console'); }catch(_){}});
+
+  /* 1 — Scroll progress */
+  var prog=document.createElement('div'); prog.id='ardScrollProg'; document.body.appendChild(prog);
+  function updProg(){ var h=document.documentElement,max=h.scrollHeight-h.clientHeight; prog.style.width=(max>0?(h.scrollTop/max)*100:0)+'%'; }
+  window.addEventListener('scroll',updProg,{passive:true}); window.addEventListener('resize',updProg); updProg();
+
+  function readDone(){ try{ return JSON.parse(localStorage.getItem(doneKey)||'{}'); }catch(e){ return {}; } }
+  function sections(){ return Array.prototype.slice.call(document.querySelectorAll('section[data-m]')); }
+
+  /* 2 — Progress ring inside the sticky progress bar */
+  function buildRing(){
+    var bar=document.querySelector('.prog'); if(!bar||document.getElementById('ardRingSvg')) return;
+    var w=document.createElement('span'); w.className='ard-ring-wrap';
+    w.innerHTML='<svg class="ard-ring" id="ardRingSvg" width="30" height="30" viewBox="0 0 30 30">'
+      +'<defs><linearGradient id="ardRingGrad" x1="0" y1="0" x2="30" y2="30" gradientUnits="userSpaceOnUse">'
+      +'<stop stop-color="#F59E0B"/><stop offset=".5" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22C55E"/></linearGradient></defs>'
+      +'<circle class="bgc" cx="15" cy="15" r="11" fill="none" stroke-width="4"/>'
+      +'<circle class="fgc" id="ardRingFg" cx="15" cy="15" r="11" fill="none" stroke-width="4" stroke-dasharray="69.1" stroke-dashoffset="69.1"/></svg>';
+    bar.appendChild(w);
+    syncRing();
+  }
+  function syncRing(){
+    var fg=document.getElementById('ardRingFg'); if(!fg) return;
+    var secs=sections(), done=readDone();
+    var n=secs.filter(function(s){return done[s.id];}).length;
+    var pct=secs.length?n/secs.length:0;
+    fg.style.strokeDashoffset=(69.1*(1-pct)).toFixed(1);
+  }
+
+  /* 3 — Mandala Universe Map: every module a star around the Om core */
+  function buildUniverse(){
+    var header=document.querySelector('main.wrap')?null:null;
+    var anchor=document.querySelector('div.prog'); if(!anchor||document.getElementById('universeMap')) return;
+    var secs=sections(); if(!secs.length) return;
+    var done=readDone();
+    var CX=230,CY=215,R=150;
+    var s='<div class="universe-sec"><div class="um-title">✦ The Mandala Universe ✦</div>'
+      +'<div class="um-sub">'+secs.length+' modules in orbit · click a star to travel · gold = studied</div>'
+      +'<svg id="universeMap" viewBox="0 0 460 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Module universe map">'
+      +'<defs><radialGradient id="umCore" cx="50%" cy="50%" r="50%">'
+      +'<stop offset="0%" stop-color="#F59E0B" stop-opacity=".9"/><stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/></radialGradient></defs>'
+      +'<g class="um-halo">'
+      +'<circle cx="'+CX+'" cy="'+CY+'" r="'+R+'" fill="none" stroke="rgba(148,163,184,.18)" stroke-dasharray="3 6"/>'
+      +'<circle cx="'+CX+'" cy="'+CY+'" r="'+(R-34)+'" fill="none" stroke="rgba(148,163,184,.12)" stroke-dasharray="2 7"/>'
+      +'<circle cx="'+CX+'" cy="'+CY+'" r="'+(R+26)+'" fill="none" stroke="rgba(148,163,184,.09)" stroke-dasharray="1 8"/>'
+      +'</g>'
+      +'<circle cx="'+CX+'" cy="'+CY+'" r="56" fill="url(#umCore)" opacity=".35"/>'
+      +'<text x="'+CX+'" y="'+(CY+16)+'" text-anchor="middle" font-size="44" fill="#F59E0B" style="text-shadow:0 0 20px #F59E0B">ॐ</text>'
+      +'<text x="'+CX+'" y="'+(CY+44)+'" text-anchor="middle" font-size="11" fill="rgba(148,163,184,.9)" font-weight="700">ARDHAM UNIVERSE</text>';
+    secs.forEach(function(sec,i){
+      var a=(i/secs.length)*2*Math.PI-Math.PI/2;
+      var x=(CX+R*Math.cos(a)).toFixed(1), y=(CY+R*Math.sin(a)).toFixed(1);
+      var c=NODE_COLORS[i%NODE_COLORS.length];
+      var studied=!!done[sec.id];
+      var title=(sec.querySelector('h2')||{}).textContent||sec.id;
+      s+='<g class="um-node" data-sid="'+sec.id+'">'
+        +'<title>'+(sec.getAttribute('data-m')+'. '+title).replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</title>'
+        +'<circle cx="'+x+'" cy="'+y+'" r="13" fill="'+(studied?c:'transparent')+'" fill-opacity="'+(studied?'0.9':'0.12')+'" stroke="'+c+'" stroke-width="2"/>'
+        +'<text x="'+x+'" y="'+(+y+3.5)+'" text-anchor="middle" font-size="9" font-weight="800" fill="'+(studied?'#0B1220':c)+'">'+sec.getAttribute('data-m')+'</text>'
+        +'</g>';
+    });
+    s+='</svg></div>';
+    var div=document.createElement('div'); div.innerHTML=s;
+    anchor.parentNode.insertBefore(div.firstChild, anchor);
+    var map=document.getElementById('universeMap');
+    map.querySelectorAll('.um-node').forEach(function(g){
+      g.addEventListener('click',function(){
+        var sec=document.getElementById(g.dataset.sid);
+        if(sec){ sec.scrollIntoView({behavior:'smooth',block:'start'}); try{ history.replaceState(null,'','#'+g.dataset.sid); }catch(e){} }
+      });
+    });
+  }
+  function syncUniverse(){
+    var map=document.getElementById('universeMap'); if(!map) return;
+    var done=readDone();
+    map.querySelectorAll('.um-node').forEach(function(g){
+      var c=g.querySelector('circle'), t=g.querySelector('text');
+      var studied=!!done[g.dataset.sid];
+      var stroke=c.getAttribute('stroke');
+      c.setAttribute('fill', studied?stroke:'transparent');
+      c.setAttribute('fill-opacity', studied?'0.9':'0.12');
+      t.setAttribute('fill', studied?'#0B1220':stroke);
+    });
+  }
+
+  /* sync ring + map whenever the progress text changes (any study toggle path) */
+  var progText=document.getElementById('progtext');
+  if(progText) new MutationObserver(function(){ syncRing(); syncUniverse(); }).observe(progText,{childList:true,characterData:true,subtree:true});
+  var drawerText=document.getElementById('drawer-progress-text');
+  if(drawerText) new MutationObserver(function(){ syncRing(); syncUniverse(); }).observe(drawerText,{childList:true,characterData:true,subtree:true});
+
+  /* 4 — Theme gallery: dots on existing buttons + two new cosmic themes + active state */
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try{ localStorage.setItem(themeKey, t); }catch(e){}
+    syncThemeButtons();
+  }
+  function syncThemeButtons(){
+    var cur=document.documentElement.getAttribute('data-theme')||'dark';
+    document.querySelectorAll('.theme-option-btn').forEach(function(b){
+      b.classList.toggle('ard-active', b.dataset.themeVal===cur);
+    });
+  }
+  function buildThemeGallery(){
+    var grid=document.querySelector('.theme-option-btn')&&document.querySelector('.theme-option-btn').parentNode;
+    if(!grid) return;
+    /* add missing theme buttons */
+    [['supernova','💫 Supernova'],['peacock','🦚 Peacock']].forEach(function(pair){
+      if(grid.querySelector('[data-theme-val="'+pair[0]+'"]')) return;
+      var b=document.createElement('button');
+      b.className='app-btn theme-option-btn'; b.dataset.themeVal=pair[0]; b.textContent=pair[1];
+      b.addEventListener('click',function(){ setTheme(pair[0]); });
+      grid.appendChild(b);
+    });
+    /* swatch dots + unified click */
+    document.querySelectorAll('.theme-option-btn').forEach(function(b){
+      if(!b.querySelector('.ard-dots')){
+        var d=THEME_DOTS[b.dataset.themeVal]||['#333','#888','#bbb'];
+        var span=document.createElement('span'); span.className='ard-dots';
+        span.innerHTML='<i style="background:'+d[0]+'"></i><i style="background:'+d[1]+'"></i><i style="background:'+d[2]+'"></i>';
+        b.insertBefore(span,b.firstChild);
+      }
+      if(!b.__ardWired){ b.__ardWired=true; b.addEventListener('click',function(){ setTheme(b.dataset.themeVal); }); }
+    });
+    syncThemeButtons();
+  }
+
+  /* 5 — upgrade legacy 🌗 Theme button: cycle all six themes */
+  window.toggleTheme=function(){
+    var cur=document.documentElement.getAttribute('data-theme')||'dark';
+    setTheme(THEMES[(THEMES.indexOf(cur)+1)%THEMES.length]);
+    toast('Theme: '+cur+' → '+document.documentElement.getAttribute('data-theme'));
+  };
+
+  buildRing(); buildUniverse(); buildThemeGallery(); syncRing();
+})();
+</script>
+
 </body>
 </html>
