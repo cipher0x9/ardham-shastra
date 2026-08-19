@@ -11,8 +11,8 @@
 
 <p align="center">
   <a href="https://github.com/cipher0x9/ardham-shastra/releases/download/v5-mastery/v1-ARDHAM-SHASTRA.html.zip"><img src="https://img.shields.io/badge/⬇_Download-Campus_zip-8B5CF6?style=for-the-badge&labelColor=0B1220" alt="Download"/></a>
-  <a href="https://github.com/cipher0x9/uc-lab-free-university"><img src="https://img.shields.io/badge/🌿_Sibling-UC_Lab_Free-0F9B8E?style=for-the-badge&labelColor=0B1220" alt="UC Lab"/></a>
-  <a href="https://github.com/cipher0x9/ai-lab-free-university"><img src="https://img.shields.io/badge/🧠_Sibling-AI_Lab_Free-6366F1?style=for-the-badge&labelColor=0B1220" alt="AI Lab"/></a>
+  <a href="https://github.com/cipher0x9/uc-lab-free-university-mesmerizing"><img src="https://img.shields.io/badge/🌿_Sibling-UC_Lab_Free-0F9B8E?style=for-the-badge&labelColor=0B1220" alt="UC Lab"/></a>
+  <a href="https://github.com/cipher0x9/ai-lab-free-university-mesmerizing"><img src="https://img.shields.io/badge/🧠_Sibling-AI_Lab_Free-6366F1?style=for-the-badge&labelColor=0B1220" alt="AI Lab"/></a>
   <a href="https://linktr.ee/cyphermonkey"><img src="https://img.shields.io/badge/🔗_Hub-Linktree-E8820C?style=for-the-badge&labelColor=0B1220" alt="Linktree"/></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-159947?style=for-the-badge&labelColor=0B1220" alt="MIT"/></a>
 </p>
@@ -23,6 +23,21 @@
   <img src="https://img.shields.io/badge/Proof-RTMA_·_LICC-22C55E?style=flat-square&labelColor=0B1220" alt="Proof"/>
   <img src="https://img.shields.io/badge/Open_in-Chrome_·_Safari_·_Edge_·_Firefox-38BDF8?style=flat-square&labelColor=0B1220" alt="Browsers"/>
 </p>
+
+<p align="center">
+  <img src="./docs/assets/preview.png" alt="Ardham Shastra - mandala universe map with 41 module stars" width="100%"/>
+</p>
+
+---
+
+## ✨ Latest build — v1 universe edition
+
+- **Mandala Universe Map** — all 41 modules as stars orbiting the ॐ core; click a star to travel, studied stars turn gold
+- **6 cosmic themes** — Dark · Light · Aurora · Amber · 💫 Supernova · 🦚 Peacock — with swatch dots and active outline
+- **Instant search** — rebuilt engine (cached text); no more layout freeze on the 12 MB campus
+- **Live progress ring** + gradient scroll progress + module study buttons + drawer index
+- **Export center** — HTML · PDF · Markdown · progress JSON · question-bank CSV
+- One heavy single file: `university/v1-ARDHAM-SHASTRA.html` — 41 mandalas · 15k+ Q-bank items · zero CDN
 
 ---
 
@@ -35,8 +50,8 @@ This campus is the answer. **Ardham Shastra** (అర్థం శాస్త�
 The promise: **there is a method to master anything.** This campus gives you that method — and the proof habits to know you're actually learning.
 
 Sibling voice packs (already free):
-- 🌿 **[UC Lab Free University](https://github.com/cipher0x9/uc-lab-free-university)** — multi-vendor UC/CC campus
-- 🧠 **[AI Lab Free University](https://github.com/cipher0x9/ai-lab-free-university)** — AI mastery campus
+- 🌿 **[UC Lab Free University](https://github.com/cipher0x9/uc-lab-free-university-mesmerizing)** — multi-vendor UC/CC campus
+- 🧠 **[AI Lab Free University](https://github.com/cipher0x9/ai-lab-free-university-mesmerizing)** — AI mastery campus
 
 If this helps even one person walk from confusion to calm practice, it was worth sharing.
 

@@ -55,8 +55,8 @@ The moment you understand something — close the source and produce it yourself
 
 ## The family
 
-- 🌿 **UC Lab Free University** — multi-vendor UC/CC campus → `github.com/cipher0x9/uc-lab-free-university`
-- 🧠 **AI Lab Free University** — AI mastery campus → `github.com/cipher0x9/ai-lab-free-university`
+- 🌿 **UC Lab Free University** — multi-vendor UC/CC campus → `github.com/cipher0x9/uc-lab-free-university-mesmerizing`
+- 🧠 **AI Lab Free University** — AI mastery campus → `github.com/cipher0x9/ai-lab-free-university-mesmerizing`
 - 🎓 **Ardham Shastra** (this) — the master-method campus
 
 🔗 Hub: **linktr.ee/cyphermonkey**
