@@ -41,10 +41,10 @@ open university/v1-ARDHAM-SHASTRA.html
 
 | What | Link |
 |------|------|
-| 🌿 UC Lab | https://github.com/cipher0x9/uc-lab-free-university |
-| 🌿 UC campus zip | https://github.com/cipher0x9/uc-lab-free-university/releases/download/v20.2-resources/v17-UNIVERSITY.html.zip |
-| 🧠 AI Lab | https://github.com/cipher0x9/ai-lab-free-university |
-| 🧠 AI campus zip | https://github.com/cipher0x9/ai-lab-free-university/releases/download/v4.2-mobile/v4-PORTFOLIO.html.zip |
+| 🌿 UC Lab | https://github.com/cipher0x9/uc-lab-free-university-mesmerizing |
+| 🌿 UC campus zip | https://github.com/cipher0x9/uc-lab-free-university-mesmerizing/releases/download/v20.2-resources/v17-UNIVERSITY.html.zip |
+| 🧠 AI Lab | https://github.com/cipher0x9/ai-lab-free-university-mesmerizing |
+| 🧠 AI campus zip | https://github.com/cipher0x9/ai-lab-free-university-mesmerizing/releases/download/v4.2-mobile/v4-PORTFOLIO.html.zip |
 
 ## Notes
 
