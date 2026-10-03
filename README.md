@@ -142,6 +142,18 @@ Ancient sources, one universal playbook. Every domain — language, math, music,
 
 ---
 
+## Illustrated study pack
+
+A short offline map of the same forty campus modules. The campus file remains the book.
+
+- [learn/index.html](./learn/index.html) — hub
+- [Topic cards](./learn/cards/index.html) — one illustrated card per module, with its practice gate
+- [Timeline](./learn/timeline.html) — eras and years already named in the campus and the public notes
+- [Study path](./learn/study-path.html) — campus order, and what to practise at each step
+- [PDF summary](./learn/pdf/ardham-shastra-summary.pdf) — six-page printable map
+
+---
+
 ## License & brand
 
 - **MIT License** — free forever, share freely, learn freely
@@ -156,5 +168,6 @@ Ancient sources, one universal playbook. Every domain — language, math, music,
 - [SIBLINGS.md](./SIBLINGS.md) — campus family
 - [DOWNLOADS.md](./DOWNLOADS.md) — all release assets
 - [HOW-TO-GET.md](./HOW-TO-GET.md) — full instructions
+- [learn/index.html](./learn/index.html) — illustrated cards, timeline, study path, PDF summary
 
 **[docs/FAQ.md](./docs/FAQ.md)** · **[SIBLINGS.md](./SIBLINGS.md)**

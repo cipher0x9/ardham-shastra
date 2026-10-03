@@ -38,7 +38,7 @@ The moment you understand something — close the source and produce it yourself
 | Build the real thing | 36–49 | One complete project |
 | Teach & get feedback | 50–63 | Explain publicly, iterate |
 | Deepen & expand | 64–77 | Edge of the domain |
-| Capstone & handoff | 78–90 | Portfolio + teach another |
+| Capstone | 78–90 | Portfolio + teach another |
 
 ## Step 6 — Prove as you go (RTMA + LICC)
 
@@ -67,5 +67,6 @@ The moment you understand something — close the source and produce it yourself
 
 ## Also
 
+- [learn/index.html](./learn/index.html) — illustrated topic cards, timeline, study path, and a short PDF map
 - [docs/FAQ.md](./docs/FAQ.md)
 - [SIBLINGS.md](./SIBLINGS.md)
