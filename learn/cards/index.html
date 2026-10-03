@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic cards — Ardham Shastra</title>
+<style>
+:root {
+  --ink: #1b2430;
+  --muted: #3a4858;
+  --line: #e3d5c4;
+  --card: rgba(255, 253, 248, .94);
+  --link: #1a4f86;
+  --practice: #e5f6ec;
+  --practice-ink: #123328;
+  --focus: #1d4e89;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 1.05rem/1.65 "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(1100px 520px at 0% -10%, #fde4cf 0%, transparent 55%),
+    radial-gradient(900px 480px at 100% 0%, #d5e8fb 0%, transparent 50%),
+    radial-gradient(800px 420px at 50% 110%, #d9f3e4 0%, transparent 46%),
+    linear-gradient(180deg, #fbf6ee 0%, #eef4f2 42%, #f7f2e8 100%);
+  min-height: 100vh;
+}
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip {
+  position: absolute; left: 12px; top: -40px; background: #1b2430; color: #f7f1e8;
+  padding: .5rem .8rem; border-radius: 8px; z-index: 5;
+}
+.skip:focus { top: 12px; }
+.top {
+  position: sticky; top: 0; z-index: 4;
+  background: rgba(251, 246, 238, .92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.top-inner, .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.1rem; }
+.top-inner { display: flex; flex-wrap: wrap; gap: .4rem .7rem; align-items: center; padding-top: .55rem; padding-bottom: .55rem; }
+.brand { font-family: Georgia, Palatino, serif; font-weight: 700; color: var(--ink); text-decoration: none; margin-right: auto; }
+nav { display: flex; flex-wrap: wrap; gap: .35rem; }
+nav a, .chip, button.go {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: .35rem .8rem;
+  border-radius: 999px; text-decoration: none; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); font: inherit;
+}
+nav a[aria-current="page"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.wrap { padding-top: 1.4rem; padding-bottom: 3rem; }
+h1, h2, h3 { font-family: Georgia, Palatino, serif; line-height: 1.25; font-weight: 700; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: .2rem 0 .6rem; }
+h2 { font-size: 1.45rem; margin: 0 0 .4rem; }
+.lede { font-size: 1.12rem; max-width: 42rem; }
+.muted { color: var(--muted); }
+.hero {
+  display: grid; gap: 1rem;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+.panel, .door, .topic, .step, .era, .callout {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(70, 46, 20, .05);
+}
+.panel { padding: 1rem 1.1rem; }
+.doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; margin: 1rem 0 1.6rem; }
+.door { padding: 1rem; text-decoration: none; color: inherit; display: block; }
+.door strong { display: block; font-family: Georgia, Palatino, serif; font-size: 1.2rem; margin-bottom: .25rem; }
+.flow { display: flex; flex-wrap: wrap; gap: .45rem; margin: .8rem 0; }
+.flow span {
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: .35rem .7rem; font-weight: 650;
+}
+.method-svg { width: 100%; height: auto; display: block; }
+.index-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .45rem; }
+.index-list a { text-decoration: none; color: inherit; display: block; padding: .55rem .7rem; border-radius: 12px; background: #fff; border: 1px solid var(--line); min-height: 44px; }
+.index-list a:hover { border-color: #1a4f86; }
+.kicker { letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; color: var(--muted); margin: 0 0 .2rem; font-weight: 700; }
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .8rem 0 1rem; }
+input[type="search"] {
+  min-height: 44px; flex: 1 1 220px; border-radius: 12px; border: 1px solid var(--line);
+  padding: .4rem .8rem; font: inherit; color: var(--ink); background: #fff;
+}
+.chip[aria-pressed="true"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+.topic { overflow: hidden; display: flex; flex-direction: column; }
+.topic svg { width: 100%; height: auto; display: block; }
+.topic .body { padding: .9rem 1rem 1.1rem; }
+.topic ul, .step ul { margin: .4rem 0 .7rem; padding-left: 1.1rem; }
+.practice { background: var(--practice); color: var(--practice-ink); border-radius: 14px; padding: .7rem .8rem; }
+.practice strong { font-family: Georgia, Palatino, serif; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before {
+  content: ""; position: absolute; left: 9.35rem; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(#e7b89a, #7fbfa4, #8eafd4);
+}
+.era { display: grid; grid-template-columns: 8.4rem 1fr; gap: .8rem; padding: .9rem 1rem; margin: 0 0 .7rem .2rem; position: relative; }
+.era .when { font-family: Georgia, Palatino, serif; font-weight: 700; }
+.dot {
+  position: absolute; left: 8.7rem; top: 1.3rem; width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 3px solid #1b2430;
+}
+.step { padding: 1rem 1.05rem; margin: 0 0 .8rem; }
+.step .num { font-family: Georgia, Palatino, serif; color: var(--muted); }
+.callout { padding: 1rem 1.1rem; margin: 1rem 0; background: #fff8ec; }
+footer.note { margin-top: 2rem; color: var(--muted); font-size: .95rem; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { text-align: left; vertical-align: top; padding: .45rem .5rem; border-bottom: 1px solid var(--line); }
+th { font-size: .85rem; }
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .tl::before { left: .45rem; }
+  .era { grid-template-columns: 1fr; margin-left: 1.2rem; }
+  .dot { left: -1.05rem; }
+}
+@media print {
+  .top, .controls, .skip { display: none !important; }
+  body { background: #fff; }
+  .topic, .era, .step, .panel { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top"><div class="top-inner">
+<a class="brand" href="../index.html">Ardham Shastra</a>
+<nav aria-label="Learn"><a href="../index.html">Home</a><a href="./index.html" aria-current="page">Topic cards</a><a href="../timeline.html">Timeline</a><a href="../study-path.html">Study path</a><a href="../pdf/ardham-shastra-summary.pdf">PDF summary</a></nav>
+</div></header>
+<main id="content" class="wrap">
+
+<p class="kicker">Illustrated cards</p>
+<h1>Forty modules, one method</h1>
+<p class="lede">Each card is one mandala from the campus file, in campus order. The picture is a memory hook. The practice line is that module’s gate.</p>
+<div class="controls">
+<label class="muted" for="q">Search</label>
+<input id="q" type="search" placeholder="Try Pāṇini, sleep, SIP, pramāṇa" autocomplete="off">
+<div role="group" aria-label="Filter by stage"><button class="chip" type="button" data-stage="all" aria-pressed="true">All 40</button><button class="chip" type="button" data-stage="core" aria-pressed="false">Core method</button><button class="chip" type="button" data-stage="fuel" aria-pressed="false">Fuel and proof</button><button class="chip" type="button" data-stage="domain" aria-pressed="false">Domain grammar</button><button class="chip" type="button" data-stage="transmit" aria-pressed="false">Transmission</button></div>
+</div>
+<p id="empty" class="callout" hidden>No module matches that filter.</p>
+<div class="gallery" id="gallery">
+<article class="topic" id="m01" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t1">
+<title id="t1">Module 01. Meaning, not a vessel</title>
+<desc>Illustrated mark for module 01, Meaning, not a vessel.</desc>
+<defs>
+<linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg1)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">01</text>
+<circle cx="250" cy="150" r="78" fill="none" stroke="#9a4e32" stroke-width="8"/>
+<circle cx="360" cy="150" r="78" fill="#fff" fill-opacity=".45" stroke="#9a4e32" stroke-width="6"/>
+<circle cx="305" cy="118" r="46" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="305" cy="118" r="10" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 01 · Core method</p>
+<h2>The Path — Why This Exists</h2>
+<p>Ardham Shastra (అర్థం శాస్త్రం — the science of meaning) is the master-method campus. The promise: there is a method to master anything.</p>
+<ul><li>అర్థం means meaning. A fact without meaning is noise; a fact with meaning is knowledge; knowledge applied becomes power; power shared becomes liberation.</li><li>Three layers: this world (skills and livelihood), the universe (science and mathematics), and beyond (consciousness, time, and the mystery that remains).</li><li>Talent is not the gate. The campus gives the method and the proof habits that show you are actually learning.</li></ul>
+<p class="practice"><strong>Practise.</strong> In one sentence, explain why this campus exists and what the word Ardham means. Then teach it to someone in 60 seconds.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#path">Open module 01 in the campus</a>
+· <a href="../study-path.html#s01">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m02" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t2">
+<title id="t2">Module 02. Close the source</title>
+<desc>Illustrated mark for module 02, Close the source.</desc>
+<defs>
+<linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d7f0e4"/>
+<stop offset="100%" stop-color="#b7e0cc"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg2)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">02</text>
+<path d="M250 170 A70 70 0 1 1 390 170" fill="none" stroke="#1f6b52" stroke-width="8" stroke-linecap="round"/>
+<path d="M378 150 L404 172 L372 186" fill="#1f6b52"/>
+<circle cx="250" cy="168" r="8" fill="#1b2430"/>
+<circle cx="320" cy="98" r="8" fill="#1b2430"/>
+<circle cx="390" cy="168" r="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 02 · Core method</p>
+<h2>Śikṣā — The Science of Learning</h2>
+<p>Śikṣā (शिक्षा) is the first of the six Vedāṅgas. It began as precise pronunciation so knowledge could cross generations without corruption. Learning is retrieval, spacing, and use.</p>
+<ul><li>The loop: EXPOSE → ENGAGE → RETRIEVE → APPLY → PROVE → TEACH. The moment you understand something, close the source and produce it yourself.</li><li>Reviews land at +1 hour, +24 hours, +7 days, +30 days, and +90 days. Active recall and the Feynman explanation (plain language, find the gap, close it) are the daily tools.</li><li>Chunk ±7: Miller’s 7±2, and closer to 4±1 in later research. Do not memorize 40 facts. Find the few laws that generate them. Pāṇini used about 4,000 sūtras instead of a dictionary of every word.</li></ul>
+<p class="practice"><strong>Practise.</strong> Set a review schedule for one topic: 1h → 24h → 7d → 30d → 90d. After the 24h review, write the Śikṣā loop from memory.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#siksa">Open module 02 in the campus</a>
+· <a href="../study-path.html#s02">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m03" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t3">
+<title id="t3">Module 03. Rules that generate</title>
+<desc>Illustrated mark for module 03, Rules that generate.</desc>
+<defs>
+<linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg3)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">03</text>
+<line x1="320" y1="200" x2="320" y2="120" stroke="#1b2430" stroke-width="4"/>
+<line x1="320" y1="120" x2="230" y2="80" stroke="#1e4f86" stroke-width="4"/>
+<line x1="320" y1="120" x2="320" y2="72" stroke="#1e4f86" stroke-width="4"/>
+<line x1="320" y1="120" x2="410" y2="80" stroke="#1e4f86" stroke-width="4"/>
+<circle cx="230" cy="74" r="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="320" cy="64" r="16" fill="#1e4f86"/>
+<circle cx="410" cy="74" r="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 03 · Core method</p>
+<h2>Pāṇini — The Grammar of Everything</h2>
+<p>The Aṣṭādhyāyī is a generative grammar: a small set of rules that produce infinite valid forms. Every domain has a grammar. Find it and you stop memorizing instances.</p>
+<ul><li>Utsarga is the general rule (about 80% of cases). Apavāda is the exception, learned after the general rule. Siddha is the derived result, checked against real output.</li><li>Anuvṛtti: a rule stated once stays in force, so later you only note what changes. Adhikāra: draw the domain map before the details.</li><li>Module 03 dates the Aṣṭādhyāyī to about the 4th century BCE and gives a taste of real sūtras (1.1.1 vṛddhir ādaiC through 1.4.14 suptiṅantaṃ padam). The history ladder in Module 27 places Pāṇini at about 500 BCE.</li></ul>
+<p class="practice"><strong>Practise.</strong> Map one domain into utsarga, apavāda, and siddha: the general rule, two exceptions, and one verified output. Teach the grammar-to-computation connection in 60 seconds.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#panini">Open module 03 in the campus</a>
+· <a href="../study-path.html#s03">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m04" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t4">
+<title id="t4">Module 04. Lead the mind</title>
+<desc>Illustrated mark for module 04, Lead the mind.</desc>
+<defs>
+<linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8e4f1"/>
+<stop offset="100%" stop-color="#efd0e6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg4)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">04</text>
+<rect x="210" y="70" width="230" height="22" rx="8" fill="#7a3e68"/>
+<rect x="230" y="100" width="210" height="22" rx="8" fill="#7a3e68" fill-opacity=".75"/>
+<rect x="250" y="130" width="190" height="22" rx="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="270" y="160" width="170" height="22" rx="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="290" y="190" width="150" height="22" rx="8" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 04 · Core method</p>
+<h2>Nyāya — The Logic Engine</h2>
+<p>Nyāya is the science of reasoning. The Nyāya-sūtra of Gautama opens with 16 categories. Correct reasoning was the path to correct knowledge, and correct knowledge was liberation from error.</p>
+<ul><li>Four pramāṇas: pratyakṣa (perception), anumāna (inference), upamāna (comparison), śabda (testimony from a trustworthy source). Ask which one you are using. Do not treat a claim as if it were your own observation.</li><li>Five-member syllogism: pratijñā, hetu, udāharaṇa, upanaya, nigamana. The campus example is smoke and fire on a mountain, with the kitchen as the example.</li><li>Five hetvābhāsas: savyabhicāra (wandering), viruddha (contradictory), asiddha (unestablished), bādhita (overridden), satpratipakṣa (equally countered). Nigrahasthāna is the point where a wrong idea is let go.</li></ul>
+<p class="practice"><strong>Practise.</strong> Take one belief. Run it through all five hetvābhāsa checks. Write the five-member syllogism for one real claim and mark the weakest step.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#nyaya">Open module 04 in the campus</a>
+· <a href="../study-path.html#s04">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m05" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t5">
+<title id="t5">Module 05. Categories and layers</title>
+<desc>Illustrated mark for module 05, Categories and layers.</desc>
+<defs>
+<linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg5)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">05</text>
+<g fill="#fff" stroke="#1b2430" stroke-width="3">
+<circle cx="230" cy="90" r="16"/><circle cx="280" cy="90" r="16"/><circle cx="330" cy="90" r="16"/>
+<circle cx="230" cy="140" r="16"/><circle cx="280" cy="140" r="16"/><circle cx="330" cy="140" r="16"/>
+</g>
+<rect x="390" y="78" width="70" height="16" rx="4" fill="#5a3d92"/>
+<rect x="400" y="100" width="70" height="16" rx="4" fill="#5a3d92" fill-opacity=".8"/>
+<rect x="410" y="122" width="70" height="16" rx="4" fill="#5a3d92" fill-opacity=".6"/>
+<rect x="420" y="144" width="70" height="16" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="430" y="166" width="70" height="16" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 05 · Core method</p>
+<h2>Vaiśeṣika and Sāṃkhya — Maps of Reality</h2>
+<p>Two map-making tools for any domain: categories of what exists, and layers from observer to physical matter.</p>
+<ul><li>Vaiśeṣika padārthas: dravya (substance), guṇa (quality), karma (action), sāmānya (generality), viśeṣa (particularity), samavāya (inherence).</li><li>Sāṃkhya’s 25 tattvas, used here as a stack: puruṣa, prakṛti, mahat/buddhi, ahaṅkāra, manas, five sense organs, five action organs, five tanmātras, five mahābhūtas. Troubleshoot at the layer that actually broke.</li><li>A language map in the campus: phonemes and lexicon as substance; stress and politeness as quality; speaking and writing as action; word classes as generality; irregulars as particularity; syntax as inherence.</li></ul>
+<p class="practice"><strong>Practise.</strong> Map your domain with Vaiśeṣika’s six categories and Sāṃkhya’s layer stack. Name the layer that usually breaks when you troubleshoot.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#maps">Open module 05 in the campus</a>
+· <a href="../study-path.html#s05">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m06" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t6">
+<title id="t6">Module 06. Count, then derive</title>
+<desc>Illustrated mark for module 06, Count, then derive.</desc>
+<defs>
+<linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0c8"/>
+<stop offset="100%" stop-color="#f6e2a4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg6)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">06</text>
+<rect x="220" y="180" width="28" height="30" rx="4" fill="#7a5a10"/>
+<rect x="258" y="160" width="28" height="50" rx="4" fill="#7a5a10"/>
+<rect x="296" y="140" width="28" height="70" rx="4" fill="#7a5a10"/>
+<rect x="334" y="110" width="28" height="100" rx="4" fill="#1b2430"/>
+<rect x="372" y="80" width="28" height="130" rx="4" fill="#7a5a10" fill-opacity=".75"/>
+<rect x="410" y="50" width="28" height="160" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 06 · Core method</p>
+<h2>The Jñāna Mathematics</h2>
+<p>India’s mathematical tradition is intuition first, notation second. Deep thinking needs clean reasoning, not modern symbols as a prerequisite.</p>
+<ul><li>Piṅgala’s Chandaḥśāstra mapped short and long syllables to a binary count. The mātrā-meru counts compositions of n mātrās (short = 1, long = 2) as 1, 2, 3, 5, 8, 13… Module 06 notes that Fibonacci published this sequence in 1202.</li><li>The Kerala school: Mādhava’s series and Jyeṣṭhadeva’s Yuktibhāṣā (about 1530) give infinite series for π, sine, and cosine, with yukti (rationale). Āryabhaṭa (476 CE) computed π ≈ 3.1416 and explained eclipses by reflected light.</li><li>Bhāskara II (1114–1185) wrote of a force that holds planets in orbit. Rāmānujan (1887–1920) is the campus example of pattern, derivation, and later proof. Derive; a memorized formula decays.</li></ul>
+<p class="practice"><strong>Practise.</strong> Compute the mātrā-meru up to n = 7 by hand. Derive π ≈ 3.1416 with an inscribed polygon, or explain why the Kerala series converges to π. Teach the mātrā-meru story in 60 seconds.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#math">Open module 06 in the campus</a>
+· <a href="../study-path.html#s06">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m07" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t7">
+<title id="t7">Module 07. A lattice, not a pile</title>
+<desc>Illustrated mark for module 07, A lattice, not a pile.</desc>
+<defs>
+<linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#e3f3e6"/>
+<stop offset="100%" stop-color="#c9e6d0"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg7)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">07</text>
+<rect x="220" y="70" width="200" height="140" rx="8" fill="#fff" fill-opacity=".7" stroke="#1b2430" stroke-width="3"/>
+<line x1="286" y1="70" x2="286" y2="210" stroke="#1b2430" stroke-width="2"/>
+<line x1="354" y1="70" x2="354" y2="210" stroke="#1b2430" stroke-width="2"/>
+<line x1="220" y1="116" x2="420" y2="116" stroke="#1b2430" stroke-width="2"/>
+<line x1="220" y1="164" x2="420" y2="164" stroke="#1b2430" stroke-width="2"/>
+<rect x="292" y="122" width="56" height="36" rx="4" fill="#2d6a40"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 07 · Core method</p>
+<h2>The Memory Arsenal</h2>
+<p>The śikṣā tradition transmitted the Vedas — millions of syllables — by redundant encoding. The same moves still work: compress, lattice, story, palace, and spaced review.</p>
+<ul><li>Compress chapter → page → paragraph → sentence → word. Connect each new fact to at least three existing facts. Wrap dry facts in a vivid story.</li><li>Oral checksums: saṃhitā (continuous), pada (word by word), krama (pairs), jaṭā (braided forward and back), vikṛti (permuted forms). Learn material in two orders so the second pass catches gaps.</li><li>A memory card is CONCEPT, LAW, EXAMPLE, TEST, NEXT (1h → 24h → 7d → 30d → 90d). SM-2 style: ease starts at 2.5; quality 5 grows the interval and adds 0.1 ease; below 3 repeats today and drops ease by 0.3, with a floor of 1.3.</li></ul>
+<p class="practice"><strong>Practise.</strong> Create five memory cards for today. Review one jaṭā-style, forward and backward. Compute the SM-2 interval for a card you rated 5.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#memory">Open module 07 in the campus</a>
+· <a href="../study-path.html#s07">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m08" data-stage="core">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t8">
+<title id="t8">Module 08. Seven steps, any domain</title>
+<desc>Illustrated mark for module 08, Seven steps, any domain.</desc>
+<defs>
+<linearGradient id="bg8" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg8)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">08</text>
+<g fill="#8d4034">
+<rect x="200" y="190" width="36" height="24" rx="3"/>
+<rect x="242" y="170" width="36" height="44" rx="3"/>
+<rect x="284" y="150" width="36" height="64" rx="3"/>
+<rect x="326" y="130" width="36" height="84" rx="3" fill="#1b2430"/>
+<rect x="368" y="110" width="36" height="104" rx="3"/>
+<rect x="410" y="90" width="36" height="124" rx="3"/>
+<rect x="452" y="70" width="36" height="144" rx="3" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</g>
+</svg>
+<div class="body">
+<p class="kicker">Module 08 · Core method</p>
+<h2>The Universal Playbook</h2>
+<p>Language, mathematics, music, engineering, AI, communications, art, sport, and philosophy share one seven-step method.</p>
+<ul><li>Map (Vaiśeṣika) → Grammar (Pāṇini: utsarga, apavāda, siddha) → Reason (Nyāya) → Practice (deliberate practice at the edge, with feedback) → Prove (RTMA and LICC) → Space (Śikṣā intervals) → Teach (explain to another person).</li><li>Language sketch in the campus: sounds, script, word order, cases, tenses; speak from day one; 15 minutes daily beats three hours weekly.</li><li>Music sketch: rhythm, pitch, harmony, timbre, form; slow work on the hard four bars; record weekly; alternate pieces (interleaving).</li></ul>
+<p class="practice"><strong>Practise.</strong> Pick one domain. Write all seven steps as concrete actions for this week. Do step 1 (Map) today.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#playbook">Open module 08 in the campus</a>
+· <a href="../study-path.html#s08">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m09" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t9">
+<title id="t9">Module 09. Quiz, don’t outsource</title>
+<desc>Illustrated mark for module 09, Quiz, don’t outsource.</desc>
+<defs>
+<linearGradient id="bg9" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg9)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">09</text>
+<path d="M230 80 H360 V200 H230 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M360 80 H430 V200 H360 Z" fill="#fff" fill-opacity=".8" stroke="#1b2430" stroke-width="3"/>
+<line x1="250" y1="110" x2="340" y2="110" stroke="#9a4e32" stroke-width="4"/>
+<line x1="250" y1="132" x2="330" y2="132" stroke="#9a4e32" stroke-width="4"/>
+<circle cx="470" cy="120" r="28" fill="none" stroke="#9a4e32" stroke-width="6"/>
+<rect x="464" y="156" width="12" height="22" rx="3" fill="#9a4e32"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 09 · Fuel and proof</p>
+<h2>AI-Assisted Learning</h2>
+<p>In the campus’s 2026 frame, a model can accelerate the Śikṣā loop or become passive re-reading. The retrieval, the production, and the proof stay yours.</p>
+<ul><li>Golden rule: the model should not do the learning for you. It may quiz you, change the angle, check your work, and find gaps.</li><li>Socratic use asks questions and withholds the answer until you state the reasoning. A practice generator turns a note into questions at recall, apply, and stretch levels. A Feynman check hunts the gap in your explanation.</li><li>Verify model claims with Nyāya: which pramāṇa, which hetvābhāsa, and where is the source. An ungrounded claim is asiddha.</li></ul>
+<p class="practice"><strong>Practise.</strong> Use one exercise from this module on a real topic. Audit one model claim against a source. Keep the wording that worked as a reusable card.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#ai">Open module 09 in the campus</a>
+· <a href="../study-path.html#s09">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m10" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t10">
+<title id="t10">Module 10. A pale blue dot of learners</title>
+<desc>Illustrated mark for module 10, A pale blue dot of learners.</desc>
+<defs>
+<linearGradient id="bg10" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d7f0e4"/>
+<stop offset="100%" stop-color="#b7e0cc"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg10)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">10</text>
+<ellipse cx="330" cy="150" rx="120" ry="46" fill="none" stroke="#1f6b52" stroke-width="3"/>
+<ellipse cx="330" cy="150" rx="78" ry="30" fill="none" stroke="#1b2430" stroke-width="3"/>
+<circle cx="330" cy="150" r="16" fill="#1f6b52"/>
+<circle cx="448" cy="138" r="8" fill="#1b2430"/>
+<circle cx="250" cy="162" r="6" fill="#fff" stroke="#1b2430" stroke-width="2"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 10 · Fuel and proof</p>
+<h2>Cosmos and Beyond</h2>
+<p>The cosmos is fuel: it puts small frustration in scale and keeps one unanswered question alive.</p>
+<ul><li>Scale named in the campus: Earth to Moon 384,400 km; Earth to Sun 150 million km (1 AU); solar-system edge about 100 AU; Proxima 4.24 light-years; Milky Way diameter about 100,000 light-years; observable universe about 93 billion light-years.</li><li>Missions named as proof of the same seven steps: ISRO Chandrayaan, Mangalyaan, Aditya-L1; NASA JWST, Artemis, and Voyagers still flying after 45+ years; reusable rockets, Starship, and Starlink as a cost collapse.</li><li>Open questions the campus keeps side by side: time (yugas, entropy, relativity), the self (ātman / puruṣa and narrative identity), knowledge (pramāṇas and evals), the whole (brahman / jagat and cosmology).</li></ul>
+<p class="practice"><strong>Practise.</strong> Write the scale table from memory, Moon through the observable universe. Name one mission from ISRO, one from NASA, and one from SpaceX, and what each taught. Keep one unanswered question.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#cosmos">Open module 10 in the campus</a>
+· <a href="../study-path.html#s10">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m11" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t11">
+<title id="t11">Module 11. A note needs a NEXT</title>
+<desc>Illustrated mark for module 11, A note needs a NEXT.</desc>
+<defs>
+<linearGradient id="bg11" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg11)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">11</text>
+<rect x="220" y="70" width="150" height="130" rx="10" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<line x1="240" y1="100" x2="340" y2="100" stroke="#1e4f86" stroke-width="4"/>
+<line x1="240" y1="122" x2="330" y2="122" stroke="#1e4f86" stroke-width="4"/>
+<line x1="240" y1="144" x2="320" y2="144" stroke="#1b2430" stroke-width="3"/>
+<rect x="390" y="100" width="70" height="90" rx="8" fill="#1e4f86"/>
+<rect x="402" y="78" width="46" height="16" rx="4" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 11 · Fuel and proof</p>
+<h2>Study Systems</h2>
+<p>Your environment is a co-teacher. Design it well and study stops being a fight.</p>
+<ul><li>Note systems in the campus: Cornell (cues, notes, summary), Zettelkasten (atomic notes linked by id), sūtra compression, and memory cards. A note without a NEXT review date is not a note.</li><li>Deep work is a 90–120 minute single-topic block. Pomodoro (25/5) is for starting and shallow work. Flow needs a clear goal, immediate feedback, and skill just above comfort.</li><li>Sleep is the consolidation engine. The campus cites reactivation in slow-wave sleep, naps of 20–90 minutes, and an evening-learn → sleep → morning-test schedule. Cut screens 30–60 minutes before bed.</li></ul>
+<p class="practice"><strong>Practise.</strong> Choose one note system and one focus technique. Set up a weekly learning dashboard. Schedule a nap or an early night after the next study session.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#study">Open module 11 in the campus</a>
+· <a href="../study-path.html#s11">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m12" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t12">
+<title id="t12">Module 12. Retrieval under a clock</title>
+<desc>Illustrated mark for module 12, Retrieval under a clock.</desc>
+<defs>
+<linearGradient id="bg12" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8e4f1"/>
+<stop offset="100%" stop-color="#efd0e6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg12)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">12</text>
+<circle cx="320" cy="145" r="70" fill="#fff" stroke="#1b2430" stroke-width="4"/>
+<path d="M320 145 L320 95" stroke="#7a3e68" stroke-width="5" stroke-linecap="round"/>
+<path d="M320 145 L365 160" stroke="#1b2430" stroke-width="4" stroke-linecap="round"/>
+<circle cx="320" cy="145" r="6" fill="#7a3e68"/>
+<path d="M270 90 A70 70 0 0 1 390 110" fill="none" stroke="#7a3e68" stroke-width="8" stroke-linecap="round"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 12 · Fuel and proof</p>
+<h2>Exam and Performance</h2>
+<p>Exams test retrieval under pressure. The Śikṣā loop makes retrieval the daily practice, not only the final.</p>
+<ul><li>Thirty-day arc: days 30–21 map and grammar; 20–11 timed past papers and weak spots; 10–4 mixed sets and full mocks; 3–1 light review and sleep, no new material; exam day is breathing, easy wins, and a time budget.</li><li>Drills: closed-book mind maps, blank-page recall, 10 timed questions a day, teach-back, and an error log (every miss gets a one-line WHY and a fix).</li><li>If stuck more than two minutes, mark and move. Anxiety is treated as under-preparation plus no rehearsal. Replace an asiddha fear with evidence from mocks.</li></ul>
+<p class="practice"><strong>Practise.</strong> Build a 30-day arc for your next test. Do one timed mock this week, log every wrong answer with a WHY, and schedule sleep before the exam.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#exam">Open module 12 in the campus</a>
+· <a href="../study-path.html#s12">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m13" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t13">
+<title id="t13">Module 13. No artifact, no claim</title>
+<desc>Illustrated mark for module 13, No artifact, no claim.</desc>
+<defs>
+<linearGradient id="bg13" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg13)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">13</text>
+<path d="M210 100 H300 L320 80 H450 V210 H210 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="250" y="130" width="140" height="14" rx="4" fill="#5a3d92"/>
+<rect x="250" y="156" width="100" height="14" rx="4" fill="#5a3d92" fill-opacity=".7"/>
+<path d="M400 150 l14 14 l28 -32" fill="none" stroke="#1b2430" stroke-width="5" stroke-linecap="round"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 13 · Fuel and proof</p>
+<h2>Career Mastery</h2>
+<p>Mastery without livelihood is a hobby. Livelihood without mastery is a job. The bridge is proof.</p>
+<ul><li>LICC portfolio: Leg (evidence it works), ID (traceable claim: link, date, version), Counter (what would disprove it), Capture (screenshot, video, or write-up).</li><li>Skills the campus says compound: clear communication, Nyāya-style reasoning, literacy with models as tools, systems thinking, proof habits, and teaching.</li><li>The free-education mission: share campuses and tutorials. Sibling campuses named here are the communications campus, the AI campus, and this method campus. All MIT, all free.</li></ul>
+<p class="practice"><strong>Practise.</strong> Create one portfolio artifact this week with full LICC. Update it at the next review.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#career">Open module 13 in the campus</a>
+· <a href="../study-path.html#s13">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m14" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t14">
+<title id="t14">Module 14. The loop completes in teaching</title>
+<desc>Illustrated mark for module 14, The loop completes in teaching.</desc>
+<defs>
+<linearGradient id="bg14" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0c8"/>
+<stop offset="100%" stop-color="#f6e2a4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg14)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">14</text>
+<circle cx="250" cy="110" r="28" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="410" cy="110" r="28" fill="#7a5a10"/>
+<rect x="222" y="150" width="56" height="50" rx="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="382" y="150" width="56" height="50" rx="16" fill="#7a5a10" fill-opacity=".8"/>
+<path d="M300 130 H360" stroke="#1b2430" stroke-width="4"/>
+<path d="M348 118 L368 130 L348 142" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 14 · Fuel and proof</p>
+<h2>Guru-kuḷa — Teaching</h2>
+<p>In the guru-kuḷa a student learned by serving, questioning, and teaching in turn. The student who taught the youngest often grew the most. That is the Śikṣā loop completing.</p>
+<ul><li>Teaching doubles learning because a real question exposes the gap. Patch the gap and re-teach it cleaner.</li><li>Three debts, treated as fuel: to the source, to practice, and to others.</li><li>The first student can be one person and one topic. You do not need a classroom to close the loop.</li></ul>
+<p class="practice"><strong>Practise.</strong> Teach one topic from this week to a real person. Note the question that exposed a gap. Patch it and re-teach it cleaner.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#gurukula">Open module 14 in the campus</a>
+· <a href="../study-path.html#s14">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m15" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t15">
+<title id="t15">Module 15. Stuck is still in the game</title>
+<desc>Illustrated mark for module 15, Stuck is still in the game.</desc>
+<defs>
+<linearGradient id="bg15" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#e3f3e6"/>
+<stop offset="100%" stop-color="#c9e6d0"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg15)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">15</text>
+<path d="M210 160 C250 80, 290 200, 330 120 S410 80, 460 150" fill="none" stroke="#2d6a40" stroke-width="6" stroke-linecap="round"/>
+<circle cx="210" cy="160" r="8" fill="#1b2430"/>
+<circle cx="460" cy="150" r="10" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 15 · Fuel and proof</p>
+<h2>Troubleshooting Learning</h2>
+<p>Stuck is weather. Stopped is a decision. If you are stuck, you are still in the game.</p>
+<ul><li>Plateau moves: change the angle, teach what you know, return to fundamentals, sleep, and drill the weakest sub-skill.</li><li>Asiddha, borrowed from Pāṇini: a failed derivation does not poison the whole system. One failed approach is data. Try another teacher, order, analogy, time of day, or format.</li><li>Failure table: reading with no memory means you never closed the source; following tutorials without building means you never generated; “I understand but can’t explain” is the illusion of understanding; forgetting means the spacing schedule is missing.</li></ul>
+<p class="practice"><strong>Practise.</strong> Identify your number-one failure from that table. Apply its fix for seven days. Log artifacts, recalls, or scores.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#trouble">Open module 15 in the campus</a>
+· <a href="../study-path.html#s15">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m16" data-stage="fuel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t16">
+<title id="t16">Module 16. Someone with proof</title>
+<desc>Illustrated mark for module 16, Someone with proof.</desc>
+<defs>
+<linearGradient id="bg16" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg16)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">16</text>
+<path d="M200 190 Q330 40 480 190" fill="none" stroke="#8d4034" stroke-width="8" stroke-linecap="round"/>
+<circle cx="200" cy="190" r="8" fill="#1b2430"/>
+<circle cx="270" cy="120" r="8" fill="#1b2430"/>
+<circle cx="340" cy="86" r="8" fill="#8d4034"/>
+<circle cx="410" cy="120" r="8" fill="#1b2430"/>
+<circle cx="480" cy="190" r="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 16 · Fuel and proof</p>
+<h2>The Master’s Path — 90-Day Arc</h2>
+<p>Choose one thing. Run the arc. At the end you have proof, not only an intention.</p>
+<ul><li>Days 1–7 map and grammar (one-page map plus a sūtra card). Days 8–21 practise fundamentals 45–90 minutes daily (10 small artifacts). Days 22–35 take exceptions and harder problems (5 medium artifacts plus traces).</li><li>Days 36–49 build one complete project. Days 50–63 explain publicly and collect critique. Days 64–77 push the edge and connect an adjacent domain. Days 78–90 finish the portfolio and start one other learner.</li><li>RTMA: Run, Trace, Metric, Artifact. LICC: Leg, ID, Counter, Capture. If you cannot show the trace, the metric, and the artifact, you have heard about it.</li></ul>
+<p class="practice"><strong>Practise.</strong> Commit to one mastery target. Put the 90-day dates on a calendar. Produce proof artifact 1 (map plus sūtra card) within seven days.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#master-path">Open module 16 in the campus</a>
+· <a href="../study-path.html#s16">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m17" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t17">
+<title id="t17">Module 17. Finite grammar, infinite sentences</title>
+<desc>Illustrated mark for module 17, Finite grammar, infinite sentences.</desc>
+<defs>
+<linearGradient id="bg17" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg17)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">17</text>
+<rect x="200" y="90" width="70" height="44" rx="8" fill="#9a4e32"/>
+<rect x="280" y="90" width="70" height="44" rx="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="360" y="90" width="70" height="44" rx="8" fill="#1b2430"/>
+<rect x="230" y="160" width="70" height="44" rx="8" fill="#1b2430"/>
+<rect x="310" y="160" width="70" height="44" rx="8" fill="#9a4e32"/>
+<rect x="390" y="160" width="70" height="44" rx="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 17 · Domain grammar</p>
+<h2>Language Mastery</h2>
+<p>Language is the Pāṇini method in the open: a finite grammar generates infinite sentences. The campus runs nine languages as separate sound-spaces on one shared skeleton.</p>
+<ul><li>The nine: Telugu, Sanskrit, Hindi, and Tamil (SOV); Spanish, English, and Mandarin (SVO); Japanese (SOV); Arabic (VSO, root-and-pattern morphology, which the campus compares to Pāṇini).</li><li>Ninety-day language arc uses the same Śikṣā phases. Minimal pairs are the phonetic firewall. Word cards are bidirectional and reviewed SM-2 style.</li><li>Shadow a short native clip. Build a one-page grammar table per language: the utsarga sentence pattern first, then the apavāda exceptions.</li></ul>
+<p class="practice"><strong>Practise.</strong> Build a one-page grammar map for your target language. Create 20 bidirectional word cards. Record a 30-second shadow. Teach the SOV versus SVO contrast.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#language">Open module 17 in the campus</a>
+· <a href="../study-path.html#s17">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m18" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t18">
+<title id="t18">Module 18. Derive, don’t rent</title>
+<desc>Illustrated mark for module 18, Derive, don’t rent.</desc>
+<defs>
+<linearGradient id="bg18" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d7f0e4"/>
+<stop offset="100%" stop-color="#b7e0cc"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg18)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">18</text>
+<path d="M210 200 Q320 40 450 200" fill="none" stroke="#1f6b52" stroke-width="6"/>
+<rect x="300" y="120" width="70" height="70" fill="none" stroke="#1b2430" stroke-width="3"/>
+<line x1="300" y1="155" x2="370" y2="155" stroke="#1b2430" stroke-width="2"/>
+<line x1="335" y1="120" x2="335" y2="190" stroke="#1b2430" stroke-width="2"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 18 · Domain grammar</p>
+<h2>Mathematics Deep</h2>
+<p>Mathematics is a grammar: a few axioms generate infinite theorems. Knowing a result has levels, and derivation is the minimum for anything core.</p>
+<ul><li>Levels: 0 recognize, 1 recall, 2 apply, 3 derive, 4 explain so a 12-year-old gets it, 5 generate a new result. Target level 3. A derived theorem is yours; a memorized one is rented.</li><li>The quadratic formula is derived by completing the square, starting from ax² + bx + c = 0. The campus asks you to derive it three times: after 1 hour, after 24 hours, and after 7 days.</li><li>Induction on 1 + 2 + … + n = n(n+1)/2: check n = 1, assume it for k, then show k+1. The Kerala series for π/4 = 1 − 1/3 + 1/5 − 1/7 + … is credited to Mādhava of Sangamagrama, about 1400.</li></ul>
+<p class="practice"><strong>Practise.</strong> Derive the quadratic formula from scratch, without peeking. Compute π to three decimals with the Kerala series. Prove 1 + 2 + … + n by induction. Teach the levels of understanding.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#math-deep">Open module 18 in the campus</a>
+· <a href="../study-path.html#s18">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m19" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t19">
+<title id="t19">Module 19. Verify the citation</title>
+<desc>Illustrated mark for module 19, Verify the citation.</desc>
+<defs>
+<linearGradient id="bg19" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg19)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">19</text>
+<rect x="230" y="60" width="200" height="26" rx="6" fill="#1e4f86"/>
+<rect x="220" y="94" width="220" height="26" rx="6" fill="#1e4f86" fill-opacity=".85"/>
+<rect x="210" y="128" width="240" height="26" rx="6" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="200" y="162" width="260" height="26" rx="6" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="190" y="196" width="280" height="26" rx="6" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 19 · Domain grammar</p>
+<h2>AI Engineering Deep</h2>
+<p>The 2026 stack in the campus is a grammar: models, data, context, tools, evals, and deployment. The mastery method is unchanged: map, rules, artifacts.</p>
+<ul><li>Core loop: TRY → OBSERVE → CORRECT → VERIFY. Five control primitives sit on that loop: a finite budget (iterations, tokens, cost), permission before a destructive action, reading the actual tool output, limited retries then a halt, and proof that the side effect happened.</li><li>Retrieval path: documents → chunk → embed → index; query → embed → retrieve top-k → rerank → generate → verify the citation. Chunk size 256–1024 tokens, overlap 10–20%. Empty retrieval must refuse rather than invent.</li><li>Evals are the Nyāya layer. Pratyakṣa checks the output directly, anumāna tests an inference, upamāna uses an example, and śabda checks a citation against a source. Ablations in the campus contrast chunk 256 vs 1024, k = 3 vs k = 10, and rerank on or off.</li></ul>
+<p class="practice"><strong>Practise.</strong> Build an eval harness for model output: 10 golden questions and semantic scoring. Run the empty-retrieval test. Write the five control primitives for a project of your own. Teach pramāṇas as evals.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#ai-eng">Open module 19 in the campus</a>
+· <a href="../study-path.html#s19">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m20" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t20">
+<title id="t20">Module 20. The call must connect</title>
+<desc>Illustrated mark for module 20, The call must connect.</desc>
+<defs>
+<linearGradient id="bg20" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8e4f1"/>
+<stop offset="100%" stop-color="#efd0e6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg20)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">20</text>
+<rect x="200" y="120" width="46" height="70" rx="10" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="223" cy="142" r="6" fill="#7a3e68"/>
+<path d="M270 150 Q300 110 330 150 T390 150 T450 150" fill="none" stroke="#7a3e68" stroke-width="6" stroke-linecap="round"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 20 · Domain grammar</p>
+<h2>Communications Engineering</h2>
+<p>The campus states the path as: the call must always connect. Mastery here is the Śikṣā loop applied to protocols, reliability, and care for the person on the call.</p>
+<ul><li>Stack: CUCM for registration and dial plan; ICM / UCCE for queuing and skills; CUBE / SBC as the border; SIP and RTP as signaling and media; E911 / RedSky so emergency calls reach a PSAP.</li><li>SIP social contract in the campus: INVITE, 100 Trying, 180 Ringing, 200 OK, ACK, two-way RTP, BYE, 200 OK. QoS: voice EF (46) under 150 ms latency and 30 ms jitter with no loss; video AF31; data BE (0).</li><li>One-way audio dossier: topology, SDP codecs and ports, media path, whether it is every call or one direction, counter-evidence, then a captured trace. Mark at the source, remark at the edge, queue in the network.</li></ul>
+<p class="practice"><strong>Practise.</strong> Recite the SIP message order from memory. Build the one-way-audio decision tree. Explain EF, AF31, and BE to a non-engineer. State why the call must connect.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#uc-eng">Open module 20 in the campus</a>
+· <a href="../study-path.html#s20">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m21" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t21">
+<title id="t21">Module 21. The substrate</title>
+<desc>Illustrated mark for module 21, The substrate.</desc>
+<defs>
+<linearGradient id="bg21" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg21)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">21</text>
+<rect x="220" y="80" width="36" height="120" rx="6" fill="#5a3d92"/>
+<rect x="310" y="60" width="36" height="140" rx="6" fill="#1b2430"/>
+<rect x="400" y="90" width="36" height="110" rx="6" fill="#5a3d92" fill-opacity=".75"/>
+<rect x="190" y="200" width="280" height="14" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 21 · Domain grammar</p>
+<h2>Body and Mind</h2>
+<p>No mastery survives a broken body or a scattered mind. Charaka’s tristambha is the substrate the other modules run on.</p>
+<ul><li>Three pillars: āhāra (food — the campus minimum is three meals, about 2 litres of water, and no junk), nidrā (7–9 hours, consistent, dark), brahmacarya as directed energy (deep work, two blocks of 90 minutes).</li><li>Movement: 30 minutes daily, 5 minutes of breath before study, walk when stuck. Attention drills: 10–20 minutes of breath focus, open awareness, a body scan, 4-7-8 or box breathing, and a phone-free first hour.</li><li>Energy waveform: hardest work in the morning peak, medium tasks at midday, practice in the afternoon, light review in the evening, sleep at night. Log sleep, food, movement, and focus for a week. That log is an RTMA artifact.</li></ul>
+<p class="practice"><strong>Practise.</strong> Track sleep, food, movement, and focus for three days. Do five minutes of breath before the next study block. Walk the next time you are stuck. Teach the three pillars.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#health">Open module 21 in the campus</a>
+· <a href="../study-path.html#s21">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m22" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t22">
+<title id="t22">Module 22. Fixed blocks, small starts</title>
+<desc>Illustrated mark for module 22, Fixed blocks, small starts.</desc>
+<defs>
+<linearGradient id="bg22" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0c8"/>
+<stop offset="100%" stop-color="#f6e2a4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg22)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">22</text>
+<path d="M250 70 H410 L330 150 L410 230 H250 L330 150 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M278 90 H382 L330 140 Z" fill="#7a5a10"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 22 · Domain grammar</p>
+<h2>Time and Attention</h2>
+<p>Time is the non-renewable resource. Attention converts it. Master both and the other modules speed up.</p>
+<ul><li>Audit before you optimize: log every hour for a few days. The campus ideal week protects sleep (7–9), deep work (2–4 hours), practice (1–2), movement, and relationships, and compresses admin.</li><li>If it takes under two minutes, do it now. To start large work, count 5-4-3-2-1 and take the first small step. Prepare the desk the night before.</li><li>Attention hygiene: notifications off except real people, batch-check three times a day, 50-minute single-task blocks, a goal written before any model chat, first hour without a phone. Sunday review: three wins, three gaps with why, proof, one focus, one system fix.</li></ul>
+<p class="practice"><strong>Practise.</strong> Audit two days of time. Build an ideal week with fixed blocks. Do the Sunday review. Teach the two-minute rule.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#time">Open module 22 in the campus</a>
+· <a href="../study-path.html#s22">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m23" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t23">
+<title id="t23">Module 23. Save first</title>
+<desc>Illustrated mark for module 23, Save first.</desc>
+<defs>
+<linearGradient id="bg23" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#e3f3e6"/>
+<stop offset="100%" stop-color="#c9e6d0"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg23)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">23</text>
+<rect x="210" y="150" width="150" height="50" rx="6" fill="#2d6a40"/>
+<rect x="370" y="120" width="90" height="80" rx="6" fill="#2d6a40" fill-opacity=".7"/>
+<rect x="470" y="90" width="60" height="110" rx="6" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 23 · Domain grammar</p>
+<h2>Money Mastery</h2>
+<p>Money is stored time: earned, saved, and invested so learning can compound without panic.</p>
+<ul><li>Grammar: spend less than you earn (auto-save 10–20% first); emergency fund toward six months of expenses; no high-interest debt; invest for decades; skills are the best asset (the campus suggests 5% or more of time on learning).</li><li>50/30/20: needs, wants, future. Save first so it is not a daily decision.</li><li>Twelve-month arc: months 1–2 audit and budget; 3–4 one month saved; 5–6 highest-interest debt gone; 7–8 first automatic investment; 9–10 first paid work from mastery; 11–12 a full emergency fund plus a year of automatic investing.</li></ul>
+<p class="practice"><strong>Practise.</strong> Create a 50/30/20 budget with auto-save. Put the 12-month arc on dates. Share one free learning resource. Teach one money rule.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#money">Open module 23 in the campus</a>
+· <a href="../study-path.html#s23">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m24" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t24">
+<title id="t24">Module 24. Carry others further</title>
+<desc>Illustrated mark for module 24, Carry others further.</desc>
+<defs>
+<linearGradient id="bg24" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg24)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">24</text>
+<circle cx="280" cy="150" r="36" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="360" cy="118" r="24" fill="#8d4034"/>
+<path d="M250 200 Q320 170 400 200" fill="none" stroke="#1b2430" stroke-width="4"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 24 · Domain grammar</p>
+<h2>Leadership and Service</h2>
+<p>Leadership is not a title. It is carrying others further than they could go alone, which is what teaching is.</p>
+<ul><li>Servant-leader utsarga: the work serves the learner’s goal, not the leader’s performance.</li><li>Nyāya decisions: a five-member syllogism for the next choice, so the reason and the example are visible.</li><li>Ninety-day arc: days 1–14 listen and log; days 15–30 do the hard work visibly and teach one skill; days 31–60 write five-member syllogisms for three decisions; days 61–90 show one learner’s artifact.</li></ul>
+<p class="practice"><strong>Practise.</strong> Write a five-member syllogism for your next decision. Deliver one teaching session. Ask three questions before giving an opinion today. Teach the servant-leader grammar.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#leadership">Open module 24 in the campus</a>
+· <a href="../study-path.html#s24">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m25" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t25">
+<title id="t25">Module 25. What counts as knowing</title>
+<desc>Illustrated mark for module 25, What counts as knowing.</desc>
+<defs>
+<linearGradient id="bg25" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg25)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">25</text>
+<circle cx="230" cy="140" r="28" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="230" cy="140" r="10" fill="#9a4e32"/>
+<path d="M300 140 H350" stroke="#1b2430" stroke-width="4"/>
+<path d="M338 128 L358 140 L338 152" fill="#1b2430"/>
+<rect x="370" y="118" width="40" height="44" rx="6" fill="#9a4e32"/>
+<rect x="430" y="112" width="50" height="56" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 25 · Domain grammar</p>
+<h2>Philosophy of Knowledge</h2>
+<p>Why does the method work? The campus sets classical answers next to modern echoes and leaves the hard problem open on purpose.</p>
+<ul><li>Epistemology table: Nyāya’s four pramāṇas; Vaiśeṣika’s knowable categories; Sāṃkhya’s observer discriminating nature; Advaita’s identity (listen long · speak true); a Buddhist line that knowledge is dependently arisen and impermanent.</li><li>Consciousness: how matter becomes experience is unanswered. The campus calls that gap the frontier, not a bug. Keep one question you cannot answer.</li><li>Time: cyclic yugas and linear history, entropy’s direction, and spaced repetition as time-engineered memory. Meaning: every skill is another way the universe understands itself through you.</li></ul>
+<p class="practice"><strong>Practise.</strong> Write your personal pramāṇas: what you trust, and why. Keep one unanswered question. Teach the pramāṇa table.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#philosophy">Open module 25 in the campus</a>
+· <a href="../study-path.html#s25">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m26" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t26">
+<title id="t26">Module 26. Tools serve the loop</title>
+<desc>Illustrated mark for module 26, Tools serve the loop.</desc>
+<defs>
+<linearGradient id="bg26" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d7f0e4"/>
+<stop offset="100%" stop-color="#b7e0cc"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg26)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">26</text>
+<rect x="210" y="110" width="240" height="90" rx="12" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M290 110 V90 H370 V110" fill="none" stroke="#1f6b52" stroke-width="6"/>
+<circle cx="280" cy="155" r="10" fill="#1f6b52"/>
+<circle cx="330" cy="155" r="10" fill="#1b2430"/>
+<circle cx="380" cy="155" r="10" fill="#1f6b52" fill-opacity=".6"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 26 · Domain grammar</p>
+<h2>Tools of the Trade</h2>
+<p>Capture, organize, recall, build, share. Every tool serves the Śikṣā loop. None replaces it.</p>
+<ul><li>Capture with notes, voice, camera, or plaintext (EXPOSE). Organize with folders, tags, or a local lattice (map). Recall with SM-2 cards (RETRIEVE). Build real artifacts (APPLY). Share by teaching (TEACH).</li><li>Every note gets a NEXT date. One idea per note. Empty the inbox into the lattice weekly.</li><li>Offline-first: critical work lives on your disk in open formats (HTML, Markdown, text, CSV). Cloud is backup, not home. Verify anything a model drafts. Do not paste secrets into a chat.</li></ul>
+<p class="practice"><strong>Practise.</strong> Set up capture → organize → recall with NEXT dates. Build one artifact with a tool and verify it yourself. Teach the tool map.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#tools">Open module 26 in the campus</a>
+· <a href="../study-path.html#s26">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m27" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t27">
+<title id="t27">Module 27. Stand on a rung</title>
+<desc>Illustrated mark for module 27, Stand on a rung.</desc>
+<defs>
+<linearGradient id="bg27" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg27)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">27</text>
+<line x1="260" y1="60" x2="260" y2="220" stroke="#1b2430" stroke-width="5"/>
+<line x1="380" y1="60" x2="380" y2="220" stroke="#1b2430" stroke-width="5"/>
+<line x1="260" y1="90" x2="380" y2="90" stroke="#1e4f86" stroke-width="5"/>
+<line x1="260" y1="125" x2="380" y2="125" stroke="#1e4f86" stroke-width="5"/>
+<line x1="260" y1="160" x2="380" y2="160" stroke="#1e4f86" stroke-width="5"/>
+<line x1="260" y1="195" x2="380" y2="195" stroke="#1e4f86" stroke-width="5"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 27 · Domain grammar</p>
+<h2>History of Ideas</h2>
+<p>You stand on a ladder of learners. Knowing who climbed, and what they saw, is both a map and a source of courage.</p>
+<ul><li>The ladder runs from the Vedas (about 1500 BCE) through the Upaniṣads, Pāṇini, Gautama, Kaṇāda, Īśvarakṛṣṇa, and Piṅgala, then Āryabhaṭa, the Sūrya Siddhānta, Bhāskara II, Mādhava, Jyeṣṭhadeva, the European method from Descartes to Newton, Rāmānujan, computation, and learned grammars at scale after 2017.</li><li>Parallel ladders: Kerala calculus and European calculus grew independently. The campus lesson is that great ideas are discovered, often more than once. The method is enough; a source confirms, it does not grant permission.</li><li>Place your current topic on a rung. Credit the tradition. Build artifacts that would still be useful in ten years.</li></ul>
+<p class="practice"><strong>Practise.</strong> Place your mastery topic on the ladder. Name one thinker whose method you borrow daily. Teach the ladder.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#history">Open module 27 in the campus</a>
+· <a href="../study-path.html#s27">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m28" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t28">
+<title id="t28">Module 28. Grammar, then ornament</title>
+<desc>Illustrated mark for module 28, Grammar, then ornament.</desc>
+<defs>
+<linearGradient id="bg28" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8e4f1"/>
+<stop offset="100%" stop-color="#efd0e6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg28)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">28</text>
+<path d="M200 190 C260 60, 340 60, 470 150" fill="none" stroke="#7a3e68" stroke-width="14" stroke-linecap="round"/>
+<circle cx="250" cy="100" r="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="300" cy="88" r="16" fill="#7a3e68"/>
+<circle cx="350" cy="100" r="16" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 28 · Domain grammar</p>
+<h2>Art and Expression</h2>
+<p>The arts train the same circuits as math and code, and they add the emotional layer that makes knowledge human.</p>
+<ul><li>Art grammar: vocabulary, grammar, style, expression. Learn the grammar first, then break it on purpose (apavāda becomes style).</li><li>Deliberate practice is the hard four bars: only those, slowly, with a timer; record weekly; interleave three pieces; teach after three weeks.</li><li>Writing discipline here: cut 20% without losing meaning. Nine ways to teach one idea: story, list, table, diagram, analogy, FAQ, mnemonic, exercise, one-liner.</li></ul>
+<p class="practice"><strong>Practise.</strong> Make one expressive artifact this week that teaches a concept. Apply the hard-four-bars practice. Teach the art grammar table.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#art">Open module 28 in the campus</a>
+· <a href="../study-path.html#s28">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m29" data-stage="domain">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t29">
+<title id="t29">Module 29. Promise, proof, path</title>
+<desc>Illustrated mark for module 29, Promise, proof, path.</desc>
+<defs>
+<linearGradient id="bg29" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg29)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">29</text>
+<circle cx="230" cy="150" r="22" fill="#5a3d92"/>
+<path d="M270 150 Q300 110 300 150 Q300 190 270 150" fill="none" stroke="#1b2430" stroke-width="4"/>
+<path d="M300 120 Q350 70 350 150 Q350 230 300 180" fill="none" stroke="#5a3d92" stroke-width="4"/>
+<path d="M340 100 Q410 40 410 150 Q410 260 340 200" fill="none" stroke="#1b2430" stroke-width="4"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 29 · Domain grammar</p>
+<h2>Public Speaking and Presence</h2>
+<p>The śikṣā tradition was oral-first. Presence and voice were the technology. Speaking is signal through a human instrument.</p>
+<ul><li>Speaking grammar: promise (the payoff in the first 30 seconds), structure (promise → proof → path), one concrete case per point, voice and body, and one takeaway at the end.</li><li>Rehearsal: write → speak aloud → record → listen → cut → speak again, three passes minimum. Listening back is the gap-finder.</li><li>Breath: diaphragm, speak on the exhale, pause one second after an important sentence, slow down about 20%, two-minute warm-up. Teaching talks come in three chunks with a retrieval question after each, not “any questions?”</li></ul>
+<p class="practice"><strong>Practise.</strong> Record a two-minute talk (promise, proof, path). Listen, cut the vagueness, record again. Teach the speaking grammar.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#speak">Open module 29 in the campus</a>
+· <a href="../study-path.html#s29">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m30" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t30">
+<title id="t30">Module 30. Better questions</title>
+<desc>Illustrated mark for module 30, Better questions.</desc>
+<defs>
+<linearGradient id="bg30" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0c8"/>
+<stop offset="100%" stop-color="#f6e2a4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg30)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">30</text>
+<path d="M300 80 A50 50 0 1 0 300 180 A32 32 0 1 1 300 80" fill="#7a5a10"/>
+<circle cx="430" cy="110" r="8" fill="#1b2430"/>
+<circle cx="200" cy="90" r="4" fill="#1b2430"/>
+<circle cx="470" cy="170" r="5" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 30 · Transmission</p>
+<h2>The Mystery That Remains</h2>
+<p>The master is not the one who knows everything. The master is the one whose questions are better than before.</p>
+<ul><li>Learn anything means learn the method: map, grammar, reason, practice, prove, space, teach — powered by meaning, verified by evidence, renewed by mystery.</li><li>Ninety-day proof pack: domain map (day 7), 20 sūtra cards on an SM-2 schedule (day 14), five practice artifacts plus traces (day 30), one flagship with metrics (day 49), one public tutorial plus feedback (day 63), an evidence note per module (day 77), portfolio plus one learner started (day 90).</li><li>Daily: 45–90 minutes plus five cards. Weekly: a 30-minute review plus one artifact. Then re-read Module 01. The loop closes and a new one opens.</li></ul>
+<p class="practice"><strong>Practise.</strong> Do the 90-day proof pack. When you finish, teach the method to one person who has never heard of it, then re-read Module 01.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#mystery">Open module 30 in the campus</a>
+· <a href="../study-path.html#s30">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m31" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t31">
+<title id="t31">Module 31. Every word earns its place</title>
+<desc>Illustrated mark for module 31, Every word earns its place.</desc>
+<defs>
+<linearGradient id="bg31" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#e3f3e6"/>
+<stop offset="100%" stop-color="#c9e6d0"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg31)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">31</text>
+<line x1="200" y1="90" x2="460" y2="90" stroke="#2d6a40" stroke-width="8" stroke-linecap="round"/>
+<line x1="230" y1="130" x2="420" y2="130" stroke="#1b2430" stroke-width="8" stroke-linecap="round"/>
+<line x1="270" y1="170" x2="370" y2="170" stroke="#2d6a40" stroke-width="8" stroke-linecap="round"/>
+<line x1="300" y1="210" x2="340" y2="210" stroke="#1b2430" stroke-width="8" stroke-linecap="round"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 31 · Transmission</p>
+<h2>Writing Deep</h2>
+<p>Writing is thinking made visible. The sūtra discipline — every word must earn its place — is compression, and compression is understanding.</p>
+<ul><li>Ladder: clear, correct (cited), compressed (cut 20%), vivid, memorable (one sūtra per piece).</li><li>Nine ways, with spaced repetition as the campus example: a story of reviews at 1h, 24h, and 7d; a list; a table; a diagram of the forgetting curve; the path that overgrows; an FAQ; the ladder 1-2-7-30-90; an exercise; the line “review early, review often, review forever.”</li><li>Engine: 250 words daily before the phone, rewrite one old piece weekly, publish a teaching piece monthly. A published piece is an RTMA artifact: claim, run, sources, response, capture.</li></ul>
+<p class="practice"><strong>Practise.</strong> Write 250 words a day for five days. Compress one piece by 20%. Publish one teaching piece. Teach the nine ways.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#writing">Open module 31 in the campus</a>
+· <a href="../study-path.html#s31">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m32" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t32">
+<title id="t32">Module 32. Interests before positions</title>
+<desc>Illustrated mark for module 32, Interests before positions.</desc>
+<defs>
+<linearGradient id="bg32" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg32)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">32</text>
+<line x1="330" y1="70" x2="330" y2="210" stroke="#1b2430" stroke-width="4"/>
+<line x1="220" y1="110" x2="440" y2="110" stroke="#8d4034" stroke-width="5"/>
+<circle cx="220" cy="110" r="8" fill="#8d4034"/>
+<circle cx="440" cy="110" r="8" fill="#8d4034"/>
+<path d="M190 160 Q220 120 250 160 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M410 170 Q440 120 470 170 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 32 · Transmission</p>
+<h2>Negotiation and Persuasion</h2>
+<p>Every interaction negotiates meaning. A Nyāya-trained exchange uses clarity, evidence, and respect.</p>
+<ul><li>Grammar: interests of both sides, your walk-away alternative (BATNA), three or more options, objective criteria, and the people separated from the problem.</li><li>Persuasion pramāṇas: show (pratyakṣa), reason (anumāna), analogy (upamāna), credible testimony (śabda).</li><li>De-escalation is the bādhita move: validate, then bring stronger evidence gently, then offer options. When reasons clash (satpratipakṣa), find the deeper criterion.</li></ul>
+<p class="practice"><strong>Practise.</strong> Prepare a real negotiation with interests, BATNA, options, and criteria written down. Run the five-member syllogism for your position. Teach the pramāṇa persuasion table.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#negotiation">Open module 32 in the campus</a>
+· <a href="../study-path.html#s32">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m33" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t33">
+<title id="t33">Module 33. Parts and flows</title>
+<desc>Illustrated mark for module 33, Parts and flows.</desc>
+<defs>
+<linearGradient id="bg33" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg33)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">33</text>
+<circle cx="240" cy="150" r="22" fill="#9a4e32"/>
+<circle cx="360" cy="90" r="22" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="430" cy="170" r="22" fill="#1b2430"/>
+<line x1="258" y1="140" x2="342" y2="102" stroke="#1b2430" stroke-width="3"/>
+<line x1="258" y1="160" x2="412" y2="164" stroke="#1b2430" stroke-width="3"/>
+<line x1="378" y1="104" x2="418" y2="154" stroke="#9a4e32" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 33 · Transmission</p>
+<h2>Systems and Networks</h2>
+<p>Everything is a system: body, network, company, language, mind. See the parts and the flows.</p>
+<ul><li>Grammar: components, flows, feedback, layers, failure modes, resilience. Network examples in the campus include routers and endpoints, packets and media, congestion backoff, and failover.</li><li>Protocol sūtras: IP is address plus best-effort; TCP is handshake, ACK, retransmit; UDP has no handshake; DNS translates name to address; HTTP is request/response and stateless; SIP is INVITE through BYE; RTP is timestamped real-time media.</li><li>Debug as Nyāya: state the symptom, rank hypotheses, test the likeliest with a minimal experiment, check counter-evidence, fix and verify nothing else broke, capture the lesson. Fail-soft prefers another path (the campus names TEHO and AAR) over abandoning the call. Backups: 3 copies, 2 media, 1 offsite.</li></ul>
+<p class="practice"><strong>Practise.</strong> Map one system you rely on. State one protocol sūtra from memory. Debug one real problem with the six-step method.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#systems">Open module 33 in the campus</a>
+· <a href="../study-path.html#s33">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m34" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t34">
+<title id="t34">Module 34. Protect without a wall</title>
+<desc>Illustrated mark for module 34, Protect without a wall.</desc>
+<defs>
+<linearGradient id="bg34" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d7f0e4"/>
+<stop offset="100%" stop-color="#b7e0cc"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg34)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">34</text>
+<path d="M330 60 L430 100 V160 Q430 210 330 230 Q230 210 230 160 V100 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M330 90 L390 112 V155 Q390 185 330 200 Q270 185 270 155 V112 Z" fill="#1f6b52"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 34 · Transmission</p>
+<h2>Privacy and Security</h2>
+<p>Mastery builds value. Security protects it without becoming a wall that blocks learning.</p>
+<ul><li>Grammar: least privilege, defense in depth, verify don’t trust, fail closed, recoverable (backups you have tested).</li><li>Personal baseline: passphrases of four or more random words, a second factor, a password manager with a unique password per site, automatic updates, backups tested quarterly, and a stop-rule for urgency plus an unknown link plus a request for secrets.</li><li>Learning data stays yours (local-first). Epistemic hygiene uses the same pramāṇas: who said it, when, and why trust it. Confident wrongness is a hetvābhāsa. Emotions are a vector; slow down.</li></ul>
+<p class="practice"><strong>Practise.</strong> Run the personal baseline (passphrases, second factor, backups). Verify one claim in your field from a primary source. Teach least privilege.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#security">Open module 34 in the campus</a>
+· <a href="../study-path.html#s34">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m35" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t35">
+<title id="t35">Module 35. Defaults do the work</title>
+<desc>Illustrated mark for module 35, Defaults do the work.</desc>
+<defs>
+<linearGradient id="bg35" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg35)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">35</text>
+<rect x="200" y="70" width="200" height="140" rx="6" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="230" y="100" width="60" height="50" rx="4" fill="#1e4f86" fill-opacity=".8"/>
+<rect x="310" y="150" width="50" height="60" fill="#1b2430"/>
+<rect x="430" y="120" width="40" height="70" rx="6" fill="none" stroke="#1e4f86" stroke-width="4"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 35 · Transmission</p>
+<h2>Environment Design</h2>
+<p>You are the product of your environment more than of willpower. Design the environment and the behavior follows.</p>
+<ul><li>Grammar: physical (easy good, hard bad), digital (defaults and killed notifications), social (the circle is a ceiling), temporal (same time becomes ritual), mental (desk means work, mat means practice).</li><li>Habit stack: AFTER an existing habit, I WILL a tiny new one. Examples: after coffee, 100 words; after sitting, one card; after dinner, five cards. Two minutes. The streak is the siddha.</li><li>A 15-minute audit: three desired behaviors and their friction, three unwanted habits and added friction, one default fixed this week. Repeat monthly because environments drift.</li></ul>
+<p class="practice"><strong>Practise.</strong> Do the audit. Stack one two-minute habit on an existing anchor. Remove one piece of digital friction. Teach the environment grammar.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#environment">Open module 35 in the campus</a>
+· <a href="../study-path.html#s35">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m36" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t36">
+<title id="t36">Module 36. Facts versus assumptions</title>
+<desc>Illustrated mark for module 36, Facts versus assumptions.</desc>
+<defs>
+<linearGradient id="bg36" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8e4f1"/>
+<stop offset="100%" stop-color="#efd0e6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg36)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">36</text>
+<path d="M240 210 V130" stroke="#1b2430" stroke-width="5" stroke-linecap="round"/>
+<path d="M240 130 L340 80" stroke="#7a3e68" stroke-width="5" stroke-linecap="round"/>
+<path d="M240 130 L360 150" stroke="#7a3e68" stroke-width="5" stroke-linecap="round"/>
+<path d="M240 130 L300 190" stroke="#1b2430" stroke-width="5" stroke-linecap="round"/>
+<circle cx="340" cy="80" r="8" fill="#7a3e68"/>
+<circle cx="360" cy="150" r="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="300" cy="190" r="8" fill="#1b2430"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 36 · Transmission</p>
+<h2>Decision Science</h2>
+<p>Life is a sequence of decisions. Decision science is Nyāya applied to choices under uncertainty.</p>
+<ul><li>Grammar: frame the choice in one sentence, list three or more options including do nothing, weight three to five criteria, label facts versus assumptions, decide with a syllogism, review without blame.</li><li>The one-page card adds a review date 30 days out. Big decisions: fill the card, sleep, review, then decide. Small ones: decide fast and learn fast.</li><li>Bias radar: confirmation, sunk cost, anchoring, overconfidence, loss aversion. Under uncertainty, prefer the option that teaches you either way.</li></ul>
+<p class="practice"><strong>Practise.</strong> Fill a one-page decision card for a real choice this week. Name one bias that shaped a past decision. Teach the decision grammar.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#decisions">Open module 36 in the campus</a>
+· <a href="../study-path.html#s36">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m37" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t37">
+<title id="t37">Module 37. Narrative is a retrieval key</title>
+<desc>Illustrated mark for module 37, Narrative is a retrieval key.</desc>
+<defs>
+<linearGradient id="bg37" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg37)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">37</text>
+<path d="M210 90 H430 V190 H210 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="210" cy="140" r="22" fill="#5a3d92"/>
+<circle cx="430" cy="140" r="22" fill="#5a3d92"/>
+<path d="M250 120 H390 M250 145 H370 M250 170 H350" stroke="#1b2430" stroke-width="3" stroke-linecap="round"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 37 · Transmission</p>
+<h2>Storytelling</h2>
+<p>The Purāṇas and the campus agree on the mechanism: narrative carries memory. A story is a retrieval key.</p>
+<ul><li>Grammar: character, stakes, conflict, turn, resolution, lesson. The teaching story is a learner, an obstacle, the concept, and a world that changes.</li><li>Templates: hero’s journey, before/after, mystery, contrast, one day in the life.</li><li>Story-wrapping is another redundant encoding, kin to jaṭā pāṭha. Vivid, emotional, or absurd hooks hold more.</li></ul>
+<p class="practice"><strong>Practise.</strong> Turn one concept into a three-sentence story. Tell it to someone today. Teach the story grammar.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#story">Open module 37 in the campus</a>
+· <a href="../study-path.html#s37">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m38" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t38">
+<title id="t38">Module 38. Show the work first</title>
+<desc>Illustrated mark for module 38, Show the work first.</desc>
+<defs>
+<linearGradient id="bg38" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0c8"/>
+<stop offset="100%" stop-color="#f6e2a4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg38)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">38</text>
+<rect x="200" y="130" width="80" height="16" rx="4" fill="#1b2430"/>
+<rect x="210" y="146" width="14" height="40" fill="#1b2430"/>
+<rect x="256" y="146" width="14" height="40" fill="#1b2430"/>
+<rect x="380" y="120" width="80" height="16" rx="4" fill="#7a5a10"/>
+<rect x="390" y="136" width="14" height="50" fill="#7a5a10"/>
+<rect x="436" y="136" width="14" height="50" fill="#7a5a10"/>
+<circle cx="240" cy="100" r="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="420" cy="90" r="16" fill="#fff" stroke="#7a5a10" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 38 · Transmission</p>
+<h2>Mentoring</h2>
+<p>Every master was mentored. Every mentor becomes more masterful. The exchange is guidance for effort and teaching for understanding.</p>
+<ul><li>Mentor: ask, don’t carry; feedback that is specific, timely, and behavioral; show your practice. Learner: attempt first, bring the artifact, report what you did with the advice.</li><li>The respectful ask is specific and small, prepared, on time, and paid forward.</li><li>Evidence log: learner, date, goal, what went well with evidence, gap, next step, artifact to review. Five entries are five people who moved.</li></ul>
+<p class="practice"><strong>Practise.</strong> Ask a mentor one specific question with your work attached, or mentor one person this way. Log the exchange. Teach the mentoring grammar.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#mentor">Open module 38 in the campus</a>
+· <a href="../study-path.html#s38">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m39" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t39">
+<title id="t39">Module 39. A cockpit you actually look at</title>
+<desc>Illustrated mark for module 39, A cockpit you actually look at.</desc>
+<defs>
+<linearGradient id="bg39" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#e3f3e6"/>
+<stop offset="100%" stop-color="#c9e6d0"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg39)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">39</text>
+<g fill="none" stroke="#1b2430" stroke-width="3">
+<circle cx="230" cy="110" r="28"/><circle cx="310" cy="110" r="28"/><circle cx="390" cy="110" r="28"/>
+<circle cx="270" cy="180" r="28"/><circle cx="350" cy="180" r="28"/><circle cx="430" cy="180" r="28"/>
+</g>
+<line x1="230" y1="110" x2="246" y2="96" stroke="#2d6a40" stroke-width="3"/>
+<line x1="310" y1="110" x2="310" y2="90" stroke="#2d6a40" stroke-width="3"/>
+<line x1="390" y1="110" x2="406" y2="122" stroke="#2d6a40" stroke-width="3"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 39 · Transmission</p>
+<h2>The Productivity OS</h2>
+<p>The mandalas need a cockpit: capture → plan → do → review, wired to mastery goals and running on the Śikṣā loop.</p>
+<ul><li>Six modules: capture, plan, do, review, prove, learn. Paper is enough.</li><li>Daily rhythm: first hour with no phone (one focus, three small wins, cards, a 90-minute block); midday movement and a batched admin; afternoon second block or practice; evening capture and light teaching; night wind-down and 7–9 hours of sleep.</li><li>Sunday, 30 minutes: three wins with evidence, three gaps with why, artifacts, cards, next week’s one target, one default to improve. The visible dashboard lists 90-day goals, current focus, streak, artifacts, cards, and the next review date.</li></ul>
+<p class="practice"><strong>Practise.</strong> Set up the six-module OS, even on paper. Run the daily rhythm for three days. Do the Sunday review. Teach the OS.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#prod-os">Open module 39 in the campus</a>
+· <a href="../study-path.html#s39">Study-path step</a></p>
+</div>
+</article><article class="topic" id="m40" data-stage="transmit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t40">
+<title id="t40">Module 40. Transmission</title>
+<desc>Illustrated mark for module 40, Transmission.</desc>
+<defs>
+<linearGradient id="bg40" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg40)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">40</text>
+<circle cx="250" cy="170" r="14" fill="#8d4034"/>
+<path d="M264 170 C320 170, 330 100, 390 100" fill="none" stroke="#1b2430" stroke-width="4"/>
+<circle cx="400" cy="90" r="18" fill="none" stroke="#8d4034" stroke-width="4"/>
+<path d="M400 72 V40 M388 52 H412" stroke="#8d4034" stroke-width="3"/>
+<path d="M250 184 C180 220, 160 120, 230 100" fill="none" stroke="#8d4034" stroke-width="3" stroke-dasharray="4 4"/>
+</svg>
+<div class="body">
+<p class="kicker">Module 40 · Transmission</p>
+<h2>The Master’s Capstone</h2>
+<p>The top of the ladder is not the end of learning. It is the point where your learning becomes a ladder for others. The capstone is transmission.</p>
+<ul><li>The question: what will you leave that outlives you? The campus answers with meaning: a campus, a method, a craft taught, a person transformed.</li><li>Pick one project: a free offline campus, a teaching track with lessons and checks, a tool that solves one real problem, a written method, or a chain of three learners who each mentor one.</li><li>Legacy loop: remember, bridge, build for use, plant, stay unstuck, protect, remain a mystery. Then re-read Module 01 and begin again.</li></ul>
+<p class="practice"><strong>Practise.</strong> Choose the capstone. Start it this quarter. When it exists, teach the method to one person who has never heard of it. Return to Module 01.</p>
+<p><a href="../../university/v1-ARDHAM-SHASTRA.html#capstone">Open module 40 in the campus</a>
+· <a href="../study-path.html#s40">Study-path step</a></p>
+</div>
+</article>
+</div>
+<script>
+(function () {
+  var q = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.topic'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var empty = document.getElementById('empty');
+  function stage() {
+    var on = document.querySelector('.chip[aria-pressed="true"]');
+    return on ? on.getAttribute('data-stage') : 'all';
+  }
+  function apply() {
+    var term = (q.value || '').trim().toLowerCase();
+    var st = stage();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var okS = st === 'all' || card.getAttribute('data-stage') === st;
+      var okT = !term || card.innerText.toLowerCase().indexOf(term) !== -1;
+      var show = okS && okT;
+      card.hidden = !show;
+      if (show) shown += 1;
+    });
+    empty.hidden = shown !== 0;
+  }
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+      chip.setAttribute('aria-pressed', 'true');
+      apply();
+    });
+  });
+  q.addEventListener('input', apply);
+})();
+</script>
+
+<footer class="note">
+<p>These pages restate the Ardham Shastra campus (<a href="../../university/v1-ARDHAM-SHASTRA.html">university/v1-ARDHAM-SHASTRA.html</a>) and the public notes beside it. They add no module the campus does not already contain. Educational, MIT, no warranty.</p>
+</footer>
+</main>
+</body>
+</html>

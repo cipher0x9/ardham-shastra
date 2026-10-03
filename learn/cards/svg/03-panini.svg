@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t3">
+<title id="t3">Module 03. Rules that generate</title>
+<desc>Illustrated mark for module 03, Rules that generate.</desc>
+<defs>
+<linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg3)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">03</text>
+<line x1="320" y1="200" x2="320" y2="120" stroke="#1b2430" stroke-width="4"/>
+<line x1="320" y1="120" x2="230" y2="80" stroke="#1e4f86" stroke-width="4"/>
+<line x1="320" y1="120" x2="320" y2="72" stroke="#1e4f86" stroke-width="4"/>
+<line x1="320" y1="120" x2="410" y2="80" stroke="#1e4f86" stroke-width="4"/>
+<circle cx="230" cy="74" r="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="320" cy="64" r="16" fill="#1e4f86"/>
+<circle cx="410" cy="74" r="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>

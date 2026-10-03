@@ -15,6 +15,8 @@ Free for learning · Educational only · MIT · no warranty
 | **Campus zip** | **~795 KB** zip → ~12 MB HTML | https://github.com/cipher0x9/ardham-shastra/releases/download/v5-mastery/v1-ARDHAM-SHASTRA.html.zip |
 | Release page | — | https://github.com/cipher0x9/ardham-shastra/releases/tag/v5-mastery |
 | HTML in repo | ~12 MB | [`university/v1-ARDHAM-SHASTRA.html`](./university/v1-ARDHAM-SHASTRA.html) |
+| Short study map (PDF) | 6 pages | [`learn/pdf/ardham-shastra-summary.pdf`](./learn/pdf/ardham-shastra-summary.pdf) |
+| Illustrated learn hub | — | [`learn/index.html`](./learn/index.html) |
 
 **Open:** download → unzip → open `v1-ARDHAM-SHASTRA.html` in **Chrome / Safari / Edge / Firefox** (full browser).  
 Built-in **export suite** can save study packs as HTML / PDF / Markdown / JSON / CSV from the campus UI.

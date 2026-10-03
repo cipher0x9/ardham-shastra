@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t14">
+<title id="t14">Module 14. The loop completes in teaching</title>
+<desc>Illustrated mark for module 14, The loop completes in teaching.</desc>
+<defs>
+<linearGradient id="bg14" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0c8"/>
+<stop offset="100%" stop-color="#f6e2a4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg14)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">14</text>
+<circle cx="250" cy="110" r="28" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="410" cy="110" r="28" fill="#7a5a10"/>
+<rect x="222" y="150" width="56" height="50" rx="16" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="382" y="150" width="56" height="50" rx="16" fill="#7a5a10" fill-opacity=".8"/>
+<path d="M300 130 H360" stroke="#1b2430" stroke-width="4"/>
+<path d="M348 118 L368 130 L348 142" fill="#1b2430"/>
+</svg>

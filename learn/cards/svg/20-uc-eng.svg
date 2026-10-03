@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t20">
+<title id="t20">Module 20. The call must connect</title>
+<desc>Illustrated mark for module 20, The call must connect.</desc>
+<defs>
+<linearGradient id="bg20" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8e4f1"/>
+<stop offset="100%" stop-color="#efd0e6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg20)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">20</text>
+<rect x="200" y="120" width="46" height="70" rx="10" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="223" cy="142" r="6" fill="#7a3e68"/>
+<path d="M270 150 Q300 110 330 150 T390 150 T450 150" fill="none" stroke="#7a3e68" stroke-width="6" stroke-linecap="round"/>
+</svg>

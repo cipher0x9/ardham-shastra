@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t12">
+<title id="t12">Module 12. Retrieval under a clock</title>
+<desc>Illustrated mark for module 12, Retrieval under a clock.</desc>
+<defs>
+<linearGradient id="bg12" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8e4f1"/>
+<stop offset="100%" stop-color="#efd0e6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg12)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">12</text>
+<circle cx="320" cy="145" r="70" fill="#fff" stroke="#1b2430" stroke-width="4"/>
+<path d="M320 145 L320 95" stroke="#7a3e68" stroke-width="5" stroke-linecap="round"/>
+<path d="M320 145 L365 160" stroke="#1b2430" stroke-width="4" stroke-linecap="round"/>
+<circle cx="320" cy="145" r="6" fill="#7a3e68"/>
+<path d="M270 90 A70 70 0 0 1 390 110" fill="none" stroke="#7a3e68" stroke-width="8" stroke-linecap="round"/>
+</svg>

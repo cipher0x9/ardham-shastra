@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t35">
+<title id="t35">Module 35. Defaults do the work</title>
+<desc>Illustrated mark for module 35, Defaults do the work.</desc>
+<defs>
+<linearGradient id="bg35" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg35)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">35</text>
+<rect x="200" y="70" width="200" height="140" rx="6" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="230" y="100" width="60" height="50" rx="4" fill="#1e4f86" fill-opacity=".8"/>
+<rect x="310" y="150" width="50" height="60" fill="#1b2430"/>
+<rect x="430" y="120" width="40" height="70" rx="6" fill="none" stroke="#1e4f86" stroke-width="4"/>
+</svg>

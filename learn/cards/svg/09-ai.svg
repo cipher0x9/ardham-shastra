@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t9">
+<title id="t9">Module 09. Quiz, don’t outsource</title>
+<desc>Illustrated mark for module 09, Quiz, don’t outsource.</desc>
+<defs>
+<linearGradient id="bg9" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg9)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">09</text>
+<path d="M230 80 H360 V200 H230 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M360 80 H430 V200 H360 Z" fill="#fff" fill-opacity=".8" stroke="#1b2430" stroke-width="3"/>
+<line x1="250" y1="110" x2="340" y2="110" stroke="#9a4e32" stroke-width="4"/>
+<line x1="250" y1="132" x2="330" y2="132" stroke="#9a4e32" stroke-width="4"/>
+<circle cx="470" cy="120" r="28" fill="none" stroke="#9a4e32" stroke-width="6"/>
+<rect x="464" y="156" width="12" height="22" rx="3" fill="#9a4e32"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t8">
+<title id="t8">Module 08. Seven steps, any domain</title>
+<desc>Illustrated mark for module 08, Seven steps, any domain.</desc>
+<defs>
+<linearGradient id="bg8" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg8)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">08</text>
+<g fill="#8d4034">
+<rect x="200" y="190" width="36" height="24" rx="3"/>
+<rect x="242" y="170" width="36" height="44" rx="3"/>
+<rect x="284" y="150" width="36" height="64" rx="3"/>
+<rect x="326" y="130" width="36" height="84" rx="3" fill="#1b2430"/>
+<rect x="368" y="110" width="36" height="104" rx="3"/>
+<rect x="410" y="90" width="36" height="124" rx="3"/>
+<rect x="452" y="70" width="36" height="144" rx="3" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</g>
+</svg>

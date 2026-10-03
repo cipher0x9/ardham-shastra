@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t40">
+<title id="t40">Module 40. Transmission</title>
+<desc>Illustrated mark for module 40, Transmission.</desc>
+<defs>
+<linearGradient id="bg40" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg40)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">40</text>
+<circle cx="250" cy="170" r="14" fill="#8d4034"/>
+<path d="M264 170 C320 170, 330 100, 390 100" fill="none" stroke="#1b2430" stroke-width="4"/>
+<circle cx="400" cy="90" r="18" fill="none" stroke="#8d4034" stroke-width="4"/>
+<path d="M400 72 V40 M388 52 H412" stroke="#8d4034" stroke-width="3"/>
+<path d="M250 184 C180 220, 160 120, 230 100" fill="none" stroke="#8d4034" stroke-width="3" stroke-dasharray="4 4"/>
+</svg>

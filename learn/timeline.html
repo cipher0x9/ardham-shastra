@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timeline — Ardham Shastra</title>
+<style>
+:root {
+  --ink: #1b2430;
+  --muted: #3a4858;
+  --line: #e3d5c4;
+  --card: rgba(255, 253, 248, .94);
+  --link: #1a4f86;
+  --practice: #e5f6ec;
+  --practice-ink: #123328;
+  --focus: #1d4e89;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 1.05rem/1.65 "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(1100px 520px at 0% -10%, #fde4cf 0%, transparent 55%),
+    radial-gradient(900px 480px at 100% 0%, #d5e8fb 0%, transparent 50%),
+    radial-gradient(800px 420px at 50% 110%, #d9f3e4 0%, transparent 46%),
+    linear-gradient(180deg, #fbf6ee 0%, #eef4f2 42%, #f7f2e8 100%);
+  min-height: 100vh;
+}
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip {
+  position: absolute; left: 12px; top: -40px; background: #1b2430; color: #f7f1e8;
+  padding: .5rem .8rem; border-radius: 8px; z-index: 5;
+}
+.skip:focus { top: 12px; }
+.top {
+  position: sticky; top: 0; z-index: 4;
+  background: rgba(251, 246, 238, .92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.top-inner, .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.1rem; }
+.top-inner { display: flex; flex-wrap: wrap; gap: .4rem .7rem; align-items: center; padding-top: .55rem; padding-bottom: .55rem; }
+.brand { font-family: Georgia, Palatino, serif; font-weight: 700; color: var(--ink); text-decoration: none; margin-right: auto; }
+nav { display: flex; flex-wrap: wrap; gap: .35rem; }
+nav a, .chip, button.go {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: .35rem .8rem;
+  border-radius: 999px; text-decoration: none; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); font: inherit;
+}
+nav a[aria-current="page"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.wrap { padding-top: 1.4rem; padding-bottom: 3rem; }
+h1, h2, h3 { font-family: Georgia, Palatino, serif; line-height: 1.25; font-weight: 700; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: .2rem 0 .6rem; }
+h2 { font-size: 1.45rem; margin: 0 0 .4rem; }
+.lede { font-size: 1.12rem; max-width: 42rem; }
+.muted { color: var(--muted); }
+.hero {
+  display: grid; gap: 1rem;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+.panel, .door, .topic, .step, .era, .callout {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(70, 46, 20, .05);
+}
+.panel { padding: 1rem 1.1rem; }
+.doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; margin: 1rem 0 1.6rem; }
+.door { padding: 1rem; text-decoration: none; color: inherit; display: block; }
+.door strong { display: block; font-family: Georgia, Palatino, serif; font-size: 1.2rem; margin-bottom: .25rem; }
+.flow { display: flex; flex-wrap: wrap; gap: .45rem; margin: .8rem 0; }
+.flow span {
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: .35rem .7rem; font-weight: 650;
+}
+.method-svg { width: 100%; height: auto; display: block; }
+.index-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .45rem; }
+.index-list a { text-decoration: none; color: inherit; display: block; padding: .55rem .7rem; border-radius: 12px; background: #fff; border: 1px solid var(--line); min-height: 44px; }
+.index-list a:hover { border-color: #1a4f86; }
+.kicker { letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; color: var(--muted); margin: 0 0 .2rem; font-weight: 700; }
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .8rem 0 1rem; }
+input[type="search"] {
+  min-height: 44px; flex: 1 1 220px; border-radius: 12px; border: 1px solid var(--line);
+  padding: .4rem .8rem; font: inherit; color: var(--ink); background: #fff;
+}
+.chip[aria-pressed="true"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+.topic { overflow: hidden; display: flex; flex-direction: column; }
+.topic svg { width: 100%; height: auto; display: block; }
+.topic .body { padding: .9rem 1rem 1.1rem; }
+.topic ul, .step ul { margin: .4rem 0 .7rem; padding-left: 1.1rem; }
+.practice { background: var(--practice); color: var(--practice-ink); border-radius: 14px; padding: .7rem .8rem; }
+.practice strong { font-family: Georgia, Palatino, serif; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before {
+  content: ""; position: absolute; left: 9.35rem; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(#e7b89a, #7fbfa4, #8eafd4);
+}
+.era { display: grid; grid-template-columns: 8.4rem 1fr; gap: .8rem; padding: .9rem 1rem; margin: 0 0 .7rem .2rem; position: relative; }
+.era .when { font-family: Georgia, Palatino, serif; font-weight: 700; }
+.dot {
+  position: absolute; left: 8.7rem; top: 1.3rem; width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 3px solid #1b2430;
+}
+.step { padding: 1rem 1.05rem; margin: 0 0 .8rem; }
+.step .num { font-family: Georgia, Palatino, serif; color: var(--muted); }
+.callout { padding: 1rem 1.1rem; margin: 1rem 0; background: #fff8ec; }
+footer.note { margin-top: 2rem; color: var(--muted); font-size: .95rem; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { text-align: left; vertical-align: top; padding: .45rem .5rem; border-bottom: 1px solid var(--line); }
+th { font-size: .85rem; }
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .tl::before { left: .45rem; }
+  .era { grid-template-columns: 1fr; margin-left: 1.2rem; }
+  .dot { left: -1.05rem; }
+}
+@media print {
+  .top, .controls, .skip { display: none !important; }
+  body { background: #fff; }
+  .topic, .era, .step, .panel { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top"><div class="top-inner">
+<a class="brand" href="index.html">Ardham Shastra</a>
+<nav aria-label="Learn"><a href="index.html">Home</a><a href="cards/index.html">Topic cards</a><a href="timeline.html" aria-current="page">Timeline</a><a href="study-path.html">Study path</a><a href="pdf/ardham-shastra-summary.pdf">PDF summary</a></nav>
+</div></header>
+<main id="content" class="wrap">
+
+<p class="kicker">Dated, because the campus is dated</p>
+<h1>A timeline of the ladder</h1>
+<p class="lede">This is not a substitute journey. The campus names eras, so this page lines those eras up. The spine is Module 27. Modules 02, 06, 10, and 18, plus the citation file and the FAQ, supply the other dates. Where two modules phrase the same life differently, both phrases are kept.</p>
+<p>The practice order is on the <a href="study-path.html">study path</a>, not here. Piṅgala sits at about 300 BCE beside Kaṇāda even though the idea-ladder table prints Piṅgala after the Sāṃkhya rung.</p>
+<ol class="tl">
+<li>
+<article class="era">
+<div class="when">about 1500 BCE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Vedas</h3>
+<p>Oral transmission as technology. Sound is the vehicle of knowledge.</p>
+<p class="muted">Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 600 BCE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Upaniṣads</h3>
+<p>The campus gloss is listen long · speak true: observer and observed are one.</p>
+<p class="muted">Module 27 · Module 10</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 500 BCE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Pāṇini</h3>
+<p>Aṣṭādhyāyī, called the first generative grammar on the idea-ladder. Module 03 also dates that text to about the 4th century BCE.</p>
+<p class="muted">Module 27 · Module 03</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 400 BCE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Gautama</h3>
+<p>Nyāya: logic as a science, and the five-member syllogism.</p>
+<p class="muted">Module 27 · Module 04</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 300 BCE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Kaṇāda</h3>
+<p>Vaiśeṣika: categories of what exists.</p>
+<p class="muted">Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 300 BCE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Piṅgala</h3>
+<p>Binary enumeration and the mātrā-meru recurrence. Module 06 places the Chandaḥśāstra in about the 3rd century BCE.</p>
+<p class="muted">Module 27 · Module 06</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 200 BCE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Īśvarakṛṣṇa</h3>
+<p>Sāṃkhya and the 25-tattva layer stack.</p>
+<p class="muted">Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">476 CE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Āryabhaṭa</h3>
+<p>π ≈ 3.1416, eclipses explained, reflected light. The campus line: models beat myth.</p>
+<p class="muted">Module 06 · Module 10 · Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 500 CE</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Sūrya Siddhānta</h3>
+<p>Planetary computation. Module 10 adds the mahāyuga of 4.32 million years: the sky is computable and time is vast.</p>
+<p class="muted">Module 27 · Module 10</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">1114–1185</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Bhāskara II</h3>
+<p>Gravity intuition, calculus seeds, and what the ladder calls zero mastery.</p>
+<p class="muted">Module 06 · Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">1202</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Fibonacci’s publication</h3>
+<p>Module 06 notes that the mātrā-meru count is the sequence Fibonacci published in 1202.</p>
+<p class="muted">Module 06</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 1400</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Mādhava</h3>
+<p>Infinite series for π. Module 18 writes π/4 = 1 − 1/3 + 1/5 − 1/7 + … and names Mādhava of Sangamagrama.</p>
+<p class="muted">Module 27 · Module 18</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">about 1530</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Jyeṣṭhadeva</h3>
+<p>Yuktibhāṣā: proofs, not only results. Series for π, sine, and cosine.</p>
+<p class="muted">Module 06 · Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">1637–1687</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Descartes to Newton</h3>
+<p>The European rung: method, calculus, universal gravitation. Module 10 names Copernicus, Kepler, and Newton without years: one law, everywhere.</p>
+<p class="muted">Module 27 · Module 10</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">1887–1920</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Rāmānujan</h3>
+<p>Pattern intuition at the frontier, with proof later.</p>
+<p class="muted">Module 06 · Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">1929</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Hubble</h3>
+<p>An expanding universe. The campus line: space itself grows.</p>
+<p class="muted">Module 10</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">1945 and after</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Computation</h3>
+<p>Turing, von Neumann, and Chomsky: computation, information, and formal grammars.</p>
+<p class="muted">Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2006</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Spacing effect</h3>
+<p>Cepeda and colleagues: distributed practice beat massed practice across about 250 experiments.</p>
+<p class="muted">Module 02</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2007</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Interleaving</h3>
+<p>Rohrer and Taylor: mixing problem types beat blocked practice in math and category learning.</p>
+<p class="muted">Module 02</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2011</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Testing and desirable difficulty</h3>
+<p>Roediger and Butler on the testing effect. Bjork and Bjork: harder encoding improves long-term retention.</p>
+<p class="muted">Module 02</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2013</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Sleep consolidation</h3>
+<p>Rasch and Born: memory reactivates in slow-wave sleep; sleep after learning boosts recall.</p>
+<p class="muted">Module 02</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2015 and after</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Spacetime, measured</h3>
+<p>Gravitational waves, and the Event Horizon image. The campus line: spacetime is real and bendable.</p>
+<p class="muted">Module 10</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2016</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Deliberate practice</h3>
+<p>Ericsson and Pool. The campus calls the round “10,000 hours” a myth; feedback is what matters.</p>
+<p class="muted">Module 02</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2017 and after</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Learned grammars at scale</h3>
+<p>The ladder’s latest rung: transformers and large language models, described as Pāṇini’s dream automated.</p>
+<p class="muted">Module 27</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">the 2020s</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>JWST</h3>
+<p>Module 10 pairs the cosmic microwave background and deep-field images with JWST: baby pictures of the universe.</p>
+<p class="muted">Module 10</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2026</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>The campus present</h3>
+<p>Modules on assisted learning, the engineering stack, and the toolbox are written as a 2026 map. The method underneath is the same seven steps.</p>
+<p class="muted">Modules 09 · 19 · 26</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2026-08-01</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>This campus, released</h3>
+<p>The citation file dates the release 2026-08-01.</p>
+<p class="muted">CITATION.cff</p>
+</div>
+</article>
+</li><li>
+<article class="era">
+<div class="when">2026-08-10</div>
+<span class="dot" aria-hidden="true"></span>
+<div>
+<h3>Public notes refreshed</h3>
+<p>The FAQ is marked last updated 2026-08-10.</p>
+<p class="muted">docs/FAQ.md</p>
+</div>
+</article>
+</li>
+</ol>
+
+<footer class="note">
+<p>These pages restate the Ardham Shastra campus (<a href="../university/v1-ARDHAM-SHASTRA.html">university/v1-ARDHAM-SHASTRA.html</a>) and the public notes beside it. They add no module the campus does not already contain. Educational, MIT, no warranty.</p>
+</footer>
+</main>
+</body>
+</html>

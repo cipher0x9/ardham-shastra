@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t33">
+<title id="t33">Module 33. Parts and flows</title>
+<desc>Illustrated mark for module 33, Parts and flows.</desc>
+<defs>
+<linearGradient id="bg33" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg33)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">33</text>
+<circle cx="240" cy="150" r="22" fill="#9a4e32"/>
+<circle cx="360" cy="90" r="22" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="430" cy="170" r="22" fill="#1b2430"/>
+<line x1="258" y1="140" x2="342" y2="102" stroke="#1b2430" stroke-width="3"/>
+<line x1="258" y1="160" x2="412" y2="164" stroke="#1b2430" stroke-width="3"/>
+<line x1="378" y1="104" x2="418" y2="154" stroke="#9a4e32" stroke-width="3"/>
+</svg>

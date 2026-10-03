@@ -22,7 +22,7 @@ Yes, in a full browser (not in-app browsers). First load may take 10–30 second
 
 ## Is there a PDF textbook?
 
-No separate multi-volume PDF book on purpose — the campus is the book.
+No separate multi-volume PDF book on purpose — the campus is the book. A six-page map of the same modules is at [learn/pdf/ardham-shastra-summary.pdf](../learn/pdf/ardham-shastra-summary.pdf). It does not replace the campus.
 
 - Use the built-in **export suite** for HTML / PDF / Markdown / JSON / CSV study packs
 - Or browser **Print → Save as PDF** on any mandala/module

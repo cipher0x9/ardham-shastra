@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study path — Ardham Shastra</title>
+<style>
+:root {
+  --ink: #1b2430;
+  --muted: #3a4858;
+  --line: #e3d5c4;
+  --card: rgba(255, 253, 248, .94);
+  --link: #1a4f86;
+  --practice: #e5f6ec;
+  --practice-ink: #123328;
+  --focus: #1d4e89;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 1.05rem/1.65 "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(1100px 520px at 0% -10%, #fde4cf 0%, transparent 55%),
+    radial-gradient(900px 480px at 100% 0%, #d5e8fb 0%, transparent 50%),
+    radial-gradient(800px 420px at 50% 110%, #d9f3e4 0%, transparent 46%),
+    linear-gradient(180deg, #fbf6ee 0%, #eef4f2 42%, #f7f2e8 100%);
+  min-height: 100vh;
+}
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip {
+  position: absolute; left: 12px; top: -40px; background: #1b2430; color: #f7f1e8;
+  padding: .5rem .8rem; border-radius: 8px; z-index: 5;
+}
+.skip:focus { top: 12px; }
+.top {
+  position: sticky; top: 0; z-index: 4;
+  background: rgba(251, 246, 238, .92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.top-inner, .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.1rem; }
+.top-inner { display: flex; flex-wrap: wrap; gap: .4rem .7rem; align-items: center; padding-top: .55rem; padding-bottom: .55rem; }
+.brand { font-family: Georgia, Palatino, serif; font-weight: 700; color: var(--ink); text-decoration: none; margin-right: auto; }
+nav { display: flex; flex-wrap: wrap; gap: .35rem; }
+nav a, .chip, button.go {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: .35rem .8rem;
+  border-radius: 999px; text-decoration: none; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); font: inherit;
+}
+nav a[aria-current="page"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.wrap { padding-top: 1.4rem; padding-bottom: 3rem; }
+h1, h2, h3 { font-family: Georgia, Palatino, serif; line-height: 1.25; font-weight: 700; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: .2rem 0 .6rem; }
+h2 { font-size: 1.45rem; margin: 0 0 .4rem; }
+.lede { font-size: 1.12rem; max-width: 42rem; }
+.muted { color: var(--muted); }
+.hero {
+  display: grid; gap: 1rem;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+.panel, .door, .topic, .step, .era, .callout {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(70, 46, 20, .05);
+}
+.panel { padding: 1rem 1.1rem; }
+.doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; margin: 1rem 0 1.6rem; }
+.door { padding: 1rem; text-decoration: none; color: inherit; display: block; }
+.door strong { display: block; font-family: Georgia, Palatino, serif; font-size: 1.2rem; margin-bottom: .25rem; }
+.flow { display: flex; flex-wrap: wrap; gap: .45rem; margin: .8rem 0; }
+.flow span {
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: .35rem .7rem; font-weight: 650;
+}
+.method-svg { width: 100%; height: auto; display: block; }
+.index-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .45rem; }
+.index-list a { text-decoration: none; color: inherit; display: block; padding: .55rem .7rem; border-radius: 12px; background: #fff; border: 1px solid var(--line); min-height: 44px; }
+.index-list a:hover { border-color: #1a4f86; }
+.kicker { letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; color: var(--muted); margin: 0 0 .2rem; font-weight: 700; }
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .8rem 0 1rem; }
+input[type="search"] {
+  min-height: 44px; flex: 1 1 220px; border-radius: 12px; border: 1px solid var(--line);
+  padding: .4rem .8rem; font: inherit; color: var(--ink); background: #fff;
+}
+.chip[aria-pressed="true"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+.topic { overflow: hidden; display: flex; flex-direction: column; }
+.topic svg { width: 100%; height: auto; display: block; }
+.topic .body { padding: .9rem 1rem 1.1rem; }
+.topic ul, .step ul { margin: .4rem 0 .7rem; padding-left: 1.1rem; }
+.practice { background: var(--practice); color: var(--practice-ink); border-radius: 14px; padding: .7rem .8rem; }
+.practice strong { font-family: Georgia, Palatino, serif; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before {
+  content: ""; position: absolute; left: 9.35rem; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(#e7b89a, #7fbfa4, #8eafd4);
+}
+.era { display: grid; grid-template-columns: 8.4rem 1fr; gap: .8rem; padding: .9rem 1rem; margin: 0 0 .7rem .2rem; position: relative; }
+.era .when { font-family: Georgia, Palatino, serif; font-weight: 700; }
+.dot {
+  position: absolute; left: 8.7rem; top: 1.3rem; width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 3px solid #1b2430;
+}
+.step { padding: 1rem 1.05rem; margin: 0 0 .8rem; }
+.step .num { font-family: Georgia, Palatino, serif; color: var(--muted); }
+.callout { padding: 1rem 1.1rem; margin: 1rem 0; background: #fff8ec; }
+footer.note { margin-top: 2rem; color: var(--muted); font-size: .95rem; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { text-align: left; vertical-align: top; padding: .45rem .5rem; border-bottom: 1px solid var(--line); }
+th { font-size: .85rem; }
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .tl::before { left: .45rem; }
+  .era { grid-template-columns: 1fr; margin-left: 1.2rem; }
+  .dot { left: -1.05rem; }
+}
+@media print {
+  .top, .controls, .skip { display: none !important; }
+  body { background: #fff; }
+  .topic, .era, .step, .panel { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top"><div class="top-inner">
+<a class="brand" href="index.html">Ardham Shastra</a>
+<nav aria-label="Learn"><a href="index.html">Home</a><a href="cards/index.html">Topic cards</a><a href="timeline.html">Timeline</a><a href="study-path.html" aria-current="page">Study path</a><a href="pdf/ardham-shastra-summary.pdf">PDF summary</a></nav>
+</div></header>
+<main id="content" class="wrap">
+
+<p class="kicker">Suggested order</p>
+<h1>Study path</h1>
+<p class="lede">Walk the campus in the order it was built. At each step, do the practice gate before you call the module done. One domain, practised, beats forty modules skimmed.</p>
+
+<div class="callout">
+<h2>Short path, from the opening notes</h2>
+<ol>
+<li>Read the vow in <a href="cards/index.html#m01">Module 01</a> and say what Ardham means.</li>
+<li>Learn the loop in <a href="cards/index.html#m02">Module 02</a>: expose, engage, retrieve, apply, prove, teach. Close the source and produce it yourself.</li>
+<li>Pick one thing. Write the seven steps in <a href="cards/index.html#m08">Module 08</a> as this week’s actions. Do the map today.</li>
+<li>Put <a href="cards/index.html#m16">Module 16</a> on a calendar. START-HERE prints the same seven phases (days 1–7 through days 78–90). In the campus file that arc is Module 16, not Module 10. Module 10 is Cosmos and Beyond.</li>
+<li>Prove as you go. RTMA: run, trace, metric, artifact. LICC: leg, id, counter, capture.</li>
+<li>Re-read a module after 24 hours, 7 days, 30 days, and 90 days.</li>
+</ol>
+<p>The full pass below follows campus order, 01 through 40. Cross-links make a lattice, not only a line.</p>
+</div>
+<h2>Core method</h2><p>Modules 01–08 are how the campus opens. Everything later is this method pointed at a field.</p><article class="step" id="s01">
+<p class="num">Step 01 · Core method</p>
+<h3><a href="cards/index.html#m01">The Path — Why This Exists</a></h3>
+<p>Ardham Shastra (అర్థం శాస్త్రం — the science of meaning) is the master-method campus. The promise: there is a method to master anything.</p>
+<p class="practice"><strong>Practise.</strong> In one sentence, explain why this campus exists and what the word Ardham means. Then teach it to someone in 60 seconds.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#path">Campus module</a></p>
+</article><article class="step" id="s02">
+<p class="num">Step 02 · Core method</p>
+<h3><a href="cards/index.html#m02">Śikṣā — The Science of Learning</a></h3>
+<p>Śikṣā (शिक्षा) is the first of the six Vedāṅgas. It began as precise pronunciation so knowledge could cross generations without corruption. Learning is retrieval, spacing, and use.</p>
+<p class="practice"><strong>Practise.</strong> Set a review schedule for one topic: 1h → 24h → 7d → 30d → 90d. After the 24h review, write the Śikṣā loop from memory.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#siksa">Campus module</a></p>
+</article><article class="step" id="s03">
+<p class="num">Step 03 · Core method</p>
+<h3><a href="cards/index.html#m03">Pāṇini — The Grammar of Everything</a></h3>
+<p>The Aṣṭādhyāyī is a generative grammar: a small set of rules that produce infinite valid forms. Every domain has a grammar. Find it and you stop memorizing instances.</p>
+<p class="practice"><strong>Practise.</strong> Map one domain into utsarga, apavāda, and siddha: the general rule, two exceptions, and one verified output. Teach the grammar-to-computation connection in 60 seconds.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#panini">Campus module</a></p>
+</article><article class="step" id="s04">
+<p class="num">Step 04 · Core method</p>
+<h3><a href="cards/index.html#m04">Nyāya — The Logic Engine</a></h3>
+<p>Nyāya is the science of reasoning. The Nyāya-sūtra of Gautama opens with 16 categories. Correct reasoning was the path to correct knowledge, and correct knowledge was liberation from error.</p>
+<p class="practice"><strong>Practise.</strong> Take one belief. Run it through all five hetvābhāsa checks. Write the five-member syllogism for one real claim and mark the weakest step.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#nyaya">Campus module</a></p>
+</article><article class="step" id="s05">
+<p class="num">Step 05 · Core method</p>
+<h3><a href="cards/index.html#m05">Vaiśeṣika and Sāṃkhya — Maps of Reality</a></h3>
+<p>Two map-making tools for any domain: categories of what exists, and layers from observer to physical matter.</p>
+<p class="practice"><strong>Practise.</strong> Map your domain with Vaiśeṣika’s six categories and Sāṃkhya’s layer stack. Name the layer that usually breaks when you troubleshoot.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#maps">Campus module</a></p>
+</article><article class="step" id="s06">
+<p class="num">Step 06 · Core method</p>
+<h3><a href="cards/index.html#m06">The Jñāna Mathematics</a></h3>
+<p>India’s mathematical tradition is intuition first, notation second. Deep thinking needs clean reasoning, not modern symbols as a prerequisite.</p>
+<p class="practice"><strong>Practise.</strong> Compute the mātrā-meru up to n = 7 by hand. Derive π ≈ 3.1416 with an inscribed polygon, or explain why the Kerala series converges to π. Teach the mātrā-meru story in 60 seconds.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#math">Campus module</a></p>
+</article><article class="step" id="s07">
+<p class="num">Step 07 · Core method</p>
+<h3><a href="cards/index.html#m07">The Memory Arsenal</a></h3>
+<p>The śikṣā tradition transmitted the Vedas — millions of syllables — by redundant encoding. The same moves still work: compress, lattice, story, palace, and spaced review.</p>
+<p class="practice"><strong>Practise.</strong> Create five memory cards for today. Review one jaṭā-style, forward and backward. Compute the SM-2 interval for a card you rated 5.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#memory">Campus module</a></p>
+</article><article class="step" id="s08">
+<p class="num">Step 08 · Core method</p>
+<h3><a href="cards/index.html#m08">The Universal Playbook</a></h3>
+<p>Language, mathematics, music, engineering, AI, communications, art, sport, and philosophy share one seven-step method.</p>
+<p class="practice"><strong>Practise.</strong> Pick one domain. Write all seven steps as concrete actions for this week. Do step 1 (Map) today.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#playbook">Campus module</a></p>
+</article><h2>Fuel and proof</h2><p>Modules 09–16 add fuel, study conditions, repair, and the 90-day container. Module 10 is the cosmos. The dated arc is Module 16.</p><article class="step" id="s09">
+<p class="num">Step 09 · Fuel and proof</p>
+<h3><a href="cards/index.html#m09">AI-Assisted Learning</a></h3>
+<p>In the campus’s 2026 frame, a model can accelerate the Śikṣā loop or become passive re-reading. The retrieval, the production, and the proof stay yours.</p>
+<p class="practice"><strong>Practise.</strong> Use one exercise from this module on a real topic. Audit one model claim against a source. Keep the wording that worked as a reusable card.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#ai">Campus module</a></p>
+</article><article class="step" id="s10">
+<p class="num">Step 10 · Fuel and proof</p>
+<h3><a href="cards/index.html#m10">Cosmos and Beyond</a></h3>
+<p>The cosmos is fuel: it puts small frustration in scale and keeps one unanswered question alive.</p>
+<p class="practice"><strong>Practise.</strong> Write the scale table from memory, Moon through the observable universe. Name one mission from ISRO, one from NASA, and one from SpaceX, and what each taught. Keep one unanswered question.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#cosmos">Campus module</a></p>
+</article><article class="step" id="s11">
+<p class="num">Step 11 · Fuel and proof</p>
+<h3><a href="cards/index.html#m11">Study Systems</a></h3>
+<p>Your environment is a co-teacher. Design it well and study stops being a fight.</p>
+<p class="practice"><strong>Practise.</strong> Choose one note system and one focus technique. Set up a weekly learning dashboard. Schedule a nap or an early night after the next study session.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#study">Campus module</a></p>
+</article><article class="step" id="s12">
+<p class="num">Step 12 · Fuel and proof</p>
+<h3><a href="cards/index.html#m12">Exam and Performance</a></h3>
+<p>Exams test retrieval under pressure. The Śikṣā loop makes retrieval the daily practice, not only the final.</p>
+<p class="practice"><strong>Practise.</strong> Build a 30-day arc for your next test. Do one timed mock this week, log every wrong answer with a WHY, and schedule sleep before the exam.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#exam">Campus module</a></p>
+</article><article class="step" id="s13">
+<p class="num">Step 13 · Fuel and proof</p>
+<h3><a href="cards/index.html#m13">Career Mastery</a></h3>
+<p>Mastery without livelihood is a hobby. Livelihood without mastery is a job. The bridge is proof.</p>
+<p class="practice"><strong>Practise.</strong> Create one portfolio artifact this week with full LICC. Update it at the next review.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#career">Campus module</a></p>
+</article><article class="step" id="s14">
+<p class="num">Step 14 · Fuel and proof</p>
+<h3><a href="cards/index.html#m14">Guru-kuḷa — Teaching</a></h3>
+<p>In the guru-kuḷa a student learned by serving, questioning, and teaching in turn. The student who taught the youngest often grew the most. That is the Śikṣā loop completing.</p>
+<p class="practice"><strong>Practise.</strong> Teach one topic from this week to a real person. Note the question that exposed a gap. Patch it and re-teach it cleaner.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#gurukula">Campus module</a></p>
+</article><article class="step" id="s15">
+<p class="num">Step 15 · Fuel and proof</p>
+<h3><a href="cards/index.html#m15">Troubleshooting Learning</a></h3>
+<p>Stuck is weather. Stopped is a decision. If you are stuck, you are still in the game.</p>
+<p class="practice"><strong>Practise.</strong> Identify your number-one failure from that table. Apply its fix for seven days. Log artifacts, recalls, or scores.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#trouble">Campus module</a></p>
+</article><article class="step" id="s16">
+<p class="num">Step 16 · Fuel and proof</p>
+<h3><a href="cards/index.html#m16">The Master’s Path — 90-Day Arc</a></h3>
+<p>Choose one thing. Run the arc. At the end you have proof, not only an intention.</p>
+<p class="practice"><strong>Practise.</strong> Commit to one mastery target. Put the 90-day dates on a calendar. Produce proof artifact 1 (map plus sūtra card) within seven days.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#master-path">Campus module</a></p>
+</article><h2>Domain grammars</h2><p>Modules 17–29 are fields. After Module 08 you already picked one. Go deep there. Read the others for their general rule.</p><article class="step" id="s17">
+<p class="num">Step 17 · Domain grammar</p>
+<h3><a href="cards/index.html#m17">Language Mastery</a></h3>
+<p>Language is the Pāṇini method in the open: a finite grammar generates infinite sentences. The campus runs nine languages as separate sound-spaces on one shared skeleton.</p>
+<p class="practice"><strong>Practise.</strong> Build a one-page grammar map for your target language. Create 20 bidirectional word cards. Record a 30-second shadow. Teach the SOV versus SVO contrast.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#language">Campus module</a></p>
+</article><article class="step" id="s18">
+<p class="num">Step 18 · Domain grammar</p>
+<h3><a href="cards/index.html#m18">Mathematics Deep</a></h3>
+<p>Mathematics is a grammar: a few axioms generate infinite theorems. Knowing a result has levels, and derivation is the minimum for anything core.</p>
+<p class="practice"><strong>Practise.</strong> Derive the quadratic formula from scratch, without peeking. Compute π to three decimals with the Kerala series. Prove 1 + 2 + … + n by induction. Teach the levels of understanding.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#math-deep">Campus module</a></p>
+</article><article class="step" id="s19">
+<p class="num">Step 19 · Domain grammar</p>
+<h3><a href="cards/index.html#m19">AI Engineering Deep</a></h3>
+<p>The 2026 stack in the campus is a grammar: models, data, context, tools, evals, and deployment. The mastery method is unchanged: map, rules, artifacts.</p>
+<p class="practice"><strong>Practise.</strong> Build an eval harness for model output: 10 golden questions and semantic scoring. Run the empty-retrieval test. Write the five control primitives for a project of your own. Teach pramāṇas as evals.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#ai-eng">Campus module</a></p>
+</article><article class="step" id="s20">
+<p class="num">Step 20 · Domain grammar</p>
+<h3><a href="cards/index.html#m20">Communications Engineering</a></h3>
+<p>The campus states the path as: the call must always connect. Mastery here is the Śikṣā loop applied to protocols, reliability, and care for the person on the call.</p>
+<p class="practice"><strong>Practise.</strong> Recite the SIP message order from memory. Build the one-way-audio decision tree. Explain EF, AF31, and BE to a non-engineer. State why the call must connect.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#uc-eng">Campus module</a></p>
+</article><article class="step" id="s21">
+<p class="num">Step 21 · Domain grammar</p>
+<h3><a href="cards/index.html#m21">Body and Mind</a></h3>
+<p>No mastery survives a broken body or a scattered mind. Charaka’s tristambha is the substrate the other modules run on.</p>
+<p class="practice"><strong>Practise.</strong> Track sleep, food, movement, and focus for three days. Do five minutes of breath before the next study block. Walk the next time you are stuck. Teach the three pillars.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#health">Campus module</a></p>
+</article><article class="step" id="s22">
+<p class="num">Step 22 · Domain grammar</p>
+<h3><a href="cards/index.html#m22">Time and Attention</a></h3>
+<p>Time is the non-renewable resource. Attention converts it. Master both and the other modules speed up.</p>
+<p class="practice"><strong>Practise.</strong> Audit two days of time. Build an ideal week with fixed blocks. Do the Sunday review. Teach the two-minute rule.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#time">Campus module</a></p>
+</article><article class="step" id="s23">
+<p class="num">Step 23 · Domain grammar</p>
+<h3><a href="cards/index.html#m23">Money Mastery</a></h3>
+<p>Money is stored time: earned, saved, and invested so learning can compound without panic.</p>
+<p class="practice"><strong>Practise.</strong> Create a 50/30/20 budget with auto-save. Put the 12-month arc on dates. Share one free learning resource. Teach one money rule.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#money">Campus module</a></p>
+</article><article class="step" id="s24">
+<p class="num">Step 24 · Domain grammar</p>
+<h3><a href="cards/index.html#m24">Leadership and Service</a></h3>
+<p>Leadership is not a title. It is carrying others further than they could go alone, which is what teaching is.</p>
+<p class="practice"><strong>Practise.</strong> Write a five-member syllogism for your next decision. Deliver one teaching session. Ask three questions before giving an opinion today. Teach the servant-leader grammar.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#leadership">Campus module</a></p>
+</article><article class="step" id="s25">
+<p class="num">Step 25 · Domain grammar</p>
+<h3><a href="cards/index.html#m25">Philosophy of Knowledge</a></h3>
+<p>Why does the method work? The campus sets classical answers next to modern echoes and leaves the hard problem open on purpose.</p>
+<p class="practice"><strong>Practise.</strong> Write your personal pramāṇas: what you trust, and why. Keep one unanswered question. Teach the pramāṇa table.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#philosophy">Campus module</a></p>
+</article><article class="step" id="s26">
+<p class="num">Step 26 · Domain grammar</p>
+<h3><a href="cards/index.html#m26">Tools of the Trade</a></h3>
+<p>Capture, organize, recall, build, share. Every tool serves the Śikṣā loop. None replaces it.</p>
+<p class="practice"><strong>Practise.</strong> Set up capture → organize → recall with NEXT dates. Build one artifact with a tool and verify it yourself. Teach the tool map.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#tools">Campus module</a></p>
+</article><article class="step" id="s27">
+<p class="num">Step 27 · Domain grammar</p>
+<h3><a href="cards/index.html#m27">History of Ideas</a></h3>
+<p>You stand on a ladder of learners. Knowing who climbed, and what they saw, is both a map and a source of courage.</p>
+<p class="practice"><strong>Practise.</strong> Place your mastery topic on the ladder. Name one thinker whose method you borrow daily. Teach the ladder.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#history">Campus module</a></p>
+</article><article class="step" id="s28">
+<p class="num">Step 28 · Domain grammar</p>
+<h3><a href="cards/index.html#m28">Art and Expression</a></h3>
+<p>The arts train the same circuits as math and code, and they add the emotional layer that makes knowledge human.</p>
+<p class="practice"><strong>Practise.</strong> Make one expressive artifact this week that teaches a concept. Apply the hard-four-bars practice. Teach the art grammar table.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#art">Campus module</a></p>
+</article><article class="step" id="s29">
+<p class="num">Step 29 · Domain grammar</p>
+<h3><a href="cards/index.html#m29">Public Speaking and Presence</a></h3>
+<p>The śikṣā tradition was oral-first. Presence and voice were the technology. Speaking is signal through a human instrument.</p>
+<p class="practice"><strong>Practise.</strong> Record a two-minute talk (promise, proof, path). Listen, cut the vagueness, record again. Teach the speaking grammar.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#speak">Campus module</a></p>
+</article><h2>Transmission</h2><p>Modules 30–40 send the method outward: a proof pack, writing, exchange, systems, and a capstone that returns you to Module 01.</p><article class="step" id="s30">
+<p class="num">Step 30 · Transmission</p>
+<h3><a href="cards/index.html#m30">The Mystery That Remains</a></h3>
+<p>The master is not the one who knows everything. The master is the one whose questions are better than before.</p>
+<p class="practice"><strong>Practise.</strong> Do the 90-day proof pack. When you finish, teach the method to one person who has never heard of it, then re-read Module 01.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#mystery">Campus module</a></p>
+</article><article class="step" id="s31">
+<p class="num">Step 31 · Transmission</p>
+<h3><a href="cards/index.html#m31">Writing Deep</a></h3>
+<p>Writing is thinking made visible. The sūtra discipline — every word must earn its place — is compression, and compression is understanding.</p>
+<p class="practice"><strong>Practise.</strong> Write 250 words a day for five days. Compress one piece by 20%. Publish one teaching piece. Teach the nine ways.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#writing">Campus module</a></p>
+</article><article class="step" id="s32">
+<p class="num">Step 32 · Transmission</p>
+<h3><a href="cards/index.html#m32">Negotiation and Persuasion</a></h3>
+<p>Every interaction negotiates meaning. A Nyāya-trained exchange uses clarity, evidence, and respect.</p>
+<p class="practice"><strong>Practise.</strong> Prepare a real negotiation with interests, BATNA, options, and criteria written down. Run the five-member syllogism for your position. Teach the pramāṇa persuasion table.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#negotiation">Campus module</a></p>
+</article><article class="step" id="s33">
+<p class="num">Step 33 · Transmission</p>
+<h3><a href="cards/index.html#m33">Systems and Networks</a></h3>
+<p>Everything is a system: body, network, company, language, mind. See the parts and the flows.</p>
+<p class="practice"><strong>Practise.</strong> Map one system you rely on. State one protocol sūtra from memory. Debug one real problem with the six-step method.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#systems">Campus module</a></p>
+</article><article class="step" id="s34">
+<p class="num">Step 34 · Transmission</p>
+<h3><a href="cards/index.html#m34">Privacy and Security</a></h3>
+<p>Mastery builds value. Security protects it without becoming a wall that blocks learning.</p>
+<p class="practice"><strong>Practise.</strong> Run the personal baseline (passphrases, second factor, backups). Verify one claim in your field from a primary source. Teach least privilege.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#security">Campus module</a></p>
+</article><article class="step" id="s35">
+<p class="num">Step 35 · Transmission</p>
+<h3><a href="cards/index.html#m35">Environment Design</a></h3>
+<p>You are the product of your environment more than of willpower. Design the environment and the behavior follows.</p>
+<p class="practice"><strong>Practise.</strong> Do the audit. Stack one two-minute habit on an existing anchor. Remove one piece of digital friction. Teach the environment grammar.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#environment">Campus module</a></p>
+</article><article class="step" id="s36">
+<p class="num">Step 36 · Transmission</p>
+<h3><a href="cards/index.html#m36">Decision Science</a></h3>
+<p>Life is a sequence of decisions. Decision science is Nyāya applied to choices under uncertainty.</p>
+<p class="practice"><strong>Practise.</strong> Fill a one-page decision card for a real choice this week. Name one bias that shaped a past decision. Teach the decision grammar.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#decisions">Campus module</a></p>
+</article><article class="step" id="s37">
+<p class="num">Step 37 · Transmission</p>
+<h3><a href="cards/index.html#m37">Storytelling</a></h3>
+<p>The Purāṇas and the campus agree on the mechanism: narrative carries memory. A story is a retrieval key.</p>
+<p class="practice"><strong>Practise.</strong> Turn one concept into a three-sentence story. Tell it to someone today. Teach the story grammar.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#story">Campus module</a></p>
+</article><article class="step" id="s38">
+<p class="num">Step 38 · Transmission</p>
+<h3><a href="cards/index.html#m38">Mentoring</a></h3>
+<p>Every master was mentored. Every mentor becomes more masterful. The exchange is guidance for effort and teaching for understanding.</p>
+<p class="practice"><strong>Practise.</strong> Ask a mentor one specific question with your work attached, or mentor one person this way. Log the exchange. Teach the mentoring grammar.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#mentor">Campus module</a></p>
+</article><article class="step" id="s39">
+<p class="num">Step 39 · Transmission</p>
+<h3><a href="cards/index.html#m39">The Productivity OS</a></h3>
+<p>The mandalas need a cockpit: capture → plan → do → review, wired to mastery goals and running on the Śikṣā loop.</p>
+<p class="practice"><strong>Practise.</strong> Set up the six-module OS, even on paper. Run the daily rhythm for three days. Do the Sunday review. Teach the OS.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#prod-os">Campus module</a></p>
+</article><article class="step" id="s40">
+<p class="num">Step 40 · Transmission</p>
+<h3><a href="cards/index.html#m40">The Master’s Capstone</a></h3>
+<p>The top of the ladder is not the end of learning. It is the point where your learning becomes a ladder for others. The capstone is transmission.</p>
+<p class="practice"><strong>Practise.</strong> Choose the capstone. Start it this quarter. When it exists, teach the method to one person who has never heard of it. Return to Module 01.</p>
+<p><a href="../university/v1-ARDHAM-SHASTRA.html#capstone">Campus module</a></p>
+</article>
+
+<footer class="note">
+<p>These pages restate the Ardham Shastra campus (<a href="../university/v1-ARDHAM-SHASTRA.html">university/v1-ARDHAM-SHASTRA.html</a>) and the public notes beside it. They add no module the campus does not already contain. Educational, MIT, no warranty.</p>
+</footer>
+</main>
+</body>
+</html>

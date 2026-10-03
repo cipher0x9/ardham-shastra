@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t39">
+<title id="t39">Module 39. A cockpit you actually look at</title>
+<desc>Illustrated mark for module 39, A cockpit you actually look at.</desc>
+<defs>
+<linearGradient id="bg39" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#e3f3e6"/>
+<stop offset="100%" stop-color="#c9e6d0"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg39)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">39</text>
+<g fill="none" stroke="#1b2430" stroke-width="3">
+<circle cx="230" cy="110" r="28"/><circle cx="310" cy="110" r="28"/><circle cx="390" cy="110" r="28"/>
+<circle cx="270" cy="180" r="28"/><circle cx="350" cy="180" r="28"/><circle cx="430" cy="180" r="28"/>
+</g>
+<line x1="230" y1="110" x2="246" y2="96" stroke="#2d6a40" stroke-width="3"/>
+<line x1="310" y1="110" x2="310" y2="90" stroke="#2d6a40" stroke-width="3"/>
+<line x1="390" y1="110" x2="406" y2="122" stroke="#2d6a40" stroke-width="3"/>
+</svg>

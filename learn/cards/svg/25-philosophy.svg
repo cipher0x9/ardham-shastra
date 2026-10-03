@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t25">
+<title id="t25">Module 25. What counts as knowing</title>
+<desc>Illustrated mark for module 25, What counts as knowing.</desc>
+<defs>
+<linearGradient id="bg25" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fde7d2"/>
+<stop offset="100%" stop-color="#f6d0b8"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg25)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">25</text>
+<circle cx="230" cy="140" r="28" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="230" cy="140" r="10" fill="#9a4e32"/>
+<path d="M300 140 H350" stroke="#1b2430" stroke-width="4"/>
+<path d="M338 128 L358 140 L338 152" fill="#1b2430"/>
+<rect x="370" y="118" width="40" height="44" rx="6" fill="#9a4e32"/>
+<rect x="430" y="112" width="50" height="56" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>

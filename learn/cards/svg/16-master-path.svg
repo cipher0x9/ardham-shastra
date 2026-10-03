@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t16">
+<title id="t16">Module 16. Someone with proof</title>
+<desc>Illustrated mark for module 16, Someone with proof.</desc>
+<defs>
+<linearGradient id="bg16" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg16)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">16</text>
+<path d="M200 190 Q330 40 480 190" fill="none" stroke="#8d4034" stroke-width="8" stroke-linecap="round"/>
+<circle cx="200" cy="190" r="8" fill="#1b2430"/>
+<circle cx="270" cy="120" r="8" fill="#1b2430"/>
+<circle cx="340" cy="86" r="8" fill="#8d4034"/>
+<circle cx="410" cy="120" r="8" fill="#1b2430"/>
+<circle cx="480" cy="190" r="8" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>

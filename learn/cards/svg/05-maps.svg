@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t5">
+<title id="t5">Module 05. Categories and layers</title>
+<desc>Illustrated mark for module 05, Categories and layers.</desc>
+<defs>
+<linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg5)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">05</text>
+<g fill="#fff" stroke="#1b2430" stroke-width="3">
+<circle cx="230" cy="90" r="16"/><circle cx="280" cy="90" r="16"/><circle cx="330" cy="90" r="16"/>
+<circle cx="230" cy="140" r="16"/><circle cx="280" cy="140" r="16"/><circle cx="330" cy="140" r="16"/>
+</g>
+<rect x="390" y="78" width="70" height="16" rx="4" fill="#5a3d92"/>
+<rect x="400" y="100" width="70" height="16" rx="4" fill="#5a3d92" fill-opacity=".8"/>
+<rect x="410" y="122" width="70" height="16" rx="4" fill="#5a3d92" fill-opacity=".6"/>
+<rect x="420" y="144" width="70" height="16" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="430" y="166" width="70" height="16" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>

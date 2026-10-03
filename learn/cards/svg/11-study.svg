@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t11">
+<title id="t11">Module 11. A note needs a NEXT</title>
+<desc>Illustrated mark for module 11, A note needs a NEXT.</desc>
+<defs>
+<linearGradient id="bg11" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg11)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">11</text>
+<rect x="220" y="70" width="150" height="130" rx="10" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<line x1="240" y1="100" x2="340" y2="100" stroke="#1e4f86" stroke-width="4"/>
+<line x1="240" y1="122" x2="330" y2="122" stroke="#1e4f86" stroke-width="4"/>
+<line x1="240" y1="144" x2="320" y2="144" stroke="#1b2430" stroke-width="3"/>
+<rect x="390" y="100" width="70" height="90" rx="8" fill="#1e4f86"/>
+<rect x="402" y="78" width="46" height="16" rx="4" fill="#1b2430"/>
+</svg>

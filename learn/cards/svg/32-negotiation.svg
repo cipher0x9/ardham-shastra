@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t32">
+<title id="t32">Module 32. Interests before positions</title>
+<desc>Illustrated mark for module 32, Interests before positions.</desc>
+<defs>
+<linearGradient id="bg32" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg32)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">32</text>
+<line x1="330" y1="70" x2="330" y2="210" stroke="#1b2430" stroke-width="4"/>
+<line x1="220" y1="110" x2="440" y2="110" stroke="#8d4034" stroke-width="5"/>
+<circle cx="220" cy="110" r="8" fill="#8d4034"/>
+<circle cx="440" cy="110" r="8" fill="#8d4034"/>
+<path d="M190 160 Q220 120 250 160 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M410 170 Q440 120 470 170 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>
