@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t31">
+<title id="t31">Module 31. Every word earns its place</title>
+<desc>Illustrated mark for module 31, Every word earns its place.</desc>
+<defs>
+<linearGradient id="bg31" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#e3f3e6"/>
+<stop offset="100%" stop-color="#c9e6d0"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg31)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">31</text>
+<line x1="200" y1="90" x2="460" y2="90" stroke="#2d6a40" stroke-width="8" stroke-linecap="round"/>
+<line x1="230" y1="130" x2="420" y2="130" stroke="#1b2430" stroke-width="8" stroke-linecap="round"/>
+<line x1="270" y1="170" x2="370" y2="170" stroke="#2d6a40" stroke-width="8" stroke-linecap="round"/>
+<line x1="300" y1="210" x2="340" y2="210" stroke="#1b2430" stroke-width="8" stroke-linecap="round"/>
+</svg>

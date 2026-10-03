@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t24">
+<title id="t24">Module 24. Carry others further</title>
+<desc>Illustrated mark for module 24, Carry others further.</desc>
+<defs>
+<linearGradient id="bg24" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fbe4dc"/>
+<stop offset="100%" stop-color="#f4cfc4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg24)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">24</text>
+<circle cx="280" cy="150" r="36" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="360" cy="118" r="24" fill="#8d4034"/>
+<path d="M250 200 Q320 170 400 200" fill="none" stroke="#1b2430" stroke-width="4"/>
+</svg>

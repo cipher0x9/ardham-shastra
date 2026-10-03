@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t6">
+<title id="t6">Module 06. Count, then derive</title>
+<desc>Illustrated mark for module 06, Count, then derive.</desc>
+<defs>
+<linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0c8"/>
+<stop offset="100%" stop-color="#f6e2a4"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg6)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">06</text>
+<rect x="220" y="180" width="28" height="30" rx="4" fill="#7a5a10"/>
+<rect x="258" y="160" width="28" height="50" rx="4" fill="#7a5a10"/>
+<rect x="296" y="140" width="28" height="70" rx="4" fill="#7a5a10"/>
+<rect x="334" y="110" width="28" height="100" rx="4" fill="#1b2430"/>
+<rect x="372" y="80" width="28" height="130" rx="4" fill="#7a5a10" fill-opacity=".75"/>
+<rect x="410" y="50" width="28" height="160" rx="4" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+</svg>

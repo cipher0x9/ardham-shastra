@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t19">
+<title id="t19">Module 19. Verify the citation</title>
+<desc>Illustrated mark for module 19, Verify the citation.</desc>
+<defs>
+<linearGradient id="bg19" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d9e8fb"/>
+<stop offset="100%" stop-color="#c3d6f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg19)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">19</text>
+<rect x="230" y="60" width="200" height="26" rx="6" fill="#1e4f86"/>
+<rect x="220" y="94" width="220" height="26" rx="6" fill="#1e4f86" fill-opacity=".85"/>
+<rect x="210" y="128" width="240" height="26" rx="6" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="200" y="162" width="260" height="26" rx="6" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<rect x="190" y="196" width="280" height="26" rx="6" fill="#1b2430"/>
+</svg>

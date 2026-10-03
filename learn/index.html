@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ardham Shastra — learn</title>
+<style>
+:root {
+  --ink: #1b2430;
+  --muted: #3a4858;
+  --line: #e3d5c4;
+  --card: rgba(255, 253, 248, .94);
+  --link: #1a4f86;
+  --practice: #e5f6ec;
+  --practice-ink: #123328;
+  --focus: #1d4e89;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 1.05rem/1.65 "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(1100px 520px at 0% -10%, #fde4cf 0%, transparent 55%),
+    radial-gradient(900px 480px at 100% 0%, #d5e8fb 0%, transparent 50%),
+    radial-gradient(800px 420px at 50% 110%, #d9f3e4 0%, transparent 46%),
+    linear-gradient(180deg, #fbf6ee 0%, #eef4f2 42%, #f7f2e8 100%);
+  min-height: 100vh;
+}
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip {
+  position: absolute; left: 12px; top: -40px; background: #1b2430; color: #f7f1e8;
+  padding: .5rem .8rem; border-radius: 8px; z-index: 5;
+}
+.skip:focus { top: 12px; }
+.top {
+  position: sticky; top: 0; z-index: 4;
+  background: rgba(251, 246, 238, .92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.top-inner, .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.1rem; }
+.top-inner { display: flex; flex-wrap: wrap; gap: .4rem .7rem; align-items: center; padding-top: .55rem; padding-bottom: .55rem; }
+.brand { font-family: Georgia, Palatino, serif; font-weight: 700; color: var(--ink); text-decoration: none; margin-right: auto; }
+nav { display: flex; flex-wrap: wrap; gap: .35rem; }
+nav a, .chip, button.go {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: .35rem .8rem;
+  border-radius: 999px; text-decoration: none; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); font: inherit;
+}
+nav a[aria-current="page"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.wrap { padding-top: 1.4rem; padding-bottom: 3rem; }
+h1, h2, h3 { font-family: Georgia, Palatino, serif; line-height: 1.25; font-weight: 700; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: .2rem 0 .6rem; }
+h2 { font-size: 1.45rem; margin: 0 0 .4rem; }
+.lede { font-size: 1.12rem; max-width: 42rem; }
+.muted { color: var(--muted); }
+.hero {
+  display: grid; gap: 1rem;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+.panel, .door, .topic, .step, .era, .callout {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(70, 46, 20, .05);
+}
+.panel { padding: 1rem 1.1rem; }
+.doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; margin: 1rem 0 1.6rem; }
+.door { padding: 1rem; text-decoration: none; color: inherit; display: block; }
+.door strong { display: block; font-family: Georgia, Palatino, serif; font-size: 1.2rem; margin-bottom: .25rem; }
+.flow { display: flex; flex-wrap: wrap; gap: .45rem; margin: .8rem 0; }
+.flow span {
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: .35rem .7rem; font-weight: 650;
+}
+.method-svg { width: 100%; height: auto; display: block; }
+.index-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .45rem; }
+.index-list a { text-decoration: none; color: inherit; display: block; padding: .55rem .7rem; border-radius: 12px; background: #fff; border: 1px solid var(--line); min-height: 44px; }
+.index-list a:hover { border-color: #1a4f86; }
+.kicker { letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; color: var(--muted); margin: 0 0 .2rem; font-weight: 700; }
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .8rem 0 1rem; }
+input[type="search"] {
+  min-height: 44px; flex: 1 1 220px; border-radius: 12px; border: 1px solid var(--line);
+  padding: .4rem .8rem; font: inherit; color: var(--ink); background: #fff;
+}
+.chip[aria-pressed="true"] { background: #1b2430; color: #f7f1e8; border-color: #1b2430; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+.topic { overflow: hidden; display: flex; flex-direction: column; }
+.topic svg { width: 100%; height: auto; display: block; }
+.topic .body { padding: .9rem 1rem 1.1rem; }
+.topic ul, .step ul { margin: .4rem 0 .7rem; padding-left: 1.1rem; }
+.practice { background: var(--practice); color: var(--practice-ink); border-radius: 14px; padding: .7rem .8rem; }
+.practice strong { font-family: Georgia, Palatino, serif; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before {
+  content: ""; position: absolute; left: 9.35rem; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(#e7b89a, #7fbfa4, #8eafd4);
+}
+.era { display: grid; grid-template-columns: 8.4rem 1fr; gap: .8rem; padding: .9rem 1rem; margin: 0 0 .7rem .2rem; position: relative; }
+.era .when { font-family: Georgia, Palatino, serif; font-weight: 700; }
+.dot {
+  position: absolute; left: 8.7rem; top: 1.3rem; width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 3px solid #1b2430;
+}
+.step { padding: 1rem 1.05rem; margin: 0 0 .8rem; }
+.step .num { font-family: Georgia, Palatino, serif; color: var(--muted); }
+.callout { padding: 1rem 1.1rem; margin: 1rem 0; background: #fff8ec; }
+footer.note { margin-top: 2rem; color: var(--muted); font-size: .95rem; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { text-align: left; vertical-align: top; padding: .45rem .5rem; border-bottom: 1px solid var(--line); }
+th { font-size: .85rem; }
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .tl::before { left: .45rem; }
+  .era { grid-template-columns: 1fr; margin-left: 1.2rem; }
+  .dot { left: -1.05rem; }
+}
+@media print {
+  .top, .controls, .skip { display: none !important; }
+  body { background: #fff; }
+  .topic, .era, .step, .panel { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top"><div class="top-inner">
+<a class="brand" href="index.html">Ardham Shastra</a>
+<nav aria-label="Learn"><a href="index.html" aria-current="page">Home</a><a href="cards/index.html">Topic cards</a><a href="timeline.html">Timeline</a><a href="study-path.html">Study path</a><a href="pdf/ardham-shastra-summary.pdf">PDF summary</a></nav>
+</div></header>
+<main id="content" class="wrap">
+
+<div class="hero">
+<div>
+<p class="kicker">Science of meaning</p>
+<h1>Ardham Shastra</h1>
+<p class="lede">అర్థం means meaning. A fact without meaning is noise. A fact with meaning is knowledge. Knowledge applied becomes power. Power shared becomes liberation.</p>
+<p>The campus promise is simple: there is a method to master anything. These pages are a bright map of that method. The book is still the single campus file.</p>
+</div>
+<div class="panel">
+<p class="kicker">The method in one line</p>
+<svg class="method-svg" viewBox="0 0 640 84" role="img" aria-label="Seven steps: Map, Grammar, Reason, Practice, Prove, Space, Teach"><rect x="20" y="24" width="78" height="36" rx="18" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><text x="59" y="47" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="12" fill="#1b2430">Map</text><path d="M98 42 H108" stroke="#1f6b52" stroke-width="2"/><rect x="108" y="24" width="78" height="36" rx="18" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><text x="147" y="47" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="12" fill="#1b2430">Grammar</text><path d="M186 42 H196" stroke="#1f6b52" stroke-width="2"/><rect x="196" y="24" width="78" height="36" rx="18" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><text x="235" y="47" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="12" fill="#1b2430">Reason</text><path d="M274 42 H284" stroke="#1f6b52" stroke-width="2"/><rect x="284" y="24" width="78" height="36" rx="18" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><text x="323" y="47" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="12" fill="#1b2430">Practice</text><path d="M362 42 H372" stroke="#1f6b52" stroke-width="2"/><rect x="372" y="24" width="78" height="36" rx="18" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><text x="411" y="47" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="12" fill="#1b2430">Prove</text><path d="M450 42 H460" stroke="#1f6b52" stroke-width="2"/><rect x="460" y="24" width="78" height="36" rx="18" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><text x="499" y="47" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="12" fill="#1b2430">Space</text><path d="M538 42 H548" stroke="#1f6b52" stroke-width="2"/><rect x="548" y="24" width="78" height="36" rx="18" fill="#fff" stroke="#1b2430" stroke-width="1.5"/><text x="587" y="47" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="12" fill="#1b2430">Teach</text></svg>
+<p class="flow" aria-label="Learning loop">
+<span>Expose</span><span>Engage</span><span>Retrieve</span><span>Apply</span><span>Prove</span><span>Teach</span>
+</p>
+<p class="muted">Map comes from Vaiśeṣika, grammar from Pāṇini, reason from Nyāya, spacing from Śikṣā, proof from RTMA and LICC, teaching from the guru-kuḷa.</p>
+</div>
+</div>
+<div class="doors">
+<a class="door" href="cards/index.html"><strong>Topic cards</strong>Forty illustrated modules, each with a practice gate.</a>
+<a class="door" href="timeline.html"><strong>Timeline</strong>Only the eras and years the campus and notes already name.</a>
+<a class="door" href="study-path.html"><strong>Study path</strong>Campus order, and what to practise at each step.</a>
+<a class="door" href="pdf/ardham-shastra-summary.pdf"><strong>PDF summary</strong>A short printable map. The campus remains the book.</a>
+</div>
+<div class="callout">
+<p><strong>Open the campus.</strong> <a href="../university/v1-ARDHAM-SHASTRA.html">university/v1-ARDHAM-SHASTRA.html</a> — offline, no account. Start at <a href="../START-HERE.md">START-HERE</a>: the vow, the Śikṣā loop, one domain, then the 90-day arc.</p>
+<p class="muted">Proof habits, used together: RTMA is Run, Trace, Metric, Artifact. LICC is Leg, ID, Counter, Capture. No artifact, no claim.</p>
+</div>
+<h2>All forty modules</h2>
+<ol class="index-list">
+<li><a href="cards/index.html#m01"><strong>01</strong> The Path — Why This Exists</a></li><li><a href="cards/index.html#m02"><strong>02</strong> Śikṣā — The Science of Learning</a></li><li><a href="cards/index.html#m03"><strong>03</strong> Pāṇini — The Grammar of Everything</a></li><li><a href="cards/index.html#m04"><strong>04</strong> Nyāya — The Logic Engine</a></li><li><a href="cards/index.html#m05"><strong>05</strong> Vaiśeṣika and Sāṃkhya — Maps of Reality</a></li><li><a href="cards/index.html#m06"><strong>06</strong> The Jñāna Mathematics</a></li><li><a href="cards/index.html#m07"><strong>07</strong> The Memory Arsenal</a></li><li><a href="cards/index.html#m08"><strong>08</strong> The Universal Playbook</a></li><li><a href="cards/index.html#m09"><strong>09</strong> AI-Assisted Learning</a></li><li><a href="cards/index.html#m10"><strong>10</strong> Cosmos and Beyond</a></li><li><a href="cards/index.html#m11"><strong>11</strong> Study Systems</a></li><li><a href="cards/index.html#m12"><strong>12</strong> Exam and Performance</a></li><li><a href="cards/index.html#m13"><strong>13</strong> Career Mastery</a></li><li><a href="cards/index.html#m14"><strong>14</strong> Guru-kuḷa — Teaching</a></li><li><a href="cards/index.html#m15"><strong>15</strong> Troubleshooting Learning</a></li><li><a href="cards/index.html#m16"><strong>16</strong> The Master’s Path — 90-Day Arc</a></li><li><a href="cards/index.html#m17"><strong>17</strong> Language Mastery</a></li><li><a href="cards/index.html#m18"><strong>18</strong> Mathematics Deep</a></li><li><a href="cards/index.html#m19"><strong>19</strong> AI Engineering Deep</a></li><li><a href="cards/index.html#m20"><strong>20</strong> Communications Engineering</a></li><li><a href="cards/index.html#m21"><strong>21</strong> Body and Mind</a></li><li><a href="cards/index.html#m22"><strong>22</strong> Time and Attention</a></li><li><a href="cards/index.html#m23"><strong>23</strong> Money Mastery</a></li><li><a href="cards/index.html#m24"><strong>24</strong> Leadership and Service</a></li><li><a href="cards/index.html#m25"><strong>25</strong> Philosophy of Knowledge</a></li><li><a href="cards/index.html#m26"><strong>26</strong> Tools of the Trade</a></li><li><a href="cards/index.html#m27"><strong>27</strong> History of Ideas</a></li><li><a href="cards/index.html#m28"><strong>28</strong> Art and Expression</a></li><li><a href="cards/index.html#m29"><strong>29</strong> Public Speaking and Presence</a></li><li><a href="cards/index.html#m30"><strong>30</strong> The Mystery That Remains</a></li><li><a href="cards/index.html#m31"><strong>31</strong> Writing Deep</a></li><li><a href="cards/index.html#m32"><strong>32</strong> Negotiation and Persuasion</a></li><li><a href="cards/index.html#m33"><strong>33</strong> Systems and Networks</a></li><li><a href="cards/index.html#m34"><strong>34</strong> Privacy and Security</a></li><li><a href="cards/index.html#m35"><strong>35</strong> Environment Design</a></li><li><a href="cards/index.html#m36"><strong>36</strong> Decision Science</a></li><li><a href="cards/index.html#m37"><strong>37</strong> Storytelling</a></li><li><a href="cards/index.html#m38"><strong>38</strong> Mentoring</a></li><li><a href="cards/index.html#m39"><strong>39</strong> The Productivity OS</a></li><li><a href="cards/index.html#m40"><strong>40</strong> The Master’s Capstone</a></li>
+</ol>
+
+<footer class="note">
+<p>These pages restate the Ardham Shastra campus (<a href="../university/v1-ARDHAM-SHASTRA.html">university/v1-ARDHAM-SHASTRA.html</a>) and the public notes beside it. They add no module the campus does not already contain. Educational, MIT, no warranty.</p>
+</footer>
+</main>
+</body>
+</html>

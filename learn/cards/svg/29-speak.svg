@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t29">
+<title id="t29">Module 29. Promise, proof, path</title>
+<desc>Illustrated mark for module 29, Promise, proof, path.</desc>
+<defs>
+<linearGradient id="bg29" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg29)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">29</text>
+<circle cx="230" cy="150" r="22" fill="#5a3d92"/>
+<path d="M270 150 Q300 110 300 150 Q300 190 270 150" fill="none" stroke="#1b2430" stroke-width="4"/>
+<path d="M300 120 Q350 70 350 150 Q350 230 300 180" fill="none" stroke="#5a3d92" stroke-width="4"/>
+<path d="M340 100 Q410 40 410 150 Q410 260 340 200" fill="none" stroke="#1b2430" stroke-width="4"/>
+</svg>

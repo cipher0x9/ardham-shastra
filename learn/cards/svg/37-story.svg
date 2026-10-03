@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t37">
+<title id="t37">Module 37. Narrative is a retrieval key</title>
+<desc>Illustrated mark for module 37, Narrative is a retrieval key.</desc>
+<defs>
+<linearGradient id="bg37" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#efe4fb"/>
+<stop offset="100%" stop-color="#ddd0f6"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg37)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">37</text>
+<path d="M210 90 H430 V190 H210 Z" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<circle cx="210" cy="140" r="22" fill="#5a3d92"/>
+<circle cx="430" cy="140" r="22" fill="#5a3d92"/>
+<path d="M250 120 H390 M250 145 H370 M250 170 H350" stroke="#1b2430" stroke-width="3" stroke-linecap="round"/>
+</svg>

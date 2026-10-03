@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t26">
+<title id="t26">Module 26. Tools serve the loop</title>
+<desc>Illustrated mark for module 26, Tools serve the loop.</desc>
+<defs>
+<linearGradient id="bg26" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d7f0e4"/>
+<stop offset="100%" stop-color="#b7e0cc"/>
+</linearGradient>
+</defs>
+<rect width="640" height="280" rx="0" fill="url(#bg26)"/>
+<circle cx="78" cy="210" r="90" fill="#fff" fill-opacity=".28"/>
+<circle cx="560" cy="48" r="70" fill="#fff" fill-opacity=".35"/>
+<text x="28" y="48" font-family="Georgia, Palatino, serif" font-size="28" font-weight="700" fill="#1b2430">26</text>
+<rect x="210" y="110" width="240" height="90" rx="12" fill="#fff" stroke="#1b2430" stroke-width="3"/>
+<path d="M290 110 V90 H370 V110" fill="none" stroke="#1f6b52" stroke-width="6"/>
+<circle cx="280" cy="155" r="10" fill="#1f6b52"/>
+<circle cx="330" cy="155" r="10" fill="#1b2430"/>
+<circle cx="380" cy="155" r="10" fill="#1f6b52" fill-opacity=".6"/>
+</svg>
