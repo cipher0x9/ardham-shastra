@@ -153,9 +153,8 @@ Ancient sources, one universal playbook. Every domain — language, math, music,
 ## Public sync
 
 - [START-HERE.md](./START-HERE.md) — first steps
-- [BRAND.md](./BRAND.md) — brand canon
 - [SIBLINGS.md](./SIBLINGS.md) — campus family
 - [DOWNLOADS.md](./DOWNLOADS.md) — all release assets
 - [HOW-TO-GET.md](./HOW-TO-GET.md) — full instructions
 
-**[docs/FAQ.md](./docs/FAQ.md)** · **[CHANGELOG.md](./CHANGELOG.md)** · **[SIBLINGS.md](./SIBLINGS.md)** · **[SECURITY.md](./SECURITY.md)**
+**[docs/FAQ.md](./docs/FAQ.md)** · **[SIBLINGS.md](./SIBLINGS.md)**

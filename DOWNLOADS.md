@@ -44,7 +44,7 @@ open university/v1-ARDHAM-SHASTRA.html
 | 🌿 UC Lab | https://github.com/cipher0x9/uc-lab-free-university-mesmerizing |
 | 🌿 UC campus zip | https://github.com/cipher0x9/uc-lab-free-university-mesmerizing/releases/download/v20.2-resources/v17-UNIVERSITY.html.zip |
 | 🧠 AI Lab | https://github.com/cipher0x9/ai-lab-free-university-mesmerizing |
-| 🧠 AI campus zip | https://github.com/cipher0x9/ai-lab-free-university-mesmerizing/releases/download/v4.2-mobile/v4-PORTFOLIO.html.zip |
+| 🧠 AI campus zip (v2) | https://github.com/cipher0x9/ai-lab-free-university-mesmerizing/raw/main/zips/v2-UNIVERSITY.html.zip |
 
 ## Notes
 
